@@ -37,6 +37,7 @@ public class ChickChucker : MonoBehaviour {
     public void Chuck(Egg egg, bool left)
     {
         egg.canMove = false;
+        egg.rb.velocity = Vector3.zero;
         egg.colliderGO.SetActive(false);
         StartCoroutine(ChuckEgg(egg, left));
     }
@@ -44,6 +45,7 @@ public class ChickChucker : MonoBehaviour {
     public void Chuck(Chick chick, bool left)
     {
         chick.canMove = false;
+        chick.rb.velocity = Vector3.zero;
         chick.colliderGO.SetActive(false);
         StartCoroutine(ChuckChick(chick, left));
     }

@@ -82,7 +82,13 @@ public class Chick : MonoBehaviour {
     {
         if(clickableObject.clicked)
         {
-            newVel = (InputHandler.Instance.MouseWorldPosition() - transform.position) * 3;
+            Vector3 touchPos;
+#if UNITY_EDITOR
+            touchPos = InputHandler.Instance.MouseWorldPosition();
+#elif UNITY_ANDROID
+            touchPos = new Vector3(InputHandler.Instance.touchPos.x, InputHandler.Instance.touchPos.y, 0);
+#endif
+            newVel = (touchPos - transform.position) * 3;
             hasBeenClicked = true;
             velDecaying = false;
         }
