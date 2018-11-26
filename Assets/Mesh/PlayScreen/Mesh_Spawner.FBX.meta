@@ -1,11 +1,15 @@
 fileFormatVersion: 2
-guid: 14aa70f073040274fba0f3ead15d76fe
+guid: bd474601640c54d449ebc44009ef85c8
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
     2100000: No Name
+    2100002: 'Material #35 Slot #2'
+    2100004: 'Material #35 Slot #4'
+    2100006: 'Material #35 Slot #3'
+    2100008: 'Material #35 Slot #1'
     2300000: //RootNode
     3300000: //RootNode
     4300000: Box001
@@ -81,6 +85,7 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
