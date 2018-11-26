@@ -707,6 +707,48 @@ Transform:
   m_Father: {fileID: 1188283642}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1855022895
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4477756567995832, guid: e9d6d3e60f1fd45408fb5b4a4a04ee8e, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.48973578
+      objectReference: {fileID: 0}
+    - target: {fileID: 4477756567995832, guid: e9d6d3e60f1fd45408fb5b4a4a04ee8e, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1.7694722
+      objectReference: {fileID: 0}
+    - target: {fileID: 4477756567995832, guid: e9d6d3e60f1fd45408fb5b4a4a04ee8e, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4477756567995832, guid: e9d6d3e60f1fd45408fb5b4a4a04ee8e, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4477756567995832, guid: e9d6d3e60f1fd45408fb5b4a4a04ee8e, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4477756567995832, guid: e9d6d3e60f1fd45408fb5b4a4a04ee8e, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4477756567995832, guid: e9d6d3e60f1fd45408fb5b4a4a04ee8e, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4477756567995832, guid: e9d6d3e60f1fd45408fb5b4a4a04ee8e, type: 2}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e9d6d3e60f1fd45408fb5b4a4a04ee8e, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &1874222101
 GameObject:
   m_ObjectHideFlags: 0
@@ -896,8 +938,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   egg: {fileID: 1850758372482966, guid: cc8a88e8a6a5f424eb1deb6c4642567a, type: 2}
+  bomb: {fileID: 0}
   eggFrequency: 0.6
   eggYSpeed: 0.8
+  bombTimer: 0
   eggPoolingAmount: 50
   minX: -1.4
   maxX: 1.4

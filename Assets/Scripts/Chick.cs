@@ -116,6 +116,7 @@ public class Chick : MonoBehaviour {
         }
 
         rb.velocity = newVel;
+
     }
 
 

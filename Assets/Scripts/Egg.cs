@@ -5,6 +5,8 @@ using UnityEngine.EventSystems;
 
 public class Egg : MonoBehaviour
 {
+    public bool isBomb;
+    float currentTimer;
 
     public float ySpeed;
     public Rigidbody2D rb;
@@ -26,6 +28,10 @@ public class Egg : MonoBehaviour
         targetScale = Vector3.one;
         transform.localScale = Vector3.one;
         colliderGO.SetActive(true);
+        if(isBomb)
+        {
+            currentTimer = EggGenerator.Instance.bombTimer;
+        }
     }
 
     public Vector3 targetScale;

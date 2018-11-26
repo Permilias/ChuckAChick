@@ -5,6 +5,7 @@ using UnityEngine;
 public class EggGenerator : MonoBehaviour {
 
     public GameObject egg;
+    public GameObject bomb;
     public static EggGenerator Instance;
 
     [Header("Spawning Parameters")]
@@ -12,6 +13,9 @@ public class EggGenerator : MonoBehaviour {
 
     [Header("Egg Attributes")]
     public float eggYSpeed;
+
+    [Header("Bombs")]
+    public float bombTimer;
 
     [Header("Egg Pooling")]
     public int eggPoolingAmount;
