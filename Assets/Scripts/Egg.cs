@@ -5,8 +5,7 @@ using UnityEngine.EventSystems;
 
 public class Egg : MonoBehaviour
 {
-    public bool isBomb;
-    float currentTimer;
+
 
     public float ySpeed;
     public Rigidbody2D rb;
@@ -25,13 +24,10 @@ public class Egg : MonoBehaviour
 
     public void Initialize()
     {
+        clickableObject.fingerId = -1;
         targetScale = Vector3.one;
         transform.localScale = Vector3.one;
         colliderGO.SetActive(true);
-        if(isBomb)
-        {
-            currentTimer = EggGenerator.Instance.bombTimer;
-        }
     }
 
     public Vector3 targetScale;
@@ -54,14 +50,14 @@ public class Egg : MonoBehaviour
                 Grinder.Instance.Grind(this);
                 rb.velocity = Vector3.zero;
             }
-            if (transform.position.x < ChickChucker.Instance.leftPos)
+            if (transform.position.x < Chucker.Instance.leftPos)
             {
-                ChickChucker.Instance.Chuck(this, true);
+                Chucker.Instance.Chuck(this, true);
                 rb.velocity = Vector3.zero;
             }
-            else if (transform.position.x > ChickChucker.Instance.rightPos)
+            else if (transform.position.x > Chucker.Instance.rightPos)
             {
-                ChickChucker.Instance.Chuck(this, false);
+                Chucker.Instance.Chuck(this, false);
                 rb.velocity = Vector3.zero;
             }
         }

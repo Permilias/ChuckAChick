@@ -6,18 +6,24 @@ public class ChickGenerator : MonoBehaviour {
 
     public GameObject chick;
     public GameObject sickChick;
+    public GameObject bombChick;
     public static ChickGenerator Instance;
 
     [Header("Odds")]
     public int sickChickOdds;
+    public int bombChickOdds;
 
     [Header("Chick Attributes")]
     public float chickYSpeed;
+
+    [Header("Bombs")]
+    public float bombTimer;
 
     [Header("Chick Pooling")]
     public int chickPoolingAmount;
     public Queue<GameObject> chickPool;
     public Queue<GameObject> sickChickPool;
+    public Queue<GameObject> bombChickPool;
 
     [Header("Chick Eulers")]
     public float minXEul;
@@ -40,8 +46,10 @@ public class ChickGenerator : MonoBehaviour {
         //create chick pool and fill it
         chickPool = new Queue<GameObject>();
         sickChickPool = new Queue<GameObject>();
+        bombChickPool = new Queue<GameObject>();
         FillChickPool();
         FillSickChickPool();
+        FillBombChickPool();
     }
 
 
@@ -67,6 +75,16 @@ public class ChickGenerator : MonoBehaviour {
             newChickGO.SetActive(false);
         }
     }
+    public void FillBombChickPool()
+    {
+        for (int i = 0; i < chickPoolingAmount; i++)
+        {
+            newChickGO = Instantiate(bombChick, transform);
+            bombChickPool.Enqueue(newChickGO);
+            newChick = newChickGO.GetComponent<Chick>();
+            newChickGO.SetActive(false);
+        }
+    }
 
     Chick spawnedChick;
     GameObject spawnedChickGO;
@@ -76,15 +94,31 @@ public class ChickGenerator : MonoBehaviour {
     {
         //determine chick type
         bool spawnsSickChick = false;
-        int pick = Random.Range(0, sickChickOdds);
+        bool spawnsBombChick = false;
+        int pick = Random.Range(0, bombChickOdds);
         if(pick == 0)
         {
-            spawnsSickChick = true;
+            spawnsBombChick = true;
+        }
+        else
+        {
+            pick = Random.Range(0, sickChickOdds);
+            if (pick == 0)
+            {
+                spawnsSickChick = true;
+            }
         }
         //determine chick position
         spawnedChickPos = _pos;
         //fill pool if necessary
-        if(spawnsSickChick)
+        if(spawnsBombChick)
+        {
+            if(bombChickPool.Count <= 0)
+            {
+                FillBombChickPool();
+            }
+        }
+        else if(spawnsSickChick)
         {
             if (sickChickPool.Count <= 0)
             {
@@ -99,7 +133,11 @@ public class ChickGenerator : MonoBehaviour {
             }
         }
         //spawn the chick
-        if(spawnsSickChick)
+        if(spawnsBombChick)
+        {
+            spawnedChickGO = bombChickPool.Dequeue();
+        }
+        else if(spawnsSickChick)
         {
             spawnedChickGO = sickChickPool.Dequeue();
         }
@@ -113,6 +151,10 @@ public class ChickGenerator : MonoBehaviour {
         spawnedChickGO.SetActive(true);
         //set the chick up
         spawnedChick = spawnedChickGO.GetComponent<Chick>();
+        if(spawnedChick.bomb)
+        {
+            spawnedChick.bombText.transform.rotation = Quaternion.identity;
+        }
         spawnedChick.Initialize();
         spawnedChick.canMove = true;
         spawnedChick.ySpeed = chickYSpeed;

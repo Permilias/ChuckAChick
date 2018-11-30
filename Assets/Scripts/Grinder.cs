@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Grinder : MonoBehaviour {
 
@@ -8,6 +9,8 @@ public class Grinder : MonoBehaviour {
     public float maxY;
     public float grindingSpeed;
     public float grindingYGain;
+
+    public TextMeshPro groundChicksText;
 
     public static Grinder Instance;
 
@@ -25,6 +28,7 @@ public class Grinder : MonoBehaviour {
         grindingIncrements = Mathf.RoundToInt(grindingSpeed * 20);
         grindingYIncrement = grindingYGain / grindingIncrements;
         grindingScaleIncrement = Vector3.one / grindingIncrements;
+        groundChicksText.text = "TOTAL GROUND CHICKS : " + GameManager.Instance.totalGroundChicks.ToString();
     }
 
 
@@ -40,6 +44,8 @@ public class Grinder : MonoBehaviour {
         chick.canMove = false;
         chick.colliderGO.SetActive(false);
         StartCoroutine(GrindChick(chick));
+        GameManager.Instance.totalGroundChicks++;
+        groundChicksText.text = "TOTAL GROUND CHICKS : " + GameManager.Instance.totalGroundChicks.ToString();
     }
 
     IEnumerator GrindEgg(Egg egg)

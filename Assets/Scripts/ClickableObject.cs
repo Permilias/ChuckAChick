@@ -8,16 +8,64 @@ public class ClickableObject : MonoBehaviour
     public bool clicked;
     public float detectionRadius;
 
+    public int fingerId = -1;
+
 
     private void Update()
     {
-#if UNITY_EDITOR
+
+//#if UNITY_ANDROID
+
+        if(InputHandler.Instance.touching && fingerId == -1)
+        {
+            foreach(Touch touch in Input.touches)
+            {
+                Vector2 comparedPos = new Vector2(InputHandler.Instance.cam.ScreenToWorldPoint(touch.position).x, InputHandler.Instance.cam.ScreenToWorldPoint(touch.position).y);
+                float dist = Vector2.Distance(comparedPos, transform.position);
+                if (dist < detectionRadius)
+                {
+                    bool takesFingerId = true;
+                    foreach(int i in InputHandler.Instance.usedFingerIdList)
+                    {
+                        if(i == touch.fingerId)
+                        {
+                            takesFingerId = false;
+                            break;
+                        }
+                    }
+                    if(takesFingerId)
+                    {
+                        clicked = true;
+                        fingerId = touch.fingerId;
+                        InputHandler.Instance.usedFingerIdList.Add(fingerId);
+                    }
+                    break;
+                }
+            }
+        }
+
+        if(clicked)
+        {
+            foreach(Touch touch in Input.touches)
+            {
+                if(touch.fingerId == fingerId)
+                {
+                    if (touch.phase == TouchPhase.Ended)
+                    {
+                        InputHandler.Instance.usedFingerIdList.Remove(fingerId);
+                        fingerId = -1;
+                        clicked = false;
+                    }
+                }
+            }
+        }
+//#elif UNITY_EDITOR
 
         print("editor");
         if (Input.GetMouseButtonDown(0))
         {
             float dist = Vector2.Distance(InputHandler.Instance.MouseWorldPosition(), transform.position);
-            if(dist < detectionRadius)
+            if (dist < detectionRadius)
             {
                 clicked = true;
             }
@@ -30,26 +78,6 @@ public class ClickableObject : MonoBehaviour
                 clicked = false;
             }
         }
-#elif UNITY_ANDROID
-
-        print("android");
-        if(InputHandler.Instance.touching)
-        {
-            float dist = Vector2.Distance(InputHandler.Instance.touchPos, transform.position);
-            if (dist < detectionRadius)
-            {
-                clicked = true;
-            }
-        }
-
-        if(clicked)
-        {
-            if(Input.touches[0].phase == TouchPhase.Ended)
-            {
-                clicked = false;
-            }
-        }
-
-#endif
+//#endif
     }
 }

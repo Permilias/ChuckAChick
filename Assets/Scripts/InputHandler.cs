@@ -11,6 +11,8 @@ public class InputHandler : MonoBehaviour
 
     public TextMeshPro touchPosText;
 
+    public List<int> usedFingerIdList;
+
     public bool touching;
     public Vector2 touchPos;
 
@@ -18,17 +20,25 @@ public class InputHandler : MonoBehaviour
     {
         Instance = this;
     }
+
+    public Vector3[] touchPosArray;
     private void Update()
     {
 #if UNITY_ANDROID
         if(Input.touchCount > 0)
         {
             touching = true;
-            touchPos = cam.ScreenToWorldPoint(Input.touches[0].position);
-            touchPosText.text = touchPos.x.ToString() + " , " + touchPos.y.ToString();
+            touchPosText.text = "Touching";
+            touchPosArray = new Vector3[Input.touchCount];
+            for (int i = 0; i < Input.touchCount; i++)
+            {
+                touchPosArray[i] = cam.ScreenToWorldPoint(Input.touches[i].position);
+                touchPosArray[i].z = 0;
+            }
         }
         else
         {
+            usedFingerIdList.Clear();
             touching = false;
             touchPosText.text = "Not Touching";
         }

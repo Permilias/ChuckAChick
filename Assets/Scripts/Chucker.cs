@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChickChucker : MonoBehaviour {
 
-    public static ChickChucker Instance;
+public class Chucker : MonoBehaviour {
+
+    public static Chucker Instance;
 
     public Transform leftTransform;
     public Transform rightTransform;
@@ -17,6 +18,7 @@ public class ChickChucker : MonoBehaviour {
     public float chuckingXIncrements;
     public float chuckingXGain;
     public Vector3 chuckingScaleIncrement;
+
 
 
     private void Awake()

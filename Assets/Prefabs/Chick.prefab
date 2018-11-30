@@ -309,6 +309,9 @@ MonoBehaviour:
   ySpeed: 0
   rb: {fileID: 0}
   colliderGO: {fileID: 0}
+  sick: 0
+  bomb: 0
+  currentTimer: 0
   canMove: 0
   targetScale: {x: 0, y: 0, z: 0}
   smoothSpeed: 0
