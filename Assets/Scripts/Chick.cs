@@ -162,7 +162,7 @@ public class Chick : MonoBehaviour {
         }
 
         rb.velocity = newVel;
-
+        transform.rotation.SetLookRotation(Vector3.up, newVel);
     }
 
 

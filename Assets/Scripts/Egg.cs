@@ -5,7 +5,9 @@ using UnityEngine.EventSystems;
 
 public class Egg : MonoBehaviour
 {
-
+    public bool magicEgg;
+    public int hp;
+    public List<Material> hpMaterials;
 
     public float ySpeed;
     public Rigidbody2D rb;
