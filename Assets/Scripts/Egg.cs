@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 public class Egg : MonoBehaviour
 {
     public bool magicEgg;
-    public MagicEggType magicEggType;
+    public int magicChickIndex;
     public int hp;
     public MeshRenderer mr;
     public List<Material> hpMaterials;

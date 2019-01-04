@@ -2,10 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum MagicEggType
-{
-    nurse
-}
 
 public class EggGenerator : MonoBehaviour {
 
@@ -138,9 +134,11 @@ public class EggGenerator : MonoBehaviour {
         spawnedEggPos = new Vector3(spawnedEggXPos, yPos, 0);
         //choose what magic egg to spawn
         int rand = Random.Range(0, (nurseEggOdds + 1));
+        int magicChickIndex = 0;
         if(rand >= 0 && rand <= nurseEggOdds)
         {
             spawnedEggGO = nurseEggPool.Dequeue();
+            magicChickIndex = 0;
         }
         //spawn the egg
         spawnedEggGO.transform.position = spawnedEggPos;
@@ -149,6 +147,7 @@ public class EggGenerator : MonoBehaviour {
         //set the egg up
         spawnedEgg = spawnedEggGO.GetComponent<Egg>();
         activeEggs.Add(spawnedEgg);
+        spawnedEgg.magicChickIndex = magicChickIndex;
         spawnedEgg.Initialize();
         spawnedEgg.canMove = true;
         spawnedEgg.ySpeed = MatManager.Instance.matSpeed;
