@@ -6,7 +6,9 @@ using UnityEngine.EventSystems;
 public class Egg : MonoBehaviour
 {
     public bool magicEgg;
+    public MagicEggType magicEggType;
     public int hp;
+    public MeshRenderer mr;
     public List<Material> hpMaterials;
 
     public float ySpeed;
@@ -41,7 +43,25 @@ public class Egg : MonoBehaviour
 
         if(clickableObject.clicked)
         {
-            Break();
+            if(magicEgg)
+            {
+                clickableObject.clicked = false;
+                hp--;
+
+                if (hp <= 0)
+                {
+                    Break();
+                }
+                else
+                {
+                    mr.material = hpMaterials[hp - 1];
+                }
+            }
+            else
+            {
+                Break();
+            }
+
         }
 
         if (canMove)
@@ -86,6 +106,7 @@ public class Egg : MonoBehaviour
     public void Remove()
     {
         EggGenerator.Instance.eggPool.Enqueue(gameObject);
+        EggGenerator.Instance.activeEggs.Remove(this);
         gameObject.SetActive(false);
     }
 

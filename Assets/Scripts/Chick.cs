@@ -28,6 +28,7 @@ public class Chick : MonoBehaviour {
     {
         clickableObject.fingerId = -1;
         newVel = Vector3.zero;
+        rb.velocity = Vector3.zero;
         decayingVel = Vector3.zero;
         targetScale = Vector3.one;
         transform.localScale = Vector3.one;
@@ -174,6 +175,7 @@ public class Chick : MonoBehaviour {
             ChickGenerator.Instance.bombChickPool.Enqueue(gameObject);
         else
             ChickGenerator.Instance.chickPool.Enqueue(gameObject);
+        ChickGenerator.Instance.activeChicks.Remove(this);
         gameObject.SetActive(false);
     }
 }

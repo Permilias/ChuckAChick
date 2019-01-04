@@ -13,9 +13,6 @@ public class ChickGenerator : MonoBehaviour {
     public int sickChickOdds;
     public int bombChickOdds;
 
-    [Header("Chick Attributes")]
-    public float chickYSpeed;
-
     [Header("Bombs")]
     public float bombTimer;
 
@@ -36,6 +33,8 @@ public class ChickGenerator : MonoBehaviour {
     [Header("Chick Chucking")]
     public float chickVelDecayTime;
 
+    public List<Chick> activeChicks;
+
     private void Awake()
     {
         Instance = this;
@@ -47,9 +46,11 @@ public class ChickGenerator : MonoBehaviour {
         chickPool = new Queue<GameObject>();
         sickChickPool = new Queue<GameObject>();
         bombChickPool = new Queue<GameObject>();
+        activeChicks = new List<Chick>();
         FillChickPool();
         FillSickChickPool();
         FillBombChickPool();
+
     }
 
 
@@ -151,13 +152,14 @@ public class ChickGenerator : MonoBehaviour {
         spawnedChickGO.SetActive(true);
         //set the chick up
         spawnedChick = spawnedChickGO.GetComponent<Chick>();
+        activeChicks.Add(spawnedChick);
         if(spawnedChick.bomb)
         {
             spawnedChick.bombText.transform.rotation = Quaternion.identity;
         }
         spawnedChick.Initialize();
         spawnedChick.canMove = true;
-        spawnedChick.ySpeed = chickYSpeed;
+        spawnedChick.ySpeed = MatManager.Instance.matSpeed;
     }
 
     Vector3 eul;

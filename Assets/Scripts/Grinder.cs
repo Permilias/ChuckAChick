@@ -37,12 +37,17 @@ public class Grinder : MonoBehaviour {
         egg.canMove = false;
         egg.colliderGO.SetActive(false);
         StartCoroutine(GrindEgg(egg));
+        PlayerLife.Instance.LoseLife(PlayerLife.Instance.frontEggDamage, PlayerLife.Instance.frontEggShakeStrength);
     }
 
     public void Grind(Chick chick)
     {
         chick.canMove = false;
         chick.colliderGO.SetActive(false);
+        if(chick.bomb)
+        {
+            PlayerLife.Instance.LoseLife(PlayerLife.Instance.frontBombDamage, PlayerLife.Instance.frontBombShakeStrength);
+        }
         StartCoroutine(GrindChick(chick));
         GameManager.Instance.totalGroundChicks++;
         groundChicksText.text = "TOTAL GROUND CHICKS : " + GameManager.Instance.totalGroundChicks.ToString();

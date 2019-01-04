@@ -42,6 +42,7 @@ public class Chucker : MonoBehaviour {
         egg.rb.velocity = Vector3.zero;
         egg.colliderGO.SetActive(false);
         StartCoroutine(ChuckEgg(egg, left));
+        PlayerLife.Instance.LoseLife(PlayerLife.Instance.sideEggDamage, PlayerLife.Instance.sideEggShakeStrength);
     }
 
     public void Chuck(Chick chick, bool left)
