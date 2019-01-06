@@ -50,6 +50,7 @@ public class Grinder : MonoBehaviour {
         }
         StartCoroutine(GrindChick(chick));
         GameManager.Instance.totalGroundChicks++;
+        GameManager.Instance.AddScore(chick.value);
         groundChicksText.text = "TOTAL GROUND CHICKS : " + GameManager.Instance.totalGroundChicks.ToString();
     }
 
@@ -78,6 +79,7 @@ public class Grinder : MonoBehaviour {
             yield return new WaitForSeconds(0.05f);
         }
         chickTransform.localScale = Vector3.zero;
+        
         chick.Remove();
     }
 }

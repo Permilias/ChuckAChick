@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: NurseEggPlaceholderMaterial_3
+  m_Name: RichEggPlaceholderMaterial_2
   m_Shader: {fileID: 4800000, guid: 652c5457fbeebe3408070d4d94f2174c, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -61,7 +61,7 @@ Material:
     m_Floats:
     - Vector1_1464A81D: 0
     - Vector1_444AE376: 0
-    - Vector1_65A02C96: 3
+    - Vector1_65A02C96: 2
     - Vector1_DCDD245C: 0
     - _AlphaClip: 0
     - _Blend: 0
@@ -84,9 +84,9 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_C5EDC388: {r: 0.8386304, g: 1, b: 0.49411762, a: 0}
-    - Color_F0BA7D74: {r: 0.82452404, g: 0.8490566, b: 0.49261305, a: 0}
-    - Color_F6898B4F: {r: 0, g: 0, b: 0, a: 0}
+    - Color_C5EDC388: {r: 1, g: 0.87934935, b: 0.49411762, a: 0}
+    - Color_F0BA7D74: {r: 0.82745105, g: 0.82745105, b: 0.82745105, a: 0}
+    - Color_F6898B4F: {r: 0.5660378, g: 0.46551335, b: 0.1308295, a: 0}
     - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}

@@ -9,12 +9,24 @@ public class ChickGenerator : MonoBehaviour {
     public GameObject bombChick;
     public static ChickGenerator Instance;
 
+    [Header("Magic Chicks")]
+    public List<MagicChickData> magicChickDatas;
+    public GameObject richPS;
+    public GameObject poorPS;
+
     [Header("Odds")]
     public int sickChickOdds;
     public int bombChickOdds;
 
     [Header("Bombs")]
     public float bombTimer;
+
+    [Header("Chick Values")]
+    public int baseChickValue;
+    public int baseSickChickValue;
+    public int baseBombChickvalue;
+    public int richChickValue;
+    public int rickChickSickValue;
 
     [Header("Chick Pooling")]
     public int chickPoolingAmount;
@@ -32,6 +44,9 @@ public class ChickGenerator : MonoBehaviour {
 
     [Header("Chick Chucking")]
     public float chickVelDecayTime;
+
+    [Header("Chick Materials")]
+    public Material baseMaterial;
 
     public List<Chick> activeChicks;
 
@@ -51,6 +66,16 @@ public class ChickGenerator : MonoBehaviour {
         FillSickChickPool();
         FillBombChickPool();
 
+        foreach(MagicChickData data in magicChickDatas)
+        {
+            data.chickPool = new Queue<GameObject>();
+            for(int i = 0; i < 20; i++)
+            {
+                newChickGO = Instantiate(data.magicChick, transform);
+                data.chickPool.Enqueue(newChickGO);
+                newChickGO.SetActive(false);
+            }
+        }
     }
 
 
@@ -133,18 +158,22 @@ public class ChickGenerator : MonoBehaviour {
                 FillChickPool();
             }
         }
-        //spawn the chick
+        //spawn the chick and set up value
+        int value;
         if(spawnsBombChick)
         {
             spawnedChickGO = bombChickPool.Dequeue();
+            value = baseBombChickvalue;
         }
         else if(spawnsSickChick)
         {
             spawnedChickGO = sickChickPool.Dequeue();
+            value = baseSickChickValue;
         }
         else
         {
             spawnedChickGO = chickPool.Dequeue();
+            value = baseChickValue;
         }
 
         spawnedChickGO.transform.position = spawnedChickPos;
@@ -160,6 +189,31 @@ public class ChickGenerator : MonoBehaviour {
         spawnedChick.Initialize();
         spawnedChick.canMove = true;
         spawnedChick.ySpeed = MatManager.Instance.matSpeed;
+
+        //set up chick value
+        spawnedChick.value = value;
+    }
+
+    public void SpawnMagicChick(Vector3 _pos, int index)
+    {
+        spawnedChickPos = _pos;
+        //get magic chick type
+        MagicChickData magicChickData = magicChickDatas[index];
+        spawnedChickGO = magicChickData.chickPool.Dequeue();
+
+        spawnedChickGO.transform.position = spawnedChickPos;
+        spawnedChickGO.transform.eulerAngles = ChooseChickEulers();
+        spawnedChickGO.SetActive(true);
+        //set the chick up
+        spawnedChick = spawnedChickGO.GetComponent<Chick>();
+        spawnedChick.magicChickIndex = index;
+        activeChicks.Add(spawnedChick);
+        spawnedChick.Initialize();
+        spawnedChick.canMove = true;
+        spawnedChick.ySpeed = MatManager.Instance.matSpeed;
+
+        //set up chick value
+        spawnedChick.value = magicChickData.value;
     }
 
     Vector3 eul;

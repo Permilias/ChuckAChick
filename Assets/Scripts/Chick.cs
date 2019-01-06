@@ -13,6 +13,12 @@ public class Chick : MonoBehaviour {
     public bool bomb;
     public float currentTimer;
 
+    public int value;
+
+    public MeshRenderer bodyMr;
+
+    public int magicChickIndex;
+    public bool magic;
     ClickableObject clickableObject;
 
     public bool canMove;
@@ -53,7 +59,7 @@ public class Chick : MonoBehaviour {
         if (canMove)
         {
             Move();
-            if (transform.position.y >= Grinder.Instance.maxY)
+            if (transform.position.y >= Grinder.Instance.maxY && transform.position.x > Chucker.Instance.leftPos && transform.position.x < Chucker.Instance.rightPos)
             {
                 Grinder.Instance.Grind(this);
                 rb.velocity = Vector3.zero;
@@ -169,13 +175,47 @@ public class Chick : MonoBehaviour {
 
     public void Remove()
     {
-        if(sick)
-            ChickGenerator.Instance.sickChickPool.Enqueue(gameObject);
-        else if(bomb)
-            ChickGenerator.Instance.bombChickPool.Enqueue(gameObject);
+        Destroy(PS);
+        PS = null;
+        if(magic)
+        {
+            ChickGenerator.Instance.magicChickDatas[magicChickIndex].chickPool.Enqueue(gameObject);
+        }
         else
-            ChickGenerator.Instance.chickPool.Enqueue(gameObject);
+        {
+            if (sick)
+                ChickGenerator.Instance.sickChickPool.Enqueue(gameObject);
+            else if (bomb)
+                ChickGenerator.Instance.bombChickPool.Enqueue(gameObject);
+            else
+                ChickGenerator.Instance.chickPool.Enqueue(gameObject);
+        }
         ChickGenerator.Instance.activeChicks.Remove(this);
         gameObject.SetActive(false);
+    }
+
+    public void Heal()
+    {
+        sick = false;
+        bodyMr.material = ChickGenerator.Instance.baseMaterial;
+    }
+
+    GameObject PS;
+    public void Enrich()
+    {
+        if(PS == null)
+        {
+            if (sick)
+            {
+                value += ChickGenerator.Instance.rickChickSickValue;
+                PS = Instantiate(ChickGenerator.Instance.poorPS, transform);
+            }
+            else
+            {
+                value += ChickGenerator.Instance.richChickValue;
+                PS = Instantiate(ChickGenerator.Instance.richPS, transform);
+            }
+        }
+
     }
 }

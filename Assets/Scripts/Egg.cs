@@ -92,7 +92,14 @@ public class Egg : MonoBehaviour
     public void Break()
     {
         clickableObject.clicked = false;
-        ChickGenerator.Instance.SpawnChick(transform.position);
+        if(!magicEgg)
+        {
+            ChickGenerator.Instance.SpawnChick(transform.position);
+        }
+        else
+        {
+            ChickGenerator.Instance.SpawnMagicChick(transform.position, magicChickIndex);
+        }
         Remove();
     }
 
@@ -105,7 +112,14 @@ public class Egg : MonoBehaviour
 
     public void Remove()
     {
-        EggGenerator.Instance.eggPool.Enqueue(gameObject);
+        if(magicEgg)
+        {
+            ChickGenerator.Instance.magicChickDatas[magicChickIndex].eggPool.Enqueue(gameObject);
+        }
+        else
+        {
+            EggGenerator.Instance.eggPool.Enqueue(gameObject);
+        }
         EggGenerator.Instance.activeEggs.Remove(this);
         gameObject.SetActive(false);
     }

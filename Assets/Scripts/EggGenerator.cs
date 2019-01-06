@@ -11,9 +11,6 @@ public class EggGenerator : MonoBehaviour {
     public float eggFrequency;
 
     [Header("Magic Eggs")]
-    public GameObject nurseEgg;
-    public Queue<GameObject> nurseEggPool;
-    public int nurseEggOdds;
     public int magicEggPoolingAmount;
 
     [Header("Magic Eggs Parameters")]
@@ -39,6 +36,8 @@ public class EggGenerator : MonoBehaviour {
 
     public List<Egg> activeEggs;
 
+    int totalMagicEggOdds;
+
     private void Awake()
     {
         Instance = this;
@@ -49,10 +48,15 @@ public class EggGenerator : MonoBehaviour {
         //create chick pool and fill it
         yPos = spawningPos.position.y;
         eggPool = new Queue<GameObject>();
-        nurseEggPool = new Queue<GameObject>();
         FillEggPool();
-        FillNurseEggPool();
+        FillMagicEggPools();
         activeEggs = new List<Egg>();
+
+        //calculate magic egg odds
+        foreach(MagicChickData data in ChickGenerator.Instance.magicChickDatas)
+        {
+            totalMagicEggOdds += data.eggOdds;
+        }
     }
 
     float eggTimer;
@@ -88,15 +92,19 @@ public class EggGenerator : MonoBehaviour {
         }
     }
 
-    public void FillNurseEggPool()
+    public void FillMagicEggPools()
     {
-        for(int i = 0; i < magicEggPoolingAmount; i++)
+        foreach(MagicChickData data in ChickGenerator.Instance.magicChickDatas)
         {
-            newEggGO = Instantiate(nurseEgg, transform);
-            nurseEggPool.Enqueue(newEggGO);
-            newEgg = newEggGO.GetComponent<Egg>();
-            newEggGO.SetActive(false);
+            data.eggPool = new Queue<GameObject>();
+            for (int i = 0; i < magicEggPoolingAmount; i++)
+            {
+                newEggGO = Instantiate(data.magicEgg, transform);
+                data.eggPool.Enqueue(newEggGO);
+                newEggGO.SetActive(false);
+            }
         }
+
     }
 
     Egg spawnedEgg;
@@ -133,13 +141,24 @@ public class EggGenerator : MonoBehaviour {
         spawnedEggXPos = ChooseX();
         spawnedEggPos = new Vector3(spawnedEggXPos, yPos, 0);
         //choose what magic egg to spawn
-        int rand = Random.Range(0, (nurseEggOdds + 1));
-        int magicChickIndex = 0;
-        if(rand >= 0 && rand <= nurseEggOdds)
+        int rand = Random.Range(0, (totalMagicEggOdds + 1));
+        int index = 0;
+        int i = 0;
+        MagicChickData chosenData = new MagicChickData();
+        foreach(MagicChickData data in ChickGenerator.Instance.magicChickDatas)
         {
-            spawnedEggGO = nurseEggPool.Dequeue();
-            magicChickIndex = 0;
+            if(rand <= (data.eggOdds + i))
+            {
+                chosenData = data;
+                break;
+            }
+            else
+            {
+                index++;
+                i += data.eggOdds;
+            }
         }
+        spawnedEggGO = chosenData.eggPool.Dequeue();
         //spawn the egg
         spawnedEggGO.transform.position = spawnedEggPos;
         spawnedEggGO.transform.eulerAngles = ChooseEggEulers();
@@ -147,10 +166,12 @@ public class EggGenerator : MonoBehaviour {
         //set the egg up
         spawnedEgg = spawnedEggGO.GetComponent<Egg>();
         activeEggs.Add(spawnedEgg);
-        spawnedEgg.magicChickIndex = magicChickIndex;
+        spawnedEgg.magicChickIndex = index;
         spawnedEgg.Initialize();
         spawnedEgg.canMove = true;
         spawnedEgg.ySpeed = MatManager.Instance.matSpeed;
+        spawnedEgg.hp = chosenData.eggHp;
+        spawnedEgg.mr.material = spawnedEgg.hpMaterials[chosenData.eggHp - 1];
     }
 
     //chooses a random x position

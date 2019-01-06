@@ -313,6 +313,7 @@ MonoBehaviour:
   sick: 0
   bomb: 0
   currentTimer: 0
+  bodyMr: {fileID: 23866340146973266}
   canMove: 0
   targetScale: {x: 0, y: 0, z: 0}
   smoothSpeed: 0
