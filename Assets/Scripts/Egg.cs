@@ -89,9 +89,23 @@ public class Egg : MonoBehaviour
         }
     }
 
+    float dist;
     public void Break()
     {
         clickableObject.clicked = false;
+        InputHandler.Instance.usedFingerIdList.Remove(clickableObject.fingerId);
+        clickableObject.fingerId = -1;
+
+        foreach (EaterChick eater in FindObjectsOfType<EaterChick>())
+        {
+            dist = Vector3.Distance(transform.position, eater.transform.position);
+            if (dist <= eater.detectionRadius)
+            {
+                eater.Eat(transform.position);
+            }
+        }
+
+
         if(!magicEgg)
         {
             ChickGenerator.Instance.SpawnChick(transform.position);
@@ -101,6 +115,7 @@ public class Egg : MonoBehaviour
             ChickGenerator.Instance.SpawnMagicChick(transform.position, magicChickIndex);
         }
         Remove();
+
     }
 
     Vector3 newVel;

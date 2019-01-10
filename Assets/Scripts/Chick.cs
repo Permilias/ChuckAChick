@@ -22,6 +22,7 @@ public class Chick : MonoBehaviour {
     ClickableObject clickableObject;
 
     public bool canMove;
+    public bool eater;
 
     private void Awake()
     {
@@ -179,6 +180,11 @@ public class Chick : MonoBehaviour {
         PS = null;
         if(magic)
         {
+            if(eater)
+            {
+                GetComponent<EaterChick>().value = 0;
+                GetComponent<EaterChick>().valueText.text = "0";
+            }
             ChickGenerator.Instance.magicChickDatas[magicChickIndex].chickPool.Enqueue(gameObject);
         }
         else
@@ -198,6 +204,13 @@ public class Chick : MonoBehaviour {
     {
         sick = false;
         bodyMr.material = ChickGenerator.Instance.baseMaterial;
+
+        if(PS != null)
+        {
+            Destroy(PS);
+            PS = null;
+            Enrich();
+        }
     }
 
     GameObject PS;

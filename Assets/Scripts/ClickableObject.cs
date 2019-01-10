@@ -14,9 +14,9 @@ public class ClickableObject : MonoBehaviour
     private void Update()
     {
 
-//#if UNITY_ANDROID
+        //#if UNITY_ANDROID
 
-        if(InputHandler.Instance.touching && fingerId == -1)
+        if (InputHandler.Instance.touching && fingerId == -1)
         {
             foreach(Touch touch in Input.touches)
             {
@@ -44,11 +44,12 @@ public class ClickableObject : MonoBehaviour
             }
         }
 
-        if(clicked)
+        if (clicked)
         {
-            foreach(Touch touch in Input.touches)
+            foreach (Touch touch in Input.touches)
             {
-                if(touch.fingerId == fingerId)
+
+                if (touch.fingerId == fingerId)
                 {
                     if (touch.phase == TouchPhase.Ended)
                     {
@@ -59,7 +60,10 @@ public class ClickableObject : MonoBehaviour
                 }
             }
         }
-//#elif UNITY_EDITOR
+
+
+
+        //#elif UNITY_EDITOR
 
         print("editor");
         if (Input.GetMouseButtonDown(0))

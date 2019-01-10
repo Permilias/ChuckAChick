@@ -90,7 +90,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -916,12 +916,12 @@ MonoBehaviour:
   maxDifficulty: 4
   difficultyIncreasingDelay: 10
   difficultyIncreasingAmount: 0.1
-  matSpeed: 0.7
-  baseSpeed: 0.7
-  speedPlusMax: 0.3
-  speedMinusMax: -0.3
-  maxSpeed: 2.5
-  eggMaxSpawningFrequency: 1
+  matSpeed: 0.6
+  baseSpeed: 0.6
+  speedPlusMax: 0.2
+  speedMinusMax: -0.2
+  maxSpeed: 1.2
+  eggMaxSpawningFrequency: 0.8
   minFrequency: 0.4
 --- !u!1 &1047343010
 GameObject:
@@ -1144,7 +1144,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1170527857}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -8.45, z: 0}
+  m_LocalPosition: {x: 0, y: -6.07, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1188283642}
@@ -1233,7 +1233,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1384500132}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.018, y: -3.7, z: 0}
+  m_LocalPosition: {x: 2.018, y: 4.06, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 253949133}
@@ -1254,11 +1254,11 @@ MonoBehaviour:
   lifeBarPivot: {fileID: 253949133}
   life: 0
   maxLife: 100
-  sideEggDamage: 2
-  sideEggShakeStrength: 0.1
-  frontEggDamage: 20
+  sideEggDamage: 5
+  sideEggShakeStrength: 0.07
+  frontEggDamage: 15
   frontEggShakeStrength: 0.3
-  frontBombDamage: 50
+  frontBombDamage: 15
   frontBombShakeStrength: 0.6
   damageShakeDuration: 0.3
 --- !u!1 &1398881459
@@ -1863,14 +1863,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   egg: {fileID: 1850758372482966, guid: cc8a88e8a6a5f424eb1deb6c4642567a, type: 2}
-  eggFrequency: 0.5
+  eggFrequency: 0.9
   magicEggPoolingAmount: 5
-  magicEggFrequency: 5
+  magicEggFrequency: 12
   eggPoolingAmount: 50
   minX: -0.7
   maxX: 0.7
   spawningPos: {fileID: 1170527858}
-  yPos: -9
+  yPos: -3
   minXEul: 0
   maxXEul: 0
   minYEul: 0
@@ -1924,6 +1924,12 @@ MonoBehaviour:
   - magicChick: {fileID: 1158842087622036, guid: af0c2f0a212fb254fa4f1bcb00b732be,
       type: 2}
     magicEgg: {fileID: 1891826604661892, guid: 5a95edf3f9feaea4ba31715c7c862fc1, type: 2}
+    eggOdds: 5
+    eggHp: 5
+    value: 5
+  - magicChick: {fileID: 1675081268320102, guid: fd31e28d3aca1f249962a5c8cc458b14,
+      type: 2}
+    magicEgg: {fileID: 1367972991733638, guid: bfb67bd9f90a08244b488fe04f133560, type: 2}
     eggOdds: 5
     eggHp: 5
     value: 5

@@ -64,10 +64,14 @@ public class MatManager : MonoBehaviour {
         {
             chick.ySpeed = matSpeed;
         }
-        frequency = eggMaxSpawningFrequency - (matSpeed * eggSpawningFrequencyMultiplier);
+        frequency = eggMaxSpawningFrequency - ((matSpeed - baseSpeed) * eggSpawningFrequencyMultiplier);
         if(frequency < minFrequency)
         {
             frequency = minFrequency;
+        }
+        if(frequency > eggMaxSpawningFrequency)
+        {
+            frequency = eggMaxSpawningFrequency;
         }
         EggGenerator.Instance.eggFrequency = frequency;
     }

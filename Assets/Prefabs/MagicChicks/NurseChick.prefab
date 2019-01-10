@@ -136,7 +136,7 @@ Transform:
   m_GameObject: {fileID: 1975188990260230}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.9840864, y: 0.9840864, z: 0.9840864}
+  m_LocalScale: {x: 0.79838, y: 0.79838, z: 0.79838}
   m_Children:
   - {fileID: 4827453913923784}
   m_Father: {fileID: 4920147838040844}
@@ -150,7 +150,7 @@ Transform:
   m_GameObject: {fileID: 1372812890477532}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.03924, y: 3.03924, z: 3.03924}
+  m_LocalScale: {x: 3.825474, y: 3.825474, z: 3.825474}
   m_Children: []
   m_Father: {fileID: 4920147838040844}
   m_RootOrder: 1
@@ -356,7 +356,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.0025917292}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.4
 --- !u!65 &65666024116370108
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -387,8 +387,12 @@ MonoBehaviour:
   sick: 0
   bomb: 0
   currentTimer: 0
+  value: 0
   bodyMr: {fileID: 23035856161003928}
+  magicChickIndex: 0
+  magic: 1
   canMove: 0
+  eater: 0
   targetScale: {x: 0, y: 0, z: 0}
   smoothSpeed: 0
   newVel: {x: 0, y: 0, z: 0}
@@ -403,7 +407,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bb1dde3e8fac4c42a20b8261d14791e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionRadius: 1.5
+  detectionRadius: 2
 --- !u!114 &114923819025073840
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -416,5 +420,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clicked: 0
-  detectionRadius: 0.5
+  detectionRadius: 0.4
   fingerId: -1

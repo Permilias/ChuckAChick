@@ -69,7 +69,7 @@ public class ChickGenerator : MonoBehaviour {
         foreach(MagicChickData data in magicChickDatas)
         {
             data.chickPool = new Queue<GameObject>();
-            for(int i = 0; i < 20; i++)
+            for(int i = 0; i < 5; i++)
             {
                 newChickGO = Instantiate(data.magicChick, transform);
                 data.chickPool.Enqueue(newChickGO);
