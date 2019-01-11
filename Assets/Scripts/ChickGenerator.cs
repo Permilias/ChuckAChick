@@ -48,6 +48,11 @@ public class ChickGenerator : MonoBehaviour {
     [Header("Chick Materials")]
     public Material baseMaterial;
 
+    [Header("FX")]
+    public GameObject shellExplosion;
+    public GameObject sickShellExplosion;
+    public GameObject bombShellExplosion;
+
     public List<Chick> activeChicks;
 
     private void Awake()
@@ -164,16 +169,19 @@ public class ChickGenerator : MonoBehaviour {
         {
             spawnedChickGO = bombChickPool.Dequeue();
             value = baseBombChickvalue;
+            StartCoroutine(ShellExplosion(2, spawnedChickPos));
         }
         else if(spawnsSickChick)
         {
             spawnedChickGO = sickChickPool.Dequeue();
             value = baseSickChickValue;
+            StartCoroutine(ShellExplosion(1, spawnedChickPos));
         }
         else
         {
             spawnedChickGO = chickPool.Dequeue();
             value = baseChickValue;
+            StartCoroutine(ShellExplosion(0, spawnedChickPos));
         }
 
         spawnedChickGO.transform.position = spawnedChickPos;
@@ -224,4 +232,23 @@ public class ChickGenerator : MonoBehaviour {
         return eul;
     }
 
+    public IEnumerator ShellExplosion(int index, Vector3 pos)
+    {
+        GameObject currentShellExplosion;
+        if(index == 0)
+        {
+            currentShellExplosion = Instantiate(shellExplosion, new Vector3(pos.x, pos.y, -2), Quaternion.identity, transform);
+        }
+        else if(index == 1)
+        {
+            currentShellExplosion = Instantiate(sickShellExplosion, new Vector3(pos.x, pos.y, -2), Quaternion.identity, transform);
+        }
+        else
+        {
+            currentShellExplosion = Instantiate(bombShellExplosion, new Vector3(pos.x, pos.y, -2), Quaternion.identity, transform);
+        }
+        currentShellExplosion.SetActive(true);
+        yield return new WaitForSeconds(1);
+        currentShellExplosion.SetActive(false);
+    }
 }
