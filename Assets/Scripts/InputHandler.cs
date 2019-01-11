@@ -28,7 +28,7 @@ public class InputHandler : MonoBehaviour
         if(Input.touchCount > 0)
         {
             touching = true;
-            touchPosText.text = "Touching";
+            //touchPosText.text = "Touching";
             touchPosArray = new Vector3[Input.touchCount];
             for (int i = 0; i < Input.touchCount; i++)
             {
@@ -40,7 +40,7 @@ public class InputHandler : MonoBehaviour
         {
             usedFingerIdList.Clear();
             touching = false;
-            touchPosText.text = "Not Touching";
+            //touchPosText.text = "Not Touching";
         }
 #endif
     }

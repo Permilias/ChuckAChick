@@ -1,39 +1,33 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
-public class ClickableObject : MonoBehaviour
-{
+public class MenuButton : MonoBehaviour {
+
+    public float radius;
     public bool clicked;
-    public float detectionRadius;
-
-    public int fingerId = -1;
-
+    public int fingerId;
 
     private void Update()
     {
-
-        //#if UNITY_ANDROID
-
-        if (InputHandler.Instance.touching && fingerId == -1)
+        if(InputHandler.Instance.touching)
         {
-            foreach(Touch touch in Input.touches)
+            foreach (Touch touch in Input.touches)
             {
                 Vector2 comparedPos = new Vector2(InputHandler.Instance.cam.ScreenToWorldPoint(touch.position).x, InputHandler.Instance.cam.ScreenToWorldPoint(touch.position).y);
                 float dist = Vector2.Distance(comparedPos, transform.position);
-                if (dist < detectionRadius)
+                if (dist < radius)
                 {
                     bool takesFingerId = true;
-                    foreach(int i in InputHandler.Instance.usedFingerIdList)
+                    foreach (int i in InputHandler.Instance.usedFingerIdList)
                     {
-                        if(i == touch.fingerId)
+                        if (i == touch.fingerId)
                         {
                             takesFingerId = false;
                             break;
                         }
                     }
-                    if(takesFingerId)
+                    if (takesFingerId)
                     {
                         clicked = true;
                         fingerId = touch.fingerId;
@@ -48,7 +42,6 @@ public class ClickableObject : MonoBehaviour
         {
             foreach (Touch touch in Input.touches)
             {
-
                 if (touch.fingerId == fingerId)
                 {
                     if (touch.phase == TouchPhase.Ended)
@@ -61,14 +54,10 @@ public class ClickableObject : MonoBehaviour
             }
         }
 
-
-
-        //#elif UNITY_EDITOR
-
         if (Input.GetMouseButtonDown(0))
         {
             float dist = Vector2.Distance(InputHandler.Instance.MouseWorldPosition(), transform.position);
-            if (dist < detectionRadius)
+            if (dist < radius)
             {
                 clicked = true;
             }
@@ -81,6 +70,5 @@ public class ClickableObject : MonoBehaviour
                 clicked = false;
             }
         }
-//#endif
     }
 }

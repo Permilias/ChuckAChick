@@ -45,13 +45,12 @@ public class ChickGenerator : MonoBehaviour {
     [Header("Chick Chucking")]
     public float chickVelDecayTime;
 
-    [Header("Chick Materials")]
-    public Material baseMaterial;
+    [Header("Chick Sprites")]
+    public Sprite baseSprite;
+    public Color baseSpriteColor;
 
     [Header("FX")]
-    public GameObject shellExplosion;
-    public GameObject sickShellExplosion;
-    public GameObject bombShellExplosion;
+    public List<ShellExplosionData> shellExplosions;
 
     public List<Chick> activeChicks;
 
@@ -76,44 +75,63 @@ public class ChickGenerator : MonoBehaviour {
             data.chickPool = new Queue<GameObject>();
             for(int i = 0; i < 5; i++)
             {
-                newChickGO = Instantiate(data.magicChick, transform);
-                data.chickPool.Enqueue(newChickGO);
-                newChickGO.SetActive(false);
+                newGO = Instantiate(data.magicChick, transform);
+                data.chickPool.Enqueue(newGO);
+                newGO.SetActive(false);
+            }
+        }
+
+        foreach (ShellExplosionData data in shellExplosions)
+        {
+            data.shellPool = new Queue<GameObject>();
+        }
+        FillShellExplosionPools();
+    }
+
+    public void FillShellExplosionPools()
+    {
+        foreach (ShellExplosionData data in shellExplosions)
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                newGO = Instantiate(data.shellExplosion, transform);
+                data.shellPool.Enqueue(newGO);
+                newGO.SetActive(false);
             }
         }
     }
 
 
-    GameObject newChickGO;
+    GameObject newGO;
     Chick newChick;
     public void FillChickPool()
     {
         for (int i = 0; i < chickPoolingAmount; i++)
         {
-            newChickGO = Instantiate(chick, transform);
-            chickPool.Enqueue(newChickGO);
-            newChick = newChickGO.GetComponent<Chick>();
-            newChickGO.SetActive(false);
+            newGO = Instantiate(chick, transform);
+            chickPool.Enqueue(newGO);
+            newChick = newGO.GetComponent<Chick>();
+            newGO.SetActive(false);
         }
     }
     public void FillSickChickPool()
     {
         for (int i = 0; i < chickPoolingAmount; i++)
         {
-            newChickGO = Instantiate(sickChick, transform);
-            sickChickPool.Enqueue(newChickGO);
-            newChick = newChickGO.GetComponent<Chick>();
-            newChickGO.SetActive(false);
+            newGO = Instantiate(sickChick, transform);
+            sickChickPool.Enqueue(newGO);
+            newChick = newGO.GetComponent<Chick>();
+            newGO.SetActive(false);
         }
     }
     public void FillBombChickPool()
     {
         for (int i = 0; i < chickPoolingAmount; i++)
         {
-            newChickGO = Instantiate(bombChick, transform);
-            bombChickPool.Enqueue(newChickGO);
-            newChick = newChickGO.GetComponent<Chick>();
-            newChickGO.SetActive(false);
+            newGO = Instantiate(bombChick, transform);
+            bombChickPool.Enqueue(newGO);
+            newChick = newGO.GetComponent<Chick>();
+            newGO.SetActive(false);
         }
     }
 
@@ -234,21 +252,16 @@ public class ChickGenerator : MonoBehaviour {
 
     public IEnumerator ShellExplosion(int index, Vector3 pos)
     {
+        if(shellExplosions[index].shellPool.Count < 1)
+        {
+            FillShellExplosionPools();
+        }
         GameObject currentShellExplosion;
-        if(index == 0)
-        {
-            currentShellExplosion = Instantiate(shellExplosion, new Vector3(pos.x, pos.y, -2), Quaternion.identity, transform);
-        }
-        else if(index == 1)
-        {
-            currentShellExplosion = Instantiate(sickShellExplosion, new Vector3(pos.x, pos.y, -2), Quaternion.identity, transform);
-        }
-        else
-        {
-            currentShellExplosion = Instantiate(bombShellExplosion, new Vector3(pos.x, pos.y, -2), Quaternion.identity, transform);
-        }
+        currentShellExplosion = shellExplosions[index].shellPool.Dequeue();
+        currentShellExplosion.transform.position = new Vector3(pos.x, pos.y, -2);
         currentShellExplosion.SetActive(true);
         yield return new WaitForSeconds(1);
         currentShellExplosion.SetActive(false);
+        shellExplosions[index].shellPool.Enqueue(currentShellExplosion);
     }
 }

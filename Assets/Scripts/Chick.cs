@@ -17,7 +17,7 @@ public class Chick : MonoBehaviour {
 
     public int value;
 
-    public MeshRenderer bodyMr;
+    public SpriteRenderer SR;
 
     public int magicChickIndex;
     public bool magic;
@@ -207,7 +207,8 @@ public class Chick : MonoBehaviour {
     public void Heal()
     {
         sick = false;
-        bodyMr.material = ChickGenerator.Instance.baseMaterial;
+        SR.sprite = ChickGenerator.Instance.baseSprite;
+        SR.color = ChickGenerator.Instance.baseSpriteColor;
 
         if(PS != null)
         {

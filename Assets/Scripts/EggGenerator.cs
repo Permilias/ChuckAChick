@@ -34,9 +34,7 @@ public class EggGenerator : MonoBehaviour {
     public float minZEul;
     public float maxZEul;
 
-    [Header("FX")]
-    public GameObject shellExplosion;
-    public GameObject sickShellExplosion;
+
 
     public List<Egg> activeEggs;
 
