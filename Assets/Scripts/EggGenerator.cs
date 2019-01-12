@@ -34,6 +34,8 @@ public class EggGenerator : MonoBehaviour {
     public float minZEul;
     public float maxZEul;
 
+
+
     public List<Egg> activeEggs;
 
     int totalMagicEggOdds;

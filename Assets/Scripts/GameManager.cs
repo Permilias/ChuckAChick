@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
@@ -23,7 +24,7 @@ public class GameManager : MonoBehaviour {
     private void Start()
     {
         moneyText.text = "0 $";
-        DataManager.Instance.Load();
+        DataManager.Instance.Load(true, true);
         score = 0;
     }
 
@@ -37,15 +38,28 @@ public class GameManager : MonoBehaviour {
     public void OnApplicationQuit()
     {
         Debug.Log("OnApplicationQuit");
-        DataManager.Instance.Save();
+        DataManager.Instance.Save(true);
     }
 
     public void OnApplicationPause(bool pause)
     {
         Debug.Log("OnApplicationPause");
-      //  DataManager.Instance.Load();
-        DataManager.Instance.Save();
+        //  DataManager.Instance.Load();
+        DataManager.Instance.Save(true);
     }
 
+    public void LoadMenu()
+    {
+        Debug.Log("Loading Menu...");
+        DataManager.Instance.Save(true);
+        SceneManager.LoadScene("Menu");
+    }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            LoadMenu();
+        }
+    }
 }

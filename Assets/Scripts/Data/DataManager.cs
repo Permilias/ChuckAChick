@@ -15,7 +15,17 @@ public class DataManager : MonoBehaviour {
 
     private void Awake()
     {
-        Instance = this;
+        if(Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         SetPath();
     }
 
@@ -24,21 +34,33 @@ public class DataManager : MonoBehaviour {
         path = Path.Combine(Application.persistentDataPath, "data.json");
     }
 
-    public void Save()
+    public void Save(bool game)
     {
         if(!saved)
         {
-            Load();
+            Load(false, true);
             saved = true;
         }
         Debug.Log("Save");
-        SetData();
+        SetData(game);
         SerializeData();
     }
 
-    void SetData()
+    void SetData(bool game)
     {
-        data.totalGroundChicks = GameManager.Instance.totalGroundChicks;
+        if(game)
+        {
+            data.totalGroundChicks = GameManager.Instance.totalGroundChicks;
+            data.soundMuted = MuteButton.Instance.muted;
+        }
+        else
+        {
+            data.soundMuted = MuteButton.Instance.muted;
+            if(UpgradesManager.Instance.upgradesArray != null)
+            data.upgradesArray = UpgradesManager.Instance.upgradesArray;
+            data.money = UpgradesManager.Instance.money;
+        }
+
     }
 
     void SerializeData()
@@ -47,7 +69,7 @@ public class DataManager : MonoBehaviour {
         File.WriteAllText(path, dataString);
     }
 
-    public void Load()
+    public void Load(bool exploits, bool game)
     {
         if(File.Exists(path))
         {
@@ -58,7 +80,17 @@ public class DataManager : MonoBehaviour {
             data = new Data();
         }
 
-        ExploitData();
+        if(exploits)
+        {
+            if (game)
+            {
+                ExploitDataGame();
+            }
+            else
+            {
+                ExploitDataMenu();
+            }
+        }
     }
 
     public void DeserializeData()
@@ -67,10 +99,20 @@ public class DataManager : MonoBehaviour {
         data = JsonUtility.FromJson<Data>(loadedString);
     }
 
-    public void ExploitData()
+    public void ExploitDataGame()
     {
         GameManager.Instance.totalGroundChicks = data.totalGroundChicks;
+        MuteButton.Instance.muted = data.soundMuted;
+        UpgradesApplier.Instance.upgradesArray = data.upgradesArray;
     }
 
-
+    public void ExploitDataMenu()
+    {
+        MuteButton.Instance.muted = data.soundMuted;
+        if(data.upgradesArray.Length > 0)
+        {
+            UpgradesManager.Instance.upgradesArray = data.upgradesArray;
+        }
+        UpgradesManager.Instance.money = data.money;
+    }
 }

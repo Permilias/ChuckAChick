@@ -4,5 +4,8 @@ using UnityEngine;
 
 public class Data
 {
+    public bool soundMuted;
     public int totalGroundChicks;
+    public int[] upgradesArray;
+    public int money;
 }
