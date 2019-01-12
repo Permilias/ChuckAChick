@@ -19,6 +19,8 @@ public class Chucker : MonoBehaviour {
     public float chuckingXGain;
     public Vector3 chuckingScaleIncrement;
 
+    public bool chuckingBombGivesMoney;
+    public float bombChickChuckingValue;
 
 
     private void Awake()
@@ -43,6 +45,7 @@ public class Chucker : MonoBehaviour {
         egg.colliderGO.SetActive(false);
         StartCoroutine(ChuckEgg(egg, left));
         PlayerLife.Instance.LoseLife(PlayerLife.Instance.sideEggDamage, PlayerLife.Instance.sideEggShakeStrength);
+        MatManager.Instance.Reset();
     }
 
     public void Chuck(Chick chick, bool left)
@@ -51,6 +54,13 @@ public class Chucker : MonoBehaviour {
         chick.rb.velocity = Vector3.zero;
         chick.colliderGO.SetActive(false);
         StartCoroutine(ChuckChick(chick, left));
+        if(chick.bomb)
+        {
+            if(chuckingBombGivesMoney)
+            {
+                GameManager.Instance.AddScore(bombChickChuckingValue);
+            }
+        }
     }
 
     IEnumerator ChuckEgg(Egg egg, bool left)

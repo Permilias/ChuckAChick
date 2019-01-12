@@ -7,9 +7,12 @@ public class MatManager : MonoBehaviour {
     public static MatManager Instance;
 
     [Header("Difficulty")]
+    public float baseDifficulty;
     public float difficulty;
     public float maxDifficulty;
     public float difficultyIncreasingDelay;
+    public float difficultyIncreasingDelayReduction;
+    public float minDifficultyInscreasingDelay;
     public float difficultyIncreasingAmount;
 
     [Header("Mat Speed")]
@@ -35,6 +38,7 @@ public class MatManager : MonoBehaviour {
     private void Start()
     {
         eggSpawningFrequencyMultiplier = eggMaxSpawningFrequency / maxSpeed;
+        Reset();
     }
 
     private void Update()
@@ -42,11 +46,23 @@ public class MatManager : MonoBehaviour {
         currentTimer += Time.deltaTime;
         if(currentTimer >= difficultyIncreasingDelay)
         {
+            difficultyIncreasingDelay -= difficultyIncreasingDelayReduction;
+            if(difficultyIncreasingDelay < minDifficultyInscreasingDelay)
+            {
+                difficultyIncreasingDelay = minDifficultyInscreasingDelay;
+            }
             currentTimer = 0;
             difficulty += difficultyIncreasingAmount;
             if (difficulty > maxDifficulty) difficulty = maxDifficulty;
             SetSpeed((baseSpeed + Random.Range(speedMinusMax, speedPlusMax)) * difficulty);
         }
+    }
+
+    public void Reset()
+    {
+        currentTimer = 0;
+        difficulty = baseDifficulty;
+        SetSpeed(baseSpeed);
     }
 
     void SetSpeed(float _speed)

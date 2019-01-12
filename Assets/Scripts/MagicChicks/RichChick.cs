@@ -13,7 +13,7 @@ public class RichChick : MonoBehaviour {
             float dist = Vector2.Distance(chick.transform.position, transform.position);
             if (dist <= detectionRadius)
             {
-                if (!chick.bomb && !chick.magic)
+                if (!chick.bomb && !chick.magic && !chick.sick)
                 {
                     chick.Enrich();
                 }

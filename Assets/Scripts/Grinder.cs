@@ -28,7 +28,7 @@ public class Grinder : MonoBehaviour {
         grindingIncrements = Mathf.RoundToInt(grindingSpeed * 20);
         grindingYIncrement = grindingYGain / grindingIncrements;
         grindingScaleIncrement = Vector3.one / grindingIncrements;
-        groundChicksText.text = "TOTAL GROUND CHICKS : " + GameManager.Instance.totalGroundChicks.ToString();
+        //groundChicksText.text = "TOTAL GROUND CHICKS : " + GameManager.Instance.totalGroundChicks.ToString();
     }
 
 
@@ -38,6 +38,7 @@ public class Grinder : MonoBehaviour {
         egg.colliderGO.SetActive(false);
         StartCoroutine(GrindEgg(egg));
         PlayerLife.Instance.LoseLife(PlayerLife.Instance.frontEggDamage, PlayerLife.Instance.frontEggShakeStrength);
+        MatManager.Instance.Reset();
     }
 
     public void Grind(Chick chick)
@@ -51,7 +52,7 @@ public class Grinder : MonoBehaviour {
         StartCoroutine(GrindChick(chick));
         GameManager.Instance.totalGroundChicks++;
         GameManager.Instance.AddScore(chick.value);
-        groundChicksText.text = "TOTAL GROUND CHICKS : " + GameManager.Instance.totalGroundChicks.ToString();
+        //groundChicksText.text = "TOTAL GROUND CHICKS : " + GameManager.Instance.totalGroundChicks.ToString();
     }
 
     IEnumerator GrindEgg(Egg egg)

@@ -22,11 +22,10 @@ public class ChickGenerator : MonoBehaviour {
     public float bombTimer;
 
     [Header("Chick Values")]
-    public int baseChickValue;
-    public int baseSickChickValue;
-    public int baseBombChickvalue;
-    public int richChickValue;
-    public int rickChickSickValue;
+    public float baseChickValue;
+    public float baseSickChickValue;
+    public float baseBombChickvalue;
+    public float richChickValue;
 
     [Header("Chick Pooling")]
     public int chickPoolingAmount;
@@ -48,6 +47,8 @@ public class ChickGenerator : MonoBehaviour {
     [Header("Chick Sprites")]
     public Sprite baseSprite;
     public Color baseSpriteColor;
+    public Sprite sickSprite;
+    public Color sickColor;
 
     [Header("FX")]
     public List<ShellExplosionData> shellExplosions;
@@ -182,7 +183,7 @@ public class ChickGenerator : MonoBehaviour {
             }
         }
         //spawn the chick and set up value
-        int value;
+        float value;
         if(spawnsBombChick)
         {
             spawnedChickGO = bombChickPool.Dequeue();

@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour {
 
     public TextMeshPro moneyText;
 
-    public int score;
+    public float score;
     public int money;
     public int baseMoneyMultiplier;
 
@@ -26,12 +26,15 @@ public class GameManager : MonoBehaviour {
         moneyText.text = "0 $";
         DataManager.Instance.Load(true, true);
         score = 0;
+
+        UpgradesApplier.Instance.ApplyUpgrades();
     }
 
-    public void AddScore(int value)
+    public void AddScore(float value)
     {
         score += value;
-        money = score * baseMoneyMultiplier;
+        if (score < 0) score = 0;
+        money = Mathf.RoundToInt(score * baseMoneyMultiplier);
         moneyText.text = money.ToString() + " $";
     }
 

@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114448938790470486}
   m_Layer: 0
   m_Name: EggCollider
-  m_TagString: Untagged
+  m_TagString: Egg
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -235,7 +235,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   magicEgg: 0
+  magicChickIndex: 0
   hp: 0
+  mr: {fileID: 0}
   hpMaterials: []
   ySpeed: 0
   rb: {fileID: 0}

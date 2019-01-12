@@ -15,7 +15,7 @@ public class BreakerChick : MonoBehaviour {
             {
                 if (!egg.magicEgg)
                 {
-                    egg.Break();
+                    egg.Break(false);
                     break;
                 }
             }
