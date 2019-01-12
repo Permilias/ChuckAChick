@@ -40,7 +40,12 @@ public class PlayerLife : MonoBehaviour {
         if (life < 0) life = 0;
         float newScale = life * scaleMultiplier;
         lifeBarPivot.localScale = new Vector3(1, newScale, 1);
+    }
 
-
+    public void GainLife(float amount)
+    {
+        life += amount;
+        if (life > maxLife) life = maxLife;
+        float newScale = life * scaleMultiplier;
     }
 }

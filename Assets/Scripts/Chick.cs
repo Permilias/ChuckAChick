@@ -15,7 +15,7 @@ public class Chick : MonoBehaviour {
 
     public GameObject bodySprite;
 
-    public int value;
+    public float value;
 
     public SpriteRenderer SR;
 
@@ -36,6 +36,7 @@ public class Chick : MonoBehaviour {
     public void Initialize()
     {
         clickableObject.fingerId = -1;
+        clickableObject.clicked = false;
         newVel = Vector3.zero;
         rb.velocity = Vector3.zero;
         decayingVel = Vector3.zero;
@@ -49,6 +50,12 @@ public class Chick : MonoBehaviour {
         if(bomb)
         {
             currentTimer = ChickGenerator.Instance.bombTimer;
+        }
+
+        if(sick)
+        {
+            SR.sprite = ChickGenerator.Instance.sickSprite;
+            SR.color = ChickGenerator.Instance.sickColor;
         }
     }
 
@@ -84,6 +91,7 @@ public class Chick : MonoBehaviour {
         }
     }
 
+    string lastText;
     private void Update()
     {
         if(velDecaying)
@@ -104,6 +112,19 @@ public class Chick : MonoBehaviour {
             {
                 currentTimer -= Time.deltaTime;
                 bombText.text = Mathf.RoundToInt(currentTimer).ToString();
+                if(bombText.text != lastText)
+                {
+                    if(bombText.text == "0")
+                    {
+                        SoundManager.Instance.PlaySound(SoundManager.Instance.bombLastBip);
+                    }
+                    else
+                    {
+                        SoundManager.Instance.PlaySound(SoundManager.Instance.bombBip);
+                    }
+
+                }
+                lastText = bombText.text;
                 if (currentTimer <= 0)
                 {
                     Explode();
@@ -155,7 +176,7 @@ public class Chick : MonoBehaviour {
             if (hasBeenClicked && !velDecaying)
             {
                 velDecaying = true;
-                decayingTime = ChickGenerator.Instance.chickVelDecayTime * Mathf.Abs(((newVel.x + newVel.y) / 2));
+                decayingTime = ChickGenerator.Instance.chickVelDecayTime * Mathf.Abs(((newVel.x + newVel.y) / 2f));
                 decayingVel = newVel;
                 decayingAmount = decayingVel / decayingTime;
                 hasBeenClicked = false;
@@ -223,16 +244,8 @@ public class Chick : MonoBehaviour {
     {
         if(PS == null)
         {
-            if (sick)
-            {
-                value += ChickGenerator.Instance.rickChickSickValue;
-                PS = Instantiate(ChickGenerator.Instance.poorPS, transform);
-            }
-            else
-            {
-                value += ChickGenerator.Instance.richChickValue;
-                PS = Instantiate(ChickGenerator.Instance.richPS, transform);
-            }
+             value += ChickGenerator.Instance.richChickValue;
+             PS = Instantiate(ChickGenerator.Instance.richPS, transform);
         }
 
     }

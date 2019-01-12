@@ -34,7 +34,14 @@ public class EggGenerator : MonoBehaviour {
     public float minZEul;
     public float maxZEul;
 
-
+    [Header("Egg Value")]
+    public bool breakingGivesMoney;
+    public int breakingMoney;
+    public bool breakingHeals;
+    public float breakingHealing;
+    public bool shockwaves;
+    public float shockwaveRadius;
+    public LayerMask eggLayer;
 
     public List<Egg> activeEggs;
 
@@ -106,7 +113,6 @@ public class EggGenerator : MonoBehaviour {
                 newEggGO.SetActive(false);
             }
         }
-
     }
 
     Egg spawnedEgg;

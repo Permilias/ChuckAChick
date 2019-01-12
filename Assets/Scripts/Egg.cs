@@ -47,10 +47,15 @@ public class Egg : MonoBehaviour
             {
                 clickableObject.clicked = false;
                 hp--;
+                if(hp > 0)
+                {
+                    SoundManager.Instance.PlaySound(SoundManager.Instance.magicTaps[hp - 1]);
+                }
+
 
                 if (hp <= 0)
                 {
-                    Break();
+                    Break(false);
                 }
                 else
                 {
@@ -59,7 +64,7 @@ public class Egg : MonoBehaviour
             }
             else
             {
-                Break();
+                Break(true);
             }
 
         }
@@ -89,9 +94,11 @@ public class Egg : MonoBehaviour
         }
     }
 
+    List<Egg> eggsToBreak;
     float dist;
-    public void Break()
+    public void Break(bool canShockwave)
     {
+        SoundManager.Instance.PlaySound(SoundManager.Instance.eggCrack);
         clickableObject.clicked = false;
         InputHandler.Instance.usedFingerIdList.Remove(clickableObject.fingerId);
         clickableObject.fingerId = -1;
@@ -105,6 +112,34 @@ public class Egg : MonoBehaviour
             }
         }
 
+        if(EggGenerator.Instance.shockwaves && canShockwave)
+        {
+            eggsToBreak = new List<Egg>();
+            Collider2D[] colArray = Physics2D.OverlapCircleAll(transform.position, EggGenerator.Instance.shockwaveRadius, LayerMask.GetMask("Default"), -1, 1);
+            foreach (Collider2D col in colArray)
+            {
+                if(col.tag == "Egg")
+                {
+                    eggsToBreak.Add(col.GetComponentInParent<Egg>());
+                }
+            }
+
+            foreach(Egg egg in eggsToBreak)
+            {
+                egg.Break(false);
+            }
+
+        }
+
+        if(EggGenerator.Instance.breakingGivesMoney)
+        {
+            GameManager.Instance.AddScore(EggGenerator.Instance.breakingMoney);
+        }
+
+        if(EggGenerator.Instance.breakingHeals)
+        {
+            PlayerLife.Instance.GainLife(EggGenerator.Instance.breakingHealing);
+        }
 
         if(!magicEgg)
         {
