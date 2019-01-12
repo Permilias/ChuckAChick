@@ -30,12 +30,19 @@ public class GameManager : MonoBehaviour {
         UpgradesApplier.Instance.ApplyUpgrades();
     }
 
+    float reference;
+    float shownMoney;
+    private void FixedUpdate()
+    {
+        shownMoney = Mathf.SmoothDamp(shownMoney, money, ref reference, 0.15f);
+        moneyText.text = Mathf.RoundToInt(shownMoney).ToString() + " $";
+    }
+
     public void AddScore(float value)
     {
         score += value;
         if (score < 0) score = 0;
         money = Mathf.RoundToInt(score * baseMoneyMultiplier);
-        moneyText.text = money.ToString() + " $";
     }
 
     public void OnApplicationQuit()
