@@ -91,6 +91,7 @@ public class Chick : MonoBehaviour {
         }
     }
 
+    string lastText;
     private void Update()
     {
         if(velDecaying)
@@ -111,6 +112,19 @@ public class Chick : MonoBehaviour {
             {
                 currentTimer -= Time.deltaTime;
                 bombText.text = Mathf.RoundToInt(currentTimer).ToString();
+                if(bombText.text != lastText)
+                {
+                    if(bombText.text == "0")
+                    {
+                        SoundManager.Instance.PlaySound(SoundManager.Instance.bombLastBip);
+                    }
+                    else
+                    {
+                        SoundManager.Instance.PlaySound(SoundManager.Instance.bombBip);
+                    }
+
+                }
+                lastText = bombText.text;
                 if (currentTimer <= 0)
                 {
                     Explode();

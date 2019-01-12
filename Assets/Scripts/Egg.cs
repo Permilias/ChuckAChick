@@ -47,6 +47,11 @@ public class Egg : MonoBehaviour
             {
                 clickableObject.clicked = false;
                 hp--;
+                if(hp > 0)
+                {
+                    SoundManager.Instance.PlaySound(SoundManager.Instance.magicTaps[hp - 1]);
+                }
+
 
                 if (hp <= 0)
                 {

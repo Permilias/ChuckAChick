@@ -228,6 +228,8 @@ public class ChickGenerator : MonoBehaviour {
         MagicChickData magicChickData = magicChickDatas[index];
         spawnedChickGO = magicChickData.chickPool.Dequeue();
 
+        SoundManager.Instance.PlaySound(SoundManager.Instance.magicCracks[index]);
+
         spawnedChickGO.transform.position = spawnedChickPos;
         spawnedChickGO.transform.eulerAngles = ChooseChickEulers();
         spawnedChickGO.SetActive(true);

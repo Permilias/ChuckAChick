@@ -7,6 +7,12 @@ public class SoundManager : MonoBehaviour {
     public static SoundManager Instance;
 
     public Sound eggCrack;
+    public Sound bombBip;
+    public Sound bombLastBip;
+
+    public List<Sound> magicTaps;
+    public List<Sound> magicCracks;
+
     public Queue<GameObject> receptaclePool;
 
     private void Awake()
