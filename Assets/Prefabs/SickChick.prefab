@@ -551,6 +551,8 @@ MonoBehaviour:
   bomb: 0
   currentTimer: 0
   bodySprite: {fileID: 1077692671445996}
+  feathers: {fileID: 0}
+  magicAura: {fileID: 0}
   value: 0
   SR: {fileID: 212476980260383736}
   magicChickIndex: 0
@@ -644,7 +646,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 4d6d0ec65e0ac7a46840f9f936284c0a, type: 3}
   m_Color: {r: 0.39126024, g: 0.4811321, b: 0.25645247, a: 1}
   m_FlipX: 0

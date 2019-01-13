@@ -36,7 +36,7 @@ public class EggGenerator : MonoBehaviour {
 
     [Header("Egg Value")]
     public bool breakingGivesMoney;
-    public int breakingMoney;
+    public float breakingMoney;
     public bool breakingHeals;
     public float breakingHealing;
     public bool shockwaves;

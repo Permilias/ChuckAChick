@@ -36,7 +36,7 @@ public class UpgradesApplier : MonoBehaviour {
     public float bombChickChuckingUpgradeMultiplier;
 
     [Header("SECOND PATH")]
-    public int breakingMoneyMultiplier;
+    public float breakingMoneyMultiplier;
     public float breakingHealingMultiplier;
 
     [Header("THIRD PATH")]
@@ -57,14 +57,14 @@ public class UpgradesApplier : MonoBehaviour {
         if(upgradesArray.Length == 12)
         {
             //FIRST PATH
-            if(upgradesArray[0] <= -1)
+            if(upgradesArray[0] <= 0)
             {
                 print("No First Path");
             }
             else
             {
                 ChickGenerator.Instance.baseChickValue += (chickValueUpgradeMultiplier * upgradesArray[0]);
-                if(upgradesArray[1] <= -1)
+                if(upgradesArray[1] <= 0)
                 {
                     print("First Path Stops at 1");
                 }
@@ -72,7 +72,7 @@ public class UpgradesApplier : MonoBehaviour {
                 {
                     Chucker.Instance.chuckingBombGivesMoney = true;
                     Chucker.Instance.bombChickChuckingValue = bombChickChuckingUpgradeMultiplier * upgradesArray[1];
-                    if(upgradesArray[2] <= -1)
+                    if(upgradesArray[2] <= 0)
                     {
                         print("First Path stops at 2");
                     }
@@ -83,7 +83,7 @@ public class UpgradesApplier : MonoBehaviour {
                 }
             }
             //SECOND PATH
-            if (upgradesArray[3] <= -1)
+            if (upgradesArray[3] <= 0)
             {
                 print("No Second Path");
             }
@@ -91,7 +91,7 @@ public class UpgradesApplier : MonoBehaviour {
             {
                 EggGenerator.Instance.breakingGivesMoney = true;
                 EggGenerator.Instance.breakingMoney = breakingMoneyMultiplier * upgradesArray[3];
-                if (upgradesArray[4] <= -1)
+                if (upgradesArray[4] <= 0)
                 {
                     print("Second Path Stops at 1");
                 }
@@ -99,7 +99,7 @@ public class UpgradesApplier : MonoBehaviour {
                 {
                     EggGenerator.Instance.breakingHeals = true;
                     EggGenerator.Instance.breakingHealing = breakingHealingMultiplier * upgradesArray[4];
-                    if (upgradesArray[5] <= -1)
+                    if (upgradesArray[5] <= 0)
                     {
                         print("Second Path stops at 2");
                     }
@@ -110,21 +110,21 @@ public class UpgradesApplier : MonoBehaviour {
                 }
             }
             //THIRD PATH
-            if (upgradesArray[6] <= -1)
+            if (upgradesArray[6] <= 0)
             {
                 print("No Third Path");
             }
             else
             {
                 ChickGenerator.Instance.baseSickChickValue -= (sickChickReductionMultiplier * upgradesArray[6]);
-                if (upgradesArray[7] <= -1)
+                if (upgradesArray[7] <= 0)
                 {
                     print("Third Path Stops at 1");
                 }
                 else
                 {
                     EggGenerator.Instance.magicEggFrequency -= (magicEggFrequencyReductionMultiplier * upgradesArray[8]);
-                    if (upgradesArray[8] <= -1)
+                    if (upgradesArray[8] <= 0)
                     {
                         print("Third Path stops at 2");
                     }
@@ -135,7 +135,7 @@ public class UpgradesApplier : MonoBehaviour {
                 }
             }
             //FOURTH PATH
-            if (upgradesArray[9] <= -1)
+            if (upgradesArray[9] <= 0)
             {
                 print("No Fourth Path");
             }
@@ -143,7 +143,7 @@ public class UpgradesApplier : MonoBehaviour {
             {
                 PlayerLife.Instance.maxLife += (lifeUpgradeMultiplier * upgradesArray[9]);
                 PlayerLife.Instance.life = PlayerLife.Instance.maxLife;
-                if (upgradesArray[10] <= -1)
+                if (upgradesArray[10] <= 0)
                 {
                     print("Fourth Path Stops at 1");
                 }
@@ -151,7 +151,7 @@ public class UpgradesApplier : MonoBehaviour {
                 {
                     EggGenerator.Instance.shockwaves = true;
                     EggGenerator.Instance.shockwaveRadius = shockwaveRadiusMultiplier * upgradesArray[10];
-                    if (upgradesArray[11] <= -1)
+                    if (upgradesArray[11] <= 0)
                     {
                         print("Fourth Path stops at 2");
                     }

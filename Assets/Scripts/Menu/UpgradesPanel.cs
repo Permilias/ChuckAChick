@@ -8,11 +8,14 @@ public class UpgradesPanel : MonoBehaviour {
     public List<MenuButton> shownButtons;
     public List<MenuButton> hiddenButtons;
 
+    Animator anim;
+
     public bool canSwitch = true;
 
     private void Awake()
     {
         Instance = this;
+        anim = GetComponent<Animator>();
     }
 
     private void Start()
@@ -33,12 +36,13 @@ public class UpgradesPanel : MonoBehaviour {
 
     IEnumerator ShowPanelCoroutine()
     {
+        anim.SetBool("isVisible", true);
         canSwitch = false;
         foreach (MenuButton button in hiddenButtons)
         {
             button.enabled = false;
         }
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.5f);
         foreach (MenuButton button in shownButtons)
         {
             button.enabled = true;
@@ -56,12 +60,13 @@ public class UpgradesPanel : MonoBehaviour {
 
     IEnumerator HidePanelCoroutine()
     {
+        anim.SetBool("isVisible", false);
         canSwitch = false;
         foreach (MenuButton button in shownButtons)
         {
             button.enabled = false;
         }
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.5f);
         foreach (MenuButton button in hiddenButtons)
         {
             button.enabled = true;

@@ -112,24 +112,7 @@ public class Egg : MonoBehaviour
             }
         }
 
-        if(EggGenerator.Instance.shockwaves && canShockwave)
-        {
-            eggsToBreak = new List<Egg>();
-            Collider2D[] colArray = Physics2D.OverlapCircleAll(transform.position, EggGenerator.Instance.shockwaveRadius, LayerMask.GetMask("Default"), -1, 1);
-            foreach (Collider2D col in colArray)
-            {
-                if(col.tag == "Egg")
-                {
-                    eggsToBreak.Add(col.GetComponentInParent<Egg>());
-                }
-            }
 
-            foreach(Egg egg in eggsToBreak)
-            {
-                egg.Break(false);
-            }
-
-        }
 
         if(EggGenerator.Instance.breakingGivesMoney)
         {
@@ -148,6 +131,25 @@ public class Egg : MonoBehaviour
         else
         {
             ChickGenerator.Instance.SpawnMagicChick(transform.position, magicChickIndex);
+        }
+
+        if (EggGenerator.Instance.shockwaves && canShockwave)
+        {
+            eggsToBreak = new List<Egg>();
+            Collider2D[] colArray = Physics2D.OverlapCircleAll(transform.position, EggGenerator.Instance.shockwaveRadius, LayerMask.GetMask("Default"), -1, 1);
+            foreach (Collider2D col in colArray)
+            {
+                if (col.tag == "Egg")
+                {
+                    eggsToBreak.Add(col.GetComponentInParent<Egg>());
+                }
+            }
+
+            foreach (Egg egg in eggsToBreak)
+            {
+                egg.Break(false);
+            }
+
         }
         Remove();
 

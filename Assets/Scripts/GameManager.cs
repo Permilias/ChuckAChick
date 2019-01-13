@@ -14,7 +14,14 @@ public class GameManager : MonoBehaviour {
 
     public float score;
     public int money;
+    public int playerMoney;
     public int baseMoneyMultiplier;
+
+    [Header("Game End")]
+    public GameObject endBackSprite;
+    public TextMeshPro endMoneyText;
+    public TextMeshPro endPlayerMoneyText;
+    public GameObject backToMenuButton;
 
     private void Awake()
     {
@@ -24,6 +31,12 @@ public class GameManager : MonoBehaviour {
     private void Start()
     {
         moneyText.text = "0 $";
+        endBackSprite.SetActive(false);
+        endMoneyText.gameObject.SetActive(false);
+        endPlayerMoneyText.gameObject.SetActive(false);
+        backToMenuButton.SetActive(false);
+        endMoneyTarget = 0;
+        endPlayerMoneyTarget = 0;
         DataManager.Instance.Load(true, true);
         score = 0;
 
@@ -31,11 +44,48 @@ public class GameManager : MonoBehaviour {
     }
 
     float reference;
+    float reference2;
+    float reference3;
     float shownMoney;
+    float endShownMoney;
+    float endShownPlayerMoney;
+
+    float endMoneyTarget;
+    float endPlayerMoneyTarget;
     private void FixedUpdate()
     {
-        shownMoney = Mathf.SmoothDamp(shownMoney, money, ref reference, 0.15f);
+        shownMoney = Mathf.SmoothDamp(shownMoney, money, ref reference, 0.08f);
         moneyText.text = Mathf.RoundToInt(shownMoney).ToString() + " $";
+
+        endShownMoney = Mathf.SmoothDamp(endShownMoney, endMoneyTarget, ref reference2, 0.08f);
+        endMoneyText.text = Mathf.RoundToInt(endShownMoney).ToString() + " $";
+
+        endShownPlayerMoney = Mathf.SmoothDamp(endShownPlayerMoney, endPlayerMoneyTarget, ref reference3, 0.08f);
+        endPlayerMoneyText.text = Mathf.RoundToInt(endShownPlayerMoney).ToString() + " $";
+    }
+
+    public void EndGame()
+    {
+        StartCoroutine("EndGameCoroutine");
+    }
+
+    IEnumerator EndGameCoroutine()
+    {
+        endBackSprite.SetActive(true);
+        yield return new WaitForSeconds(1);
+        endMoneyTarget = money;
+        endMoneyText.gameObject.SetActive(true);
+        yield return new WaitForSeconds(1);
+        endPlayerMoneyText.text = playerMoney.ToString();
+        endPlayerMoneyTarget = playerMoney;
+        endPlayerMoneyText.gameObject.SetActive(true);
+        yield return new WaitForSeconds(1);
+        endPlayerMoneyTarget = playerMoney + money;
+        playerMoney += money;
+        money = 0;
+        endMoneyTarget = 0;
+        yield return new WaitForSeconds(1);
+        backToMenuButton.SetActive(true);
     }
 
     public void AddScore(float value)

@@ -21,6 +21,8 @@ public class PlayerLife : MonoBehaviour {
 
     public float damageShakeDuration;
 
+    public bool lost;
+
     private void Awake()
     {
         Instance = this;
@@ -35,11 +37,23 @@ public class PlayerLife : MonoBehaviour {
 
     public void LoseLife(float amount, float shakeStrength)
     {
-        ScreenShake.Instance.Shake(damageShakeDuration, shakeStrength);
-        life -= amount;
-        if (life < 0) life = 0;
-        float newScale = life * scaleMultiplier;
-        lifeBarPivot.localScale = new Vector3(1, newScale, 1);
+        if(!lost)
+        {
+            ScreenShake.Instance.Shake(damageShakeDuration, shakeStrength);
+            life -= amount;
+
+            float newScale = life * scaleMultiplier;
+            lifeBarPivot.localScale = new Vector3(1, newScale, 1);
+
+            if (life <= 0)
+            {
+                lost = true;
+                life = 0;
+                GameManager.Instance.EndGame();
+            }
+        }
+
+
     }
 
     public void GainLife(float amount)

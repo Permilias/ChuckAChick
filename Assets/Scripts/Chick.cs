@@ -14,6 +14,8 @@ public class Chick : MonoBehaviour {
     public float currentTimer;
 
     public GameObject bodySprite;
+    public GameObject feathers;
+    public GameObject magicAura;
 
     public float value;
 
@@ -106,7 +108,7 @@ public class Chick : MonoBehaviour {
 
         if(bomb)
         {
-            bombText.transform.position = transform.position + new Vector3(0, 0, -1);
+            bombText.transform.position = transform.position + new Vector3(0, 0, -3);
             bombText.transform.rotation = Quaternion.identity;
             if(canMove)
             {
@@ -132,7 +134,15 @@ public class Chick : MonoBehaviour {
             }
         }
         if(bodySprite != null)
-        bodySprite.transform.rotation = Quaternion.identity;
+            bodySprite.transform.rotation = Quaternion.identity;
+        if (feathers != null)
+            feathers.transform.rotation = Quaternion.identity;
+        if (magic && magicAura != null)
+        {
+            magicAura.transform.position = transform.position + new Vector3(0, 0, 0);
+            magicAura.transform.rotation = Quaternion.identity;
+        }
+
     }
 
     public void Explode()
@@ -154,6 +164,8 @@ public class Chick : MonoBehaviour {
     {
         if(clickableObject.clicked)
         {
+            if (feathers != null)
+                feathers.SetActive(true);
             Vector3 touchPos;
 #if UNITY_EDITOR
             touchPos = InputHandler.Instance.MouseWorldPosition();
@@ -173,6 +185,7 @@ public class Chick : MonoBehaviour {
         }
         else
         {
+
             if (hasBeenClicked && !velDecaying)
             {
                 velDecaying = true;
@@ -189,13 +202,16 @@ public class Chick : MonoBehaviour {
             }
             else
             {
+                if (feathers != null)
+                    feathers.SetActive(false);
                 newVel = new Vector3(0, ySpeed, 0);
             }
 
         }
 
+
         rb.velocity = newVel;
-        transform.rotation.SetLookRotation(Vector3.up, newVel);
+
     }
 
 

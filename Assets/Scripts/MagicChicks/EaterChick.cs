@@ -28,7 +28,7 @@ public class EaterChick : MonoBehaviour {
 
     private void Update()
     {
-        valueText.transform.position = transform.position + new Vector3(0, 0, -1);
+        valueText.transform.position = transform.position + new Vector3(0, 0, -3);
         valueText.transform.rotation = Quaternion.identity;
     }
 }
