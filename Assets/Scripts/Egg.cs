@@ -145,6 +145,8 @@ public class Egg : MonoBehaviour
                 }
             }
 
+            eggsToBreak.Remove(this);
+
             foreach (Egg egg in eggsToBreak)
             {
                 egg.Break(false);
