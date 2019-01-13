@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Mfx_cloud 1
+  m_Name: Mfx_cloud 2
   m_Shader: {fileID: 4800000, guid: 1ffab62c9ae3c1f4cb376d283653d79d, type: 3}
   m_ShaderKeywords: _ALPHABLEND_ON
   m_LightmapFlags: 0
@@ -108,8 +108,8 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 0
     m_Colors:
-    - Color_B4EDD18C: {r: 0.1792453, g: 0.09874739, b: 0.010991462, a: 0}
-    - Color_B6F55408: {r: 1, g: 0.61178035, b: 0, a: 0}
+    - Color_B4EDD18C: {r: 0.9622642, g: 0.90595335, b: 0.34042364, a: 0}
+    - Color_B6F55408: {r: 0.8492214, g: 0.9433962, b: 0.031149892, a: 0}
     - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _ColorAddSubDiff: {r: 1, g: 0, b: 0, a: 0}
