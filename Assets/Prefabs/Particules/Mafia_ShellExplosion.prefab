@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4794004757155432}
   m_Layer: 0
-  m_Name: Vortex_ShellExplosion 1
+  m_Name: Mafia_ShellExplosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -234,7 +234,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1056506895065088}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.0947396, y: 3.770822, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4689422588280314}
@@ -440,7 +440,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 0.8671813, b: 0.6839622, a: 1}
+      maxColor: {r: 0.12388753, g: 0.9056604, b: 0.34393337, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -9719,7 +9719,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 0.62793696, g: 0.9716981, b: 0.7308464, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -9781,8 +9781,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.2
-      minScalar: 0.6
+      scalar: 0.5
+      minScalar: 0.8
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -15402,17 +15402,17 @@ ParticleSystem:
         serializedVersion: 2
         key0: {r: 0, g: 0, b: 0, a: 1}
         key1: {r: 0, g: 0, b: 0, a: 1}
-        key2: {r: 0.9866245, g: 1, b: 0, a: 0}
-        key3: {r: 1, g: 0.9685757, b: 0, a: 0}
-        key4: {r: 1, g: 0.9532509, b: 0, a: 0}
+        key2: {r: 0.9836905, g: 1, b: 0.9764151, a: 0}
+        key3: {r: 1, g: 0.9696857, b: 0, a: 0}
+        key4: {r: 1, g: 0.9696857, b: 0, a: 0}
         key5: {r: 1, g: 0.9696857, b: 0, a: 0}
         key6: {r: 1, g: 0.9696857, b: 0, a: 0}
         key7: {r: 1, g: 0.9696857, b: 0, a: 0}
         ctime0: 7517
         ctime1: 19853
         ctime2: 20239
-        ctime3: 23130
-        ctime4: 30455
+        ctime3: 65535
+        ctime4: 65535
         ctime5: 65535
         ctime6: 65535
         ctime7: 65535
@@ -15425,7 +15425,7 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
-        m_NumColorKeys: 6
+        m_NumColorKeys: 3
         m_NumAlphaKeys: 3
       minGradient:
         serializedVersion: 2
