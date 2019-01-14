@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Mfx_cloud 1
-  m_Shader: {fileID: 4800000, guid: 1ffab62c9ae3c1f4cb376d283653d79d, type: 3}
+  m_Shader: {fileID: 4800000, guid: c5e9eb3039ba5a8429a2a13d7744ba06, type: 3}
   m_ShaderKeywords: _ALPHABLEND_ON
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
