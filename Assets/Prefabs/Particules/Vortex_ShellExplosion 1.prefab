@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4794004757155432}
   m_Layer: 0
-  m_Name: ShellExplosion
+  m_Name: Vortex_ShellExplosion 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
