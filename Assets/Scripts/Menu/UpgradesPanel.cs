@@ -24,6 +24,10 @@ public class UpgradesPanel : MonoBehaviour {
         {
             button.enabled = false;
         }
+        foreach (MenuButton button in hiddenButtons)
+        {
+            button.enabled = true;
+        }
     }
 
     public void ShowPanel()

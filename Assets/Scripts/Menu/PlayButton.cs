@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayButton : MonoBehaviour {
 
     MenuButton button;
+    public Animator chickenAnim;
 
     private void Awake()
     {
@@ -16,6 +17,7 @@ public class PlayButton : MonoBehaviour {
         if(button.clicked)
         {
             button.clicked = false;
+            chickenAnim.SetTrigger("Play");
             MenuManager.Instance.LoadMain();
         }
     }

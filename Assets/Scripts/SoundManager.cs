@@ -9,6 +9,7 @@ public class SoundManager : MonoBehaviour {
     public Sound eggCrack;
     public Sound bombBip;
     public Sound bombLastBip;
+    public Sound bombExplosion;
 
     public List<Sound> magicTaps;
     public List<Sound> magicCracks;

@@ -147,6 +147,7 @@ public class Chick : MonoBehaviour {
 
     public void Explode()
     {
+        SoundManager.Instance.PlaySound(SoundManager.Instance.bombExplosion);
         ExplosionManager.Instance.SpawnExplosion(transform.position);
         Remove();
     }
@@ -179,7 +180,7 @@ public class Chick : MonoBehaviour {
             }
             touchPos = new Vector3(currentTouchPos.x, currentTouchPos.y, 0);
 #endif
-            newVel = (touchPos - transform.position) * 5;
+            newVel = (touchPos - transform.position) * 5.5f;
             hasBeenClicked = true;
             velDecaying = false;
         }
@@ -246,6 +247,7 @@ public class Chick : MonoBehaviour {
         sick = false;
         SR.sprite = ChickGenerator.Instance.baseSprite;
         SR.color = ChickGenerator.Instance.baseSpriteColor;
+        value = ChickGenerator.Instance.baseChickValue;
 
         if(PS != null)
         {

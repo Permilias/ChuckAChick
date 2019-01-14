@@ -52,8 +52,6 @@ public class PlayerLife : MonoBehaviour {
                 GameManager.Instance.EndGame();
             }
         }
-
-
     }
 
     public void GainLife(float amount)

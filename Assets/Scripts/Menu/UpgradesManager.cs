@@ -26,12 +26,13 @@ public class UpgradesManager : MonoBehaviour {
     public GameObject downgradeBox;
 
     public GameObject selector;
+    public float selectorSmallSize;
+    public float selectorLargeSize;
 
     private void Awake()
     {
         Instance = this;
     }
-
 
     public void SelectButton(UpgradeButton _button)
     {
@@ -42,6 +43,14 @@ public class UpgradesManager : MonoBehaviour {
         _button.selected = true;
         selector.SetActive(true);
         selector.transform.position = _button.transform.position;
+        if(_button.orderInBranch == 2)
+        {
+            selector.transform.localScale = new Vector3(selectorLargeSize, selectorLargeSize, selectorLargeSize);
+        }
+        else
+        {
+            selector.transform.localScale = new Vector3(selectorSmallSize, selectorSmallSize, selectorSmallSize);
+        }
         currentSelectedButton = _button;
         if (_button.upgradeState == -1)
         {
@@ -65,9 +74,18 @@ public class UpgradesManager : MonoBehaviour {
             currentLevelText.text = "LVL 1";
             costText.text = _button.secondCost.ToString();
             nextLevelText.text = "LVL 2";
-            if(_button.orderInBranch == 2)
+            if(_button.orderInBranch == 0)
             {
-                downgradeBox.SetActive(true);
+                if(_button.branchButton1.upgradeState <= 0)
+                {
+                    print("prout");
+                    downgradeBox.SetActive(true);
+                }
+                else
+                {
+                    print("prout2");
+                    downgradeBox.SetActive(false);
+                }
             }
             else if(_button.orderInBranch == 1)
             {
@@ -82,16 +100,12 @@ public class UpgradesManager : MonoBehaviour {
             }
             else
             {
-                if (_button.branchButton1.upgradeState < 1 && _button.branchButton2.upgradeState < 1)
-                {
-                    downgradeBox.SetActive(true);
-                }
-                else
-                {
-                    downgradeBox.SetActive(false);
-                }
+                downgradeBox.SetActive(true);
+                upgradeText.text = _button.upgradeText4;
+                currentLevelText.text = "LVL 3";
+                costText.text = "MAX";
+                nextLevelText.text = "";
             }
-            downgradeBox.SetActive(true);
         }
         else if (_button.upgradeState == 2)
         {
@@ -131,6 +145,12 @@ public class UpgradesManager : MonoBehaviour {
         playerMoneyText2.text = "Player Money : " + playerMoney.ToString();
 
         selector.SetActive(false);
+        downgradeBox.SetActive(false);
+
+        currentLevelText.text = "";
+        upgradeText.text = "";
+        nextLevelText.text = "";
+        costText.text = "";
     }
 
     public void Upgrade(UpgradeButton _button)
@@ -140,16 +160,22 @@ public class UpgradesManager : MonoBehaviour {
             if (upgradesArray[_button.index] == 0)
             {
                 playerMoney -= _button.initialCost;
+                upgradesArray[_button.index] += 1;
             }
-            else if (upgradesArray[_button.index] == 1)
+            else if (upgradesArray[_button.index] == 1 && _button.orderInBranch != 2)
             {
                 playerMoney -= _button.secondCost;
+                upgradesArray[_button.index] += 1;
             }
             else
             {
-                playerMoney -= _button.thirdCost;
+                if(_button.orderInBranch != 2)
+                {
+                    playerMoney -= _button.thirdCost;
+                }
+                upgradesArray[_button.index] += 1;
             }
-            upgradesArray[_button.index] += 1;
+
         }
         foreach (UpgradeButton button in upgradeButtons)
         {
@@ -185,8 +211,8 @@ public class UpgradesManager : MonoBehaviour {
             {
                 playerMoney += _button.thirdCost;
             }
-            upgradesArray[_button.index] -= 1;
 
+            upgradesArray[_button.index] -= 1;
 
             foreach (UpgradeButton button in upgradeButtons)
             {
