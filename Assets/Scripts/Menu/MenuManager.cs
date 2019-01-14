@@ -34,9 +34,16 @@ public class MenuManager : MonoBehaviour {
 
     public void LoadMain()
     {
-        Debug.Log("Loading Main...");
+        StartCoroutine("LoadMainCoroutine");
+    }
+
+    IEnumerator LoadMainCoroutine()
+    {
+        AsyncOperation aop = SceneManager.LoadSceneAsync("Main");
+        aop.allowSceneActivation = false;
+        yield return new WaitForSeconds(1);
         DataManager.Instance.Save(false);
-        SceneManager.LoadScene("Main");
+        aop.allowSceneActivation = true;
     }
 
     private void Update()

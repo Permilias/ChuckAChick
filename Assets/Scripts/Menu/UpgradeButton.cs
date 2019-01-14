@@ -34,6 +34,10 @@ public class UpgradeButton : MonoBehaviour {
     public string upgradeText3;
     public string upgradeText4;
 
+    public Sprite lockedSprite;
+    public Sprite availableSprite;
+    public Sprite unlockedSprite;
+
     public bool selected;
 
     private void Start()
@@ -59,7 +63,7 @@ public class UpgradeButton : MonoBehaviour {
         {
             state = UpgradeButtonState.locked;
             currentCost = initialCost;
-            SR.color = Color.black;
+            SR.sprite = lockedSprite;
             if(orderInBranch == 0)
             {
                 if (UpgradesManager.Instance.playerMoney >= currentCost)
@@ -67,7 +71,7 @@ public class UpgradeButton : MonoBehaviour {
                     state = UpgradeButtonState.available;
                     upgradeState = 0;
                     UpgradesManager.Instance.upgradesArray[index] = 0;
-                    SR.color = Color.gray;
+                    SR.sprite = availableSprite;
                 }
             }
             else if(orderInBranch == 1)
@@ -79,7 +83,7 @@ public class UpgradeButton : MonoBehaviour {
                         state = UpgradeButtonState.available;
                         upgradeState = 0;
                         UpgradesManager.Instance.upgradesArray[index] = 0;
-                        SR.color = Color.gray;
+                        SR.sprite = availableSprite;
                     }
                 }
             }
@@ -92,7 +96,7 @@ public class UpgradeButton : MonoBehaviour {
                         state = UpgradeButtonState.available;
                         upgradeState = 0;
                         UpgradesManager.Instance.upgradesArray[index] = 0;
-                        SR.color = Color.gray;
+                        SR.sprite = availableSprite;
                     }
                 }
             }
@@ -101,7 +105,7 @@ public class UpgradeButton : MonoBehaviour {
         {
             state = UpgradeButtonState.available;
             currentCost = initialCost;
-            SR.color = Color.gray;
+            SR.sprite = availableSprite;
             if (orderInBranch == 0)
             {
                 if (UpgradesManager.Instance.playerMoney < currentCost)
@@ -110,7 +114,7 @@ public class UpgradeButton : MonoBehaviour {
                     currentCost = initialCost;
                     upgradeState = -1;
                     UpgradesManager.Instance.upgradesArray[index] = -1;
-                    SR.color = Color.black;
+                    SR.sprite = lockedSprite;
                 }
             }
             else if (orderInBranch == 1)
@@ -123,7 +127,7 @@ public class UpgradeButton : MonoBehaviour {
                         currentCost = initialCost;
                         upgradeState = -1;
                         UpgradesManager.Instance.upgradesArray[index] = -1;
-                        SR.color = Color.black;
+                        SR.sprite = lockedSprite;
                     }
                 }
             }
@@ -137,7 +141,7 @@ public class UpgradeButton : MonoBehaviour {
                         currentCost = initialCost;
                         upgradeState = -1;
                         UpgradesManager.Instance.upgradesArray[index] = -1;
-                        SR.color = Color.black;
+                        SR.sprite = lockedSprite;
                     }
                 }
             }
@@ -153,7 +157,7 @@ public class UpgradeButton : MonoBehaviour {
             {
                 currentCost = thirdCost;
             }
-            SR.color = Color.white;
+            SR.sprite = unlockedSprite;
         }
     }
 }

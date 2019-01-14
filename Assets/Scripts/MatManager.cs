@@ -30,6 +30,9 @@ public class MatManager : MonoBehaviour {
 
     float currentTimer;
 
+    public float resetTimeDifficultyMultiplier;
+    public float resetDifficultyMax;
+
     private void Awake()
     {
         Instance = this;
@@ -61,8 +64,13 @@ public class MatManager : MonoBehaviour {
     public void Reset()
     {
         currentTimer = 0;
-        difficulty = baseDifficulty;
-        SetSpeed(baseSpeed);
+        float resetDifficulty = baseDifficulty + (Time.timeSinceLevelLoad * resetTimeDifficultyMultiplier);
+        if(resetDifficulty > resetDifficultyMax)
+        {
+            resetDifficulty = resetDifficultyMax;
+        }
+        difficulty = resetDifficulty;
+        SetSpeed(baseSpeed * difficulty);
     }
 
     void SetSpeed(float _speed)

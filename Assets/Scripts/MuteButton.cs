@@ -35,10 +35,18 @@ public class MuteButton : MonoBehaviour {
     public void Mute()
     {
         muted = true;
+        foreach(AudioSource source in FindObjectsOfType<AudioSource>())
+        {
+            source.enabled = false;
+        }
     }
 
     public void Unmute()
     {
         muted = false;
+        foreach (AudioSource source in FindObjectsOfType<AudioSource>())
+        {
+            source.enabled = true;
+        }
     }
 }

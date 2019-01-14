@@ -16,7 +16,10 @@ public class UpgradeBox : MonoBehaviour {
         if (button.clicked)
         {
             button.clicked = false;
-            UpgradesManager.Instance.Upgrade(UpgradesManager.Instance.currentSelectedButton);
+            if(UpgradesManager.Instance.currentSelectedButton.upgradeState > -1)
+            {
+                UpgradesManager.Instance.Upgrade(UpgradesManager.Instance.currentSelectedButton);
+            }
         }
     }
 }
