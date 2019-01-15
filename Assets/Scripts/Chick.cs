@@ -249,6 +249,8 @@ public class Chick : MonoBehaviour {
         SR.color = ChickGenerator.Instance.baseSpriteColor;
         value = ChickGenerator.Instance.baseChickValue;
 
+        SoundManager.Instance.PlaySound(SoundManager.Instance.healedChick);
+
         if(PS != null)
         {
             Destroy(PS);
