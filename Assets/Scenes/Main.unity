@@ -90,7 +90,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1265,11 +1265,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 680259539}
@@ -3217,7 +3217,7 @@ MonoBehaviour:
     eggOdds: 5
     eggHp: 5
     value: 5
-  richPS: {fileID: 1521559449300436, guid: 6b0dd05150a49aa4a965224f7ab26237, type: 2}
+  richPS: {fileID: 1310036323403456, guid: 6b0dd05150a49aa4a965224f7ab26237, type: 2}
   poorPS: {fileID: 1994402319213000, guid: 1f54b3acc15c8a746ae821d116f50f72, type: 2}
   sickChickOdds: 4
   bombChickOdds: 20
@@ -3238,6 +3238,7 @@ MonoBehaviour:
   baseSpriteColor: {r: 1, g: 0.9607843, b: 0, a: 1}
   sickSprite: {fileID: 21300000, guid: 4d6d0ec65e0ac7a46840f9f936284c0a, type: 3}
   sickColor: {r: 0.39126024, g: 0.4811321, b: 0.25645247, a: 1}
+  enrichedColor: {r: 1, g: 0.9815857, b: 0.0990566, a: 1}
   shellExplosions:
   - shellExplosion: {fileID: 1056506895065088, guid: 15300bc12b720a243929eab8fa9fc00d,
       type: 2}
@@ -3245,6 +3246,7 @@ MonoBehaviour:
       type: 2}
   - shellExplosion: {fileID: 1643730984734334, guid: 7ac0e4ddfa37fe745aa0e883fb2bc789,
       type: 2}
+  healingFX: {fileID: 1816575289672188, guid: 1dc8508673bf42f4889677ac10a9f0e8, type: 2}
   activeChicks: []
 --- !u!4 &2051819866
 Transform:

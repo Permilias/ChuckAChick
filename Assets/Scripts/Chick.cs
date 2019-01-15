@@ -52,6 +52,8 @@ public class Chick : MonoBehaviour {
         colliderGO.SetActive(true);
         anim.SetInteger("AnimIndex", animIndex);
 
+        SR.color = Color.white;
+
         if(bomb)
         {
             currentTimer = ChickGenerator.Instance.bombTimer;
@@ -139,7 +141,11 @@ public class Chick : MonoBehaviour {
             magicAura.transform.position = transform.position + new Vector3(0, 0, 0);
             magicAura.transform.rotation = Quaternion.identity;
         }
-
+        if(PS != null)
+        {
+            PS.transform.position = transform.position + new Vector3(0, 0, -1);
+            PS.transform.rotation = Quaternion.identity;
+        }
     }
 
     public void Explode()
@@ -241,25 +247,20 @@ public class Chick : MonoBehaviour {
 
     public void Heal()
     {
+        ChickGenerator.Instance.SpawnHealingFX(transform);
         sick = false;
         value = ChickGenerator.Instance.baseChickValue;
         anim.SetInteger("AnimIndex", 0);
 
         SoundManager.Instance.PlaySound(SoundManager.Instance.healedChick);
-
-        if(PS != null)
-        {
-            Destroy(PS);
-            PS = null;
-            Enrich();
-        }
     }
 
-    GameObject PS;
+    public GameObject PS;
     public void Enrich()
     {
         if(PS == null)
         {
+            anim.SetInteger("AnimIndex", 7);
              value += ChickGenerator.Instance.richChickValue;
              PS = Instantiate(ChickGenerator.Instance.richPS, transform);
         }
