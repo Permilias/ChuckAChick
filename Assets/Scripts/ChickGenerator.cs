@@ -199,23 +199,27 @@ public class ChickGenerator : MonoBehaviour {
         }
         //spawn the chick and set up value
         float value;
+        int animIndex;
         if(spawnsBombChick)
         {
             spawnedChickGO = bombChickPool.Dequeue();
             value = baseBombChickvalue;
             StartCoroutine(ShellExplosion(2, spawnedChickPos));
+            animIndex = 2;
         }
         else if(spawnsSickChick)
         {
             spawnedChickGO = sickChickPool.Dequeue();
             value = baseSickChickValue;
             StartCoroutine(ShellExplosion(1, spawnedChickPos));
+            animIndex = 1;
         }
         else
         {
             spawnedChickGO = chickPool.Dequeue();
             value = baseChickValue;
             StartCoroutine(ShellExplosion(0, spawnedChickPos));
+            animIndex = 0;
         }
 
         spawnedChickGO.transform.position = spawnedChickPos;
@@ -228,7 +232,7 @@ public class ChickGenerator : MonoBehaviour {
         {
             spawnedChick.bombText.transform.rotation = Quaternion.identity;
         }
-        spawnedChick.Initialize();
+        spawnedChick.Initialize(animIndex);
         spawnedChick.canMove = true;
         spawnedChick.ySpeed = MatManager.Instance.matSpeed;
 
@@ -252,7 +256,7 @@ public class ChickGenerator : MonoBehaviour {
         spawnedChick = spawnedChickGO.GetComponent<Chick>();
         spawnedChick.magicChickIndex = index;
         activeChicks.Add(spawnedChick);
-        spawnedChick.Initialize();
+        spawnedChick.Initialize(3 + index);
         spawnedChick.canMove = true;
         spawnedChick.ySpeed = MatManager.Instance.matSpeed;
 
