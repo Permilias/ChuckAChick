@@ -35,7 +35,10 @@ public class ClickableObject : MonoBehaviour
                     }
                     if(takesFingerId)
                     {
-                        clicked = true;
+                        if(!GameManager.Instance.gameEnded)
+                        {
+                            clicked = true;
+                        }
                         fingerId = touch.fingerId;
                         InputHandler.Instance.usedFingerIdList.Add(fingerId);
                     }

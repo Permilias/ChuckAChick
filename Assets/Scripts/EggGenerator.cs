@@ -46,6 +46,7 @@ public class EggGenerator : MonoBehaviour {
     public List<Egg> activeEggs;
 
     int totalMagicEggOdds;
+    public bool canSpawn = true;
 
     private void Awake()
     {
@@ -72,20 +73,28 @@ public class EggGenerator : MonoBehaviour {
     float magicEggTimer;
     private void Update()
     {
-        //elapse egg delay, spawn if elapsed
-        eggTimer += Time.deltaTime;
-        if(eggTimer >= eggFrequency)
+        if(canSpawn)
         {
-            eggTimer = 0;
-            SpawnEgg();
-        }
+            //elapse egg delay, spawn if elapsed
+            eggTimer += Time.deltaTime;
+            if (eggTimer >= eggFrequency)
+            {
+                eggTimer = 0;
+                SpawnEgg();
+            }
 
-        magicEggTimer += Time.deltaTime;
-        if (magicEggTimer >= magicEggFrequency)
-        {
-            magicEggTimer = 0;
-            SpawnMagicEgg();
+            magicEggTimer += Time.deltaTime;
+            if (magicEggTimer >= magicEggFrequency)
+            {
+                magicEggTimer = 0;
+                SpawnMagicEgg();
+            }
         }
+    }
+    
+    public void Stop()
+    {
+        canSpawn = false;
     }
 
     GameObject newEggGO;

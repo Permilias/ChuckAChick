@@ -98,63 +98,65 @@ public class Egg : MonoBehaviour
     float dist;
     public void Break(bool canShockwave)
     {
-        SoundManager.Instance.PlaySound(SoundManager.Instance.eggCrack);
-        clickableObject.clicked = false;
-        InputHandler.Instance.usedFingerIdList.Remove(clickableObject.fingerId);
-        clickableObject.fingerId = -1;
-
-        foreach (EaterChick eater in FindObjectsOfType<EaterChick>())
+        if (!GameManager.Instance.gameEnded)
         {
-            dist = Vector3.Distance(transform.position, eater.transform.position);
-            if (dist <= eater.detectionRadius)
+            SoundManager.Instance.PlaySound(SoundManager.Instance.eggCrack);
+            clickableObject.clicked = false;
+            InputHandler.Instance.usedFingerIdList.Remove(clickableObject.fingerId);
+            clickableObject.fingerId = -1;
+
+            foreach (EaterChick eater in FindObjectsOfType<EaterChick>())
             {
-                eater.Eat(transform.position);
-            }
-        }
-
-
-
-        if(EggGenerator.Instance.breakingGivesMoney)
-        {
-            GameManager.Instance.AddScore(EggGenerator.Instance.breakingMoney);
-        }
-
-        if(EggGenerator.Instance.breakingHeals)
-        {
-            PlayerLife.Instance.GainLife(EggGenerator.Instance.breakingHealing);
-        }
-
-        if(!magicEgg)
-        {
-            ChickGenerator.Instance.SpawnChick(transform.position);
-        }
-        else
-        {
-            ChickGenerator.Instance.SpawnMagicChick(transform.position, magicChickIndex);
-        }
-
-        if (EggGenerator.Instance.shockwaves && canShockwave)
-        {
-            eggsToBreak = new List<Egg>();
-            Collider2D[] colArray = Physics2D.OverlapCircleAll(transform.position, EggGenerator.Instance.shockwaveRadius, LayerMask.GetMask("Default"), -1, 1);
-            foreach (Collider2D col in colArray)
-            {
-                if (col.tag == "Egg")
+                dist = Vector3.Distance(transform.position, eater.transform.position);
+                if (dist <= eater.detectionRadius)
                 {
-                    eggsToBreak.Add(col.GetComponentInParent<Egg>());
+                    eater.Eat(transform.position);
                 }
             }
 
-            eggsToBreak.Remove(this);
 
-            foreach (Egg egg in eggsToBreak)
+
+            if (EggGenerator.Instance.breakingGivesMoney)
             {
-                egg.Break(false);
+                GameManager.Instance.AddScore(EggGenerator.Instance.breakingMoney);
             }
 
-        }
-        Remove();
+            if (EggGenerator.Instance.breakingHeals)
+            {
+                PlayerLife.Instance.GainLife(EggGenerator.Instance.breakingHealing);
+            }
 
+            if (!magicEgg)
+            {
+                ChickGenerator.Instance.SpawnChick(transform.position);
+            }
+            else
+            {
+                ChickGenerator.Instance.SpawnMagicChick(transform.position, magicChickIndex);
+            }
+
+            if (EggGenerator.Instance.shockwaves && canShockwave)
+            {
+                eggsToBreak = new List<Egg>();
+                Collider2D[] colArray = Physics2D.OverlapCircleAll(transform.position, EggGenerator.Instance.shockwaveRadius, LayerMask.GetMask("Default"), -1, 1);
+                foreach (Collider2D col in colArray)
+                {
+                    if (col.tag == "Egg")
+                    {
+                        eggsToBreak.Add(col.GetComponentInParent<Egg>());
+                    }
+                }
+
+                eggsToBreak.Remove(this);
+
+                foreach (Egg egg in eggsToBreak)
+                {
+                    egg.Break(false);
+                }
+
+            }
+            Remove();
+        }
     }
 
     Vector3 newVel;

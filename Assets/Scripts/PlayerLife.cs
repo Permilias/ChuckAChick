@@ -51,6 +51,10 @@ public class PlayerLife : MonoBehaviour {
                 life = 0;
                 GameManager.Instance.EndGame();
             }
+            else
+            {
+                MatManager.Instance.Reset();
+            }
         }
     }
 
