@@ -3717,11 +3717,12 @@ MonoBehaviour:
     minPitch: 0
     maxPitch: 0
   menuMusic:
-    clips: []
-    minVolume: 0
-    maxVolume: 0
-    minPitch: 0
-    maxPitch: 0
+    clips:
+    - {fileID: 8300000, guid: 91e90f3319571b94984ccd25a2246b04, type: 3}
+    minVolume: 1
+    maxVolume: 1
+    minPitch: 1
+    maxPitch: 1
   gameMusic:
     clips: []
     minVolume: 0
@@ -3753,29 +3754,64 @@ MonoBehaviour:
     minPitch: 0
     maxPitch: 0
   ambianceMenu:
-    clips: []
-    minVolume: 0
-    maxVolume: 0
-    minPitch: 0
-    maxPitch: 0
+    clips:
+    - {fileID: 8300000, guid: f1934d2f01ae22640b9bd08e7c557d65, type: 3}
+    minVolume: 1
+    maxVolume: 1
+    minPitch: 1
+    maxPitch: 1
   buttonPress:
-    clips: []
-    minVolume: 0
-    maxVolume: 0
-    minPitch: 0
-    maxPitch: 0
+    clips:
+    - {fileID: 8300000, guid: aa49b1a37a305084fa9bfe57bb9db376, type: 3}
+    - {fileID: 8300000, guid: a101bfa89f53b2c468dddbe1d3e4edfc, type: 3}
+    - {fileID: 8300000, guid: a348a7cd4d4c7ff4ca65626aaa07aef2, type: 3}
+    - {fileID: 8300000, guid: db3a37ce42d495246bf3c4dbcde45f76, type: 3}
+    - {fileID: 8300000, guid: 4b233b69cd53f61449c1a225b28b7935, type: 3}
+    - {fileID: 8300000, guid: da19d35783b2d324abb2021c060040e4, type: 3}
+    - {fileID: 8300000, guid: 628801caf4ab6d740bb6bb3f2baa9152, type: 3}
+    - {fileID: 8300000, guid: bd90212f8069b6b49abc613f4c055235, type: 3}
+    minVolume: 1
+    maxVolume: 1
+    minPitch: 1
+    maxPitch: 1
   goBackButtonPress:
-    clips: []
-    minVolume: 0
-    maxVolume: 0
-    minPitch: 0
-    maxPitch: 0
+    clips:
+    - {fileID: 8300000, guid: 6a641e8bea5d87d40a0c7ca1237ced3b, type: 3}
+    - {fileID: 8300000, guid: 5f23e01bb17f7bf43b30052ab41473f9, type: 3}
+    - {fileID: 8300000, guid: 048be7b33c1d3ab43999727bcc505f66, type: 3}
+    - {fileID: 8300000, guid: eef95d5d1a4736a46a45e03e079b61af, type: 3}
+    minVolume: 1
+    maxVolume: 1
+    minPitch: 1
+    maxPitch: 1
   menuPlayButtonPress:
-    clips: []
+    clips:
+    - {fileID: 8300000, guid: 1d2539be1ebb0784a8d7701f5ff20544, type: 3}
+    minVolume: 1
+    maxVolume: 1
+    minPitch: 1
+    maxPitch: 1
+  moneySoundRepeat:
+    clips:
+    - {fileID: 8300000, guid: a8418d20d0b7edf47b42a4d5508148ae, type: 3}
     minVolume: 0
     maxVolume: 0
     minPitch: 0
     maxPitch: 0
+  buyUpgradeSound:
+    clips:
+    - {fileID: 8300000, guid: 24b903c92db80a4499d05b8482dc95b5, type: 3}
+    minVolume: 1
+    maxVolume: 1
+    minPitch: 1
+    maxPitch: 1
+  downgradeSound:
+    clips:
+    - {fileID: 8300000, guid: c19eaef0e8861f24b9d7dbb4babdb10b, type: 3}
+    minVolume: 1
+    maxVolume: 1
+    minPitch: 1
+    maxPitch: 1
   magicTaps: []
   magicCracks: []
   healedChick:
@@ -3790,6 +3826,31 @@ MonoBehaviour:
     maxVolume: 0
     minPitch: 0
     maxPitch: 0
+  vortexChickAuraLoop:
+    clips:
+    - {fileID: 8300000, guid: 2364c20d38ad4e14ebfe03ef108e44fb, type: 3}
+    minVolume: 0
+    maxVolume: 0
+    minPitch: 1
+    maxPitch: 1
+  healChickAuraLoop:
+    clips: []
+    minVolume: 0
+    maxVolume: 0
+    minPitch: 1
+    maxPitch: 1
+  eggbreakerChickAuraLoop:
+    clips: []
+    minVolume: 0
+    maxVolume: 0
+    minPitch: 1
+    maxPitch: 1
+  godfatherChickAuraLoop:
+    clips: []
+    minVolume: 0
+    maxVolume: 0
+    minPitch: 1.834
+    maxPitch: 1
 --- !u!4 &1066473800
 Transform:
   m_ObjectHideFlags: 0
