@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 23916542586486000}
   - component: {fileID: 95138773809957972}
   m_Layer: 0
-  m_Name: mesh_scie
+  m_Name: scie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
