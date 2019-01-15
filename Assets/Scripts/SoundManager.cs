@@ -6,13 +6,32 @@ public class SoundManager : MonoBehaviour {
 
     public static SoundManager Instance;
 
+    [Header("Classic Chicks SFX")]
     public Sound eggCrack;
     public Sound bombBip;
     public Sound bombLastBip;
     public Sound bombExplosion;
+    public Sound piouDragSain;
+    public Sound piouDragMalade;
 
+    [Header("Interface & Background")]
+    public Sound menuMusic;
+    public Sound gameMusic;
+    public Sound ambianceUsine;
+    public Sound ambianceUsineStart;
+    public Sound damage;
+    public Sound bigDamage;
+    public Sound ambianceMenu;
+    public Sound buttonPress;
+    public Sound goBackButtonPress;
+    public Sound menuPlayButtonPress;
+
+    [Header("Magic Chicks SFX")]
     public List<Sound> magicTaps;
     public List<Sound> magicCracks;
+    public Sound healedChick;
+    public Sound vortexChickIncrementation;
+
 
     public Queue<GameObject> receptaclePool;
 

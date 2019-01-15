@@ -90,7 +90,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1928,6 +1928,106 @@ MonoBehaviour:
     maxVolume: 1
     minPitch: 1
     maxPitch: 1
+  piouDragSain:
+    clips:
+    - {fileID: 8300000, guid: 700b3a7f4599aba44b09e58dbf71bd13, type: 3}
+    - {fileID: 8300000, guid: 92420f3b8344f5347b7fe0934f5858f2, type: 3}
+    - {fileID: 8300000, guid: d400d0cb5aab15e45b74dcb7a642699d, type: 3}
+    - {fileID: 8300000, guid: a42cb5398f4665a4c8d2f26d4ee02dc5, type: 3}
+    - {fileID: 8300000, guid: be69a5f60600a6241a10a5e88edcb7a4, type: 3}
+    minVolume: 1
+    maxVolume: 1
+    minPitch: 1
+    maxPitch: 1
+  piouDragMalade:
+    clips:
+    - {fileID: 8300000, guid: 0c4b5853f2c7be645a382ddc7dbebad9, type: 3}
+    - {fileID: 8300000, guid: b2efff67043260d428c8a505b98406d6, type: 3}
+    - {fileID: 8300000, guid: 3399a6eee82cb7a4782b4a268e3ea005, type: 3}
+    - {fileID: 8300000, guid: be91b7a721e2f0f4e8777eb3658fd73b, type: 3}
+    - {fileID: 8300000, guid: 0ee5e55985ffecf41af6a129d47a41c2, type: 3}
+    minVolume: 1
+    maxVolume: 1
+    minPitch: 1
+    maxPitch: 1
+  menuMusic:
+    clips: []
+    minVolume: 0
+    maxVolume: 0
+    minPitch: 0
+    maxPitch: 0
+  gameMusic:
+    clips: []
+    minVolume: 0
+    maxVolume: 0
+    minPitch: 0
+    maxPitch: 0
+  ambianceUsine:
+    clips:
+    - {fileID: 8300000, guid: 88fe15a096582c3479e5c38592788b96, type: 3}
+    minVolume: 1
+    maxVolume: 1
+    minPitch: 1
+    maxPitch: 1
+  ambianceUsineStart:
+    clips:
+    - {fileID: 8300000, guid: fddb0bab542eb774580a68db7472dd9c, type: 3}
+    minVolume: 1
+    maxVolume: 1
+    minPitch: 1
+    maxPitch: 1
+  damage:
+    clips:
+    - {fileID: 8300000, guid: fc8633bc9a497d249baad59e54b67f34, type: 3}
+    minVolume: 1
+    maxVolume: 1
+    minPitch: 1
+    maxPitch: 1
+  bigDamage:
+    clips:
+    - {fileID: 8300000, guid: b83ed5ced7ab6a54a80d4659c65ad1fb, type: 3}
+    minVolume: 1
+    maxVolume: 1
+    minPitch: 1
+    maxPitch: 1
+  ambianceMenu:
+    clips:
+    - {fileID: 8300000, guid: 72d8af83c88784442a7801fbc291fe8f, type: 3}
+    minVolume: 1
+    maxVolume: 1
+    minPitch: 1
+    maxPitch: 1
+  buttonPress:
+    clips:
+    - {fileID: 8300000, guid: aa49b1a37a305084fa9bfe57bb9db376, type: 3}
+    - {fileID: 8300000, guid: a101bfa89f53b2c468dddbe1d3e4edfc, type: 3}
+    - {fileID: 8300000, guid: a348a7cd4d4c7ff4ca65626aaa07aef2, type: 3}
+    - {fileID: 8300000, guid: db3a37ce42d495246bf3c4dbcde45f76, type: 3}
+    - {fileID: 8300000, guid: 4b233b69cd53f61449c1a225b28b7935, type: 3}
+    - {fileID: 8300000, guid: da19d35783b2d324abb2021c060040e4, type: 3}
+    - {fileID: 8300000, guid: 628801caf4ab6d740bb6bb3f2baa9152, type: 3}
+    - {fileID: 8300000, guid: bd90212f8069b6b49abc613f4c055235, type: 3}
+    minVolume: 1
+    maxVolume: 1
+    minPitch: 1
+    maxPitch: 1
+  goBackButtonPress:
+    clips:
+    - {fileID: 8300000, guid: 6a641e8bea5d87d40a0c7ca1237ced3b, type: 3}
+    - {fileID: 8300000, guid: 5f23e01bb17f7bf43b30052ab41473f9, type: 3}
+    - {fileID: 8300000, guid: 048be7b33c1d3ab43999727bcc505f66, type: 3}
+    - {fileID: 8300000, guid: eef95d5d1a4736a46a45e03e079b61af, type: 3}
+    minVolume: 1
+    maxVolume: 1
+    minPitch: 1
+    maxPitch: 1
+  menuPlayButtonPress:
+    clips:
+    - {fileID: 8300000, guid: 1d2539be1ebb0784a8d7701f5ff20544, type: 3}
+    minVolume: 1
+    maxVolume: 1
+    minPitch: 1
+    maxPitch: 1
   magicTaps:
   - clips:
     - {fileID: 8300000, guid: bf712136f71511b4aa16aa79b557b9bf, type: 3}
@@ -1978,6 +2078,18 @@ MonoBehaviour:
     maxVolume: 1
     minPitch: 1
     maxPitch: 1
+  healedChick:
+    clips: []
+    minVolume: 0
+    maxVolume: 0
+    minPitch: 0
+    maxPitch: 0
+  vortexChickIncrementation:
+    clips: []
+    minVolume: 0
+    maxVolume: 0
+    minPitch: 0
+    maxPitch: 0
 --- !u!4 &1250611698
 Transform:
   m_ObjectHideFlags: 0
