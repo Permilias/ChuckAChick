@@ -21,6 +21,8 @@ public class Chick : MonoBehaviour {
 
     public SpriteRenderer SR;
 
+    public Animator anim;
+
     public int magicChickIndex;
     public bool magic;
     ClickableObject clickableObject;
@@ -35,7 +37,7 @@ public class Chick : MonoBehaviour {
         clickableObject = colliderGO.GetComponent<ClickableObject>();
     }
 
-    public void Initialize()
+    public void Initialize(int animIndex)
     {
         clickableObject.fingerId = -1;
         clickableObject.clicked = false;
@@ -48,16 +50,11 @@ public class Chick : MonoBehaviour {
         hasBeenClicked = false;
         velDecaying = false;
         colliderGO.SetActive(true);
+        anim.SetInteger("AnimIndex", animIndex);
 
         if(bomb)
         {
             currentTimer = ChickGenerator.Instance.bombTimer;
-        }
-
-        if(sick)
-        {
-            SR.sprite = ChickGenerator.Instance.sickSprite;
-            SR.color = ChickGenerator.Instance.sickColor;
         }
     }
 
@@ -245,9 +242,8 @@ public class Chick : MonoBehaviour {
     public void Heal()
     {
         sick = false;
-        SR.sprite = ChickGenerator.Instance.baseSprite;
-        SR.color = ChickGenerator.Instance.baseSpriteColor;
         value = ChickGenerator.Instance.baseChickValue;
+        anim.SetInteger("AnimIndex", 0);
 
         SoundManager.Instance.PlaySound(SoundManager.Instance.healedChick);
 
