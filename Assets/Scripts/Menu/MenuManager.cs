@@ -11,11 +11,13 @@ public class MenuManager : MonoBehaviour {
 
     private void Awake()
     {
+        
         Instance = this;
     }
 
     private void Start()
     {
+      
         DataManager.Instance.Load(true, false);
         DataManager.Instance.Save(false);
     }
@@ -35,6 +37,7 @@ public class MenuManager : MonoBehaviour {
 
     public void LoadMain()
     {
+        SoundManager.Instance.PlaySound(SoundManager.Instance.menuPlayButtonPress);
         StartCoroutine("LoadMainCoroutine");
     }
 
