@@ -14,6 +14,9 @@ public class Grinder : MonoBehaviour {
 
     public static Grinder Instance;
 
+    public GameObject bloodFX;
+    public Queue<GameObject> bloodFXs;
+
     private void Awake()
     {
         Instance = this;
@@ -29,6 +32,20 @@ public class Grinder : MonoBehaviour {
         grindingYIncrement = grindingYGain / grindingIncrements;
         grindingScaleIncrement = Vector3.one / grindingIncrements;
         //groundChicksText.text = "TOTAL GROUND CHICKS : " + GameManager.Instance.totalGroundChicks.ToString();
+
+        bloodFXs = new Queue<GameObject>();
+        FillBloodFXPool();
+    }
+
+    GameObject newGO;
+    public void FillBloodFXPool()
+    {
+        for(int i = 0; i < 10; i++)
+        {
+            newGO = Instantiate(bloodFX, transform);
+            bloodFXs.Enqueue(newGO);
+            newGO.SetActive(false);
+        }
     }
 
 
@@ -42,6 +59,7 @@ public class Grinder : MonoBehaviour {
 
     public void Grind(Chick chick)
     {
+        StartCoroutine(BloodFX(chick.transform.position + new Vector3(0, 0, 1)));
         chick.canMove = false;
         chick.colliderGO.SetActive(false);
         if(chick.bomb)
@@ -51,7 +69,22 @@ public class Grinder : MonoBehaviour {
         StartCoroutine(GrindChick(chick));
         GameManager.Instance.totalGroundChicks++;
         GameManager.Instance.AddScore(chick.value);
+
         //groundChicksText.text = "TOTAL GROUND CHICKS : " + GameManager.Instance.totalGroundChicks.ToString();
+    }
+
+    IEnumerator BloodFX(Vector3 pos)
+    {
+        if(bloodFXs.Count < 1)
+        {
+            FillBloodFXPool();
+        }
+        GameObject chosenFX = bloodFXs.Dequeue();
+        chosenFX.transform.position = pos;
+        chosenFX.SetActive(true);
+        yield return new WaitForSeconds(1);
+        bloodFXs.Enqueue(chosenFX);
+        chosenFX.SetActive(false);
     }
 
     IEnumerator GrindEgg(Egg egg)

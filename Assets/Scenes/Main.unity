@@ -334,17 +334,17 @@ Prefab:
     - target: {fileID: 212731915229388742, guid: a497336845a0d754592aebaf10e6fd38,
         type: 2}
       propertyPath: m_Color.r
-      value: 0.11320752
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 212731915229388742, guid: a497336845a0d754592aebaf10e6fd38,
         type: 2}
       propertyPath: m_Color.g
-      value: 0.017621927
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 212731915229388742, guid: a497336845a0d754592aebaf10e6fd38,
         type: 2}
       propertyPath: m_Color.b
-      value: 0.017621927
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a497336845a0d754592aebaf10e6fd38, type: 2}
@@ -1858,9 +1858,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grindingPos: {fileID: 1545174575}
   maxY: 4.5
-  grindingSpeed: 0.5
+  grindingSpeed: 0.3
   grindingYGain: 0.15
   groundChicksText: {fileID: 0}
+  bloodFX: {fileID: 1548590793760874, guid: 2d875f2b1f04178478ef4d558fb01020, type: 2}
   grindingIncrements: 0
   grindingYIncrement: 0
   grindingScaleIncrement: {x: 0, y: 0, z: 0}
