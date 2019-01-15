@@ -102,7 +102,7 @@ public class UpgradesManager : MonoBehaviour {
             {
                 downgradeBox.SetActive(true);
                 upgradeText.text = _button.upgradeText4;
-                currentLevelText.text = "LVL 3";
+                currentLevelText.text = "LVL 1";
                 costText.text = "MAX";
                 nextLevelText.text = "";
             }
@@ -141,8 +141,8 @@ public class UpgradesManager : MonoBehaviour {
             button.RefreshAvailability();
         }
 
-        playerMoneyText.text = "Player Money : " + playerMoney.ToString();
-        playerMoneyText2.text = "Player Money : " + playerMoney.ToString();
+        playerMoneyText.text = playerMoney.ToString();
+        playerMoneyText2.text = playerMoney.ToString();
 
         selector.SetActive(false);
         downgradeBox.SetActive(false);
@@ -172,8 +172,9 @@ public class UpgradesManager : MonoBehaviour {
                 if(_button.orderInBranch != 2)
                 {
                     playerMoney -= _button.thirdCost;
+                    upgradesArray[_button.index] += 1;
                 }
-                upgradesArray[_button.index] += 1;
+
             }
 
         }
@@ -182,8 +183,8 @@ public class UpgradesManager : MonoBehaviour {
             button.RefreshAvailability();
         }
 
-        playerMoneyText.text = "Player Money : " + playerMoney.ToString();
-        playerMoneyText2.text = "Player Money : " + playerMoney.ToString();
+        playerMoneyText.text = playerMoney.ToString();
+        playerMoneyText2.text = playerMoney.ToString();
         SelectButton(_button);
     }
 
@@ -219,8 +220,8 @@ public class UpgradesManager : MonoBehaviour {
                 button.RefreshAvailability();
             }
 
-            playerMoneyText.text = "Player Money : " + playerMoney.ToString();
-            playerMoneyText2.text = "Player Money : " + playerMoney.ToString();
+            playerMoneyText.text = playerMoney.ToString();
+            playerMoneyText2.text = playerMoney.ToString();
             SelectButton(_button);
         }
     }

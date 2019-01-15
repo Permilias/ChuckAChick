@@ -69,8 +69,12 @@ public class GameManager : MonoBehaviour {
         StartCoroutine("EndGameCoroutine");
     }
 
+    public bool gameEnded;
     IEnumerator EndGameCoroutine()
     {
+        gameEnded = true;
+        MatManager.Instance.Stop();
+        EggGenerator.Instance.Stop();
         endBackSprite.SetActive(true);
         yield return new WaitForSeconds(1);
         endMoneyTarget = money;
@@ -90,9 +94,13 @@ public class GameManager : MonoBehaviour {
 
     public void AddScore(float value)
     {
-        score += value;
-        if (score < 0) score = 0;
-        money = Mathf.RoundToInt(score * baseMoneyMultiplier);
+        if(!gameEnded)
+        {
+            score += value;
+            if (score < 0) score = 0;
+            money = Mathf.RoundToInt(score * baseMoneyMultiplier);
+        }
+
     }
 
     public void OnApplicationQuit()

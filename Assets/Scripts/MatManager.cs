@@ -21,6 +21,8 @@ public class MatManager : MonoBehaviour {
     public float speedPlusMax;
     public float speedMinusMax;
     public float maxSpeed;
+    public MeshRenderer mr;
+    public float matSpeedMultiplier;
 
     [Header("Egg Spawning Frequency")]
     public float eggMaxSpawningFrequency;
@@ -46,18 +48,21 @@ public class MatManager : MonoBehaviour {
 
     private void Update()
     {
-        currentTimer += Time.deltaTime;
-        if(currentTimer >= difficultyIncreasingDelay)
+        if(!stopped)
         {
-            difficultyIncreasingDelay -= difficultyIncreasingDelayReduction;
-            if(difficultyIncreasingDelay < minDifficultyInscreasingDelay)
+            currentTimer += Time.deltaTime;
+            if (currentTimer >= difficultyIncreasingDelay)
             {
-                difficultyIncreasingDelay = minDifficultyInscreasingDelay;
+                difficultyIncreasingDelay -= difficultyIncreasingDelayReduction;
+                if (difficultyIncreasingDelay < minDifficultyInscreasingDelay)
+                {
+                    difficultyIncreasingDelay = minDifficultyInscreasingDelay;
+                }
+                currentTimer = 0;
+                difficulty += difficultyIncreasingAmount;
+                if (difficulty > maxDifficulty) difficulty = maxDifficulty;
+                SetSpeed((baseSpeed + Random.Range(speedMinusMax, speedPlusMax)) * difficulty);
             }
-            currentTimer = 0;
-            difficulty += difficultyIncreasingAmount;
-            if (difficulty > maxDifficulty) difficulty = maxDifficulty;
-            SetSpeed((baseSpeed + Random.Range(speedMinusMax, speedPlusMax)) * difficulty);
         }
     }
 
@@ -73,10 +78,21 @@ public class MatManager : MonoBehaviour {
         SetSpeed(baseSpeed * difficulty);
     }
 
+    bool stopped;
+    public void Stop()
+    {
+        stopped = true;
+        SetSpeed(0);
+        currentTimer = 0;
+    }
+
     void SetSpeed(float _speed)
     {
         matSpeed = _speed;
-        if(matSpeed >= maxSpeed)
+
+        mr.sharedMaterial.SetFloat("Vector1_BF0E8121", _speed * matSpeedMultiplier);
+
+        if (matSpeed >= maxSpeed)
         {
             matSpeed = maxSpeed;
         }

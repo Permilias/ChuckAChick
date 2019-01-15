@@ -41,8 +41,10 @@ public class MenuManager : MonoBehaviour {
     {
         AsyncOperation aop = SceneManager.LoadSceneAsync("Main");
         aop.allowSceneActivation = false;
+
         yield return new WaitForSeconds(1);
         DataManager.Instance.Save(false);
+        yield return new WaitForEndOfFrame();
         aop.allowSceneActivation = true;
     }
 

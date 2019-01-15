@@ -22,7 +22,6 @@ public class Chucker : MonoBehaviour {
     public bool chuckingBombGivesMoney;
     public float bombChickChuckingValue;
 
-
     private void Awake()
     {
         Instance = this;
@@ -45,7 +44,6 @@ public class Chucker : MonoBehaviour {
         egg.colliderGO.SetActive(false);
         StartCoroutine(ChuckEgg(egg, left));
         PlayerLife.Instance.LoseLife(PlayerLife.Instance.sideEggDamage, PlayerLife.Instance.sideEggShakeStrength);
-        MatManager.Instance.Reset();
     }
 
     public void Chuck(Chick chick, bool left)

@@ -86,7 +86,12 @@ public class ChickGenerator : MonoBehaviour {
         {
             data.shellPool = new Queue<GameObject>();
         }
+        foreach(MagicChickData data in magicChickDatas)
+        {
+            data.shellExplosionPool = new Queue<GameObject>();
+        }
         FillShellExplosionPools();
+        FillMagicShellExplosionPools();
     }
 
     public void FillShellExplosionPools()
@@ -99,6 +104,16 @@ public class ChickGenerator : MonoBehaviour {
                 data.shellPool.Enqueue(newGO);
                 newGO.SetActive(false);
             }
+        }
+    }
+
+    public void FillMagicShellExplosionPools()
+    {
+        foreach(MagicChickData data in magicChickDatas)
+        {
+            newGO = Instantiate(data.shellExplosion, transform);
+            data.shellExplosionPool.Enqueue(newGO);
+            newGO.SetActive(false);
         }
     }
 
@@ -241,6 +256,8 @@ public class ChickGenerator : MonoBehaviour {
         spawnedChick.canMove = true;
         spawnedChick.ySpeed = MatManager.Instance.matSpeed;
 
+        StartCoroutine(MagicShellExplosion(magicChickDatas[index], spawnedChickPos));
+
         //set up chick value
         spawnedChick.value = magicChickData.value;
     }
@@ -266,5 +283,20 @@ public class ChickGenerator : MonoBehaviour {
         yield return new WaitForSeconds(1);
         currentShellExplosion.SetActive(false);
         shellExplosions[index].shellPool.Enqueue(currentShellExplosion);
+    }
+
+    public IEnumerator MagicShellExplosion(MagicChickData _data, Vector3 pos)
+    {
+        if (_data.shellExplosionPool.Count < 1)
+        {
+            FillMagicShellExplosionPools();
+        }
+        GameObject currentShellExplosion;
+        currentShellExplosion = _data.shellExplosionPool.Dequeue();
+        currentShellExplosion.transform.position = new Vector3(pos.x, pos.y, -2);
+        currentShellExplosion.SetActive(true);
+        yield return new WaitForSeconds(1);
+        currentShellExplosion.SetActive(false);
+        _data.shellExplosionPool.Enqueue(currentShellExplosion);
     }
 }

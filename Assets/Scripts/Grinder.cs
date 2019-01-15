@@ -38,7 +38,6 @@ public class Grinder : MonoBehaviour {
         egg.colliderGO.SetActive(false);
         StartCoroutine(GrindEgg(egg));
         PlayerLife.Instance.LoseLife(PlayerLife.Instance.frontEggDamage, PlayerLife.Instance.frontEggShakeStrength);
-        MatManager.Instance.Reset();
     }
 
     public void Grind(Chick chick)
