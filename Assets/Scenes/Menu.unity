@@ -579,22 +579,23 @@ Prefab:
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText1
-      value: UpgradeText1
+      value: Special Chicks will appear more often.
       objectReference: {fileID: 0}
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText2
-      value: UpgradeText2
+      value: Special Chicks will appear more often than more often.
       objectReference: {fileID: 0}
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText3
-      value: UpgradeText3
+      value: Special Chicks will appear more often than more often than more often
+        (like, pretty often).
       objectReference: {fileID: 0}
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText4
-      value: UpgradeText4
+      value: Yep, Special Chicks actually appear the most often they can.
       objectReference: {fileID: 0}
     - target: {fileID: 114508223189516810, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
@@ -1381,22 +1382,22 @@ Prefab:
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText1
-      value: UpgradeText1
+      value: 60 more total HP .
       objectReference: {fileID: 0}
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText2
-      value: UpgradeText2
+      value: '60 more total HP ! (Current : 60 bonus HP)'
       objectReference: {fileID: 0}
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText3
-      value: UpgradeText3
+      value: '60 more total HP !!!!! (Current : 120 bonus HP)'
       objectReference: {fileID: 0}
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText4
-      value: UpgradeText4
+      value: 'Don''t you think you have enough HP ? (Current : 180 bonus HP)'
       objectReference: {fileID: 0}
     - target: {fileID: 114508223189516810, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
@@ -1514,22 +1515,26 @@ Prefab:
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText1
-      value: UpgradeText1
+      value: "Tapping will create a small shockwave that\u2019ll break the encountered
+        eggshells."
       objectReference: {fileID: 0}
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText2
-      value: UpgradeText2
+      value: "Tapping will create a medium-sized shockwave that\u2019ll destroy the
+        encountered eggshells."
       objectReference: {fileID: 0}
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText3
-      value: UpgradeText3
+      value: "Tapping will create a big shockwave that\u2019ll annihilate the other
+        encountered eggshells."
       objectReference: {fileID: 0}
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText4
-      value: UpgradeText4
+      value: Your tapping is currently at full-potential. Unleash your eggbreaking
+        powers !
       objectReference: {fileID: 0}
     - target: {fileID: 114508223189516810, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
@@ -1652,22 +1657,26 @@ Prefab:
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText1
-      value: UpgradeText1
+      value: The Godfather Chick will now constantly generate a 30 $ per second income
+        while on the treadmill.
       objectReference: {fileID: 0}
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText2
-      value: UpgradeText2
+      value: The Godfather Chick will now constantly generate a 30 $ per second income
+        while on the treadmill.
       objectReference: {fileID: 0}
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText3
-      value: UpgradeText3
+      value: The Godfather Chick will now constantly generate a 30 $ per second income
+        while on the treadmill.
       objectReference: {fileID: 0}
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText4
-      value: UpgradeText4
+      value: The Godfather Chick now constantly generate a 30 $ per second income
+        while on the treadmill.
       objectReference: {fileID: 0}
     - target: {fileID: 114508223189516810, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
@@ -2534,22 +2543,22 @@ Prefab:
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText1
-      value: UpgradeText1
+      value: 'Egg breaking will reward you 5 $. Sweet. '
       objectReference: {fileID: 0}
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText2
-      value: UpgradeText2
+      value: 'Egg breaking will reward you 10 $. Tasty. (Current :  $)'
       objectReference: {fileID: 0}
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText3
-      value: UpgradeText3
+      value: 'Egg breaking will now reward you 15 $. Divine. (Current : $)'
       objectReference: {fileID: 0}
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText4
-      value: UpgradeText4
+      value: You're in total symbiose with eggshells now. They reward you $ on breaking.
       objectReference: {fileID: 0}
     - target: {fileID: 114508223189516810, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
@@ -3204,22 +3213,22 @@ Prefab:
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText1
-      value: UpgradeText1
+      value: The Vortex Chick will eat every egg souls liberated on the treadmill.
       objectReference: {fileID: 0}
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText2
-      value: UpgradeText2
+      value: The Vortex Chick will eat every egg souls liberated on the treadmill.
       objectReference: {fileID: 0}
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText3
-      value: UpgradeText3
+      value: The Vortex Chick will eat every egg souls liberated on the treadmill.
       objectReference: {fileID: 0}
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText4
-      value: UpgradeText4
+      value: The Vortex Chick will eat every egg souls liberated on the treadmill.
       objectReference: {fileID: 0}
     - target: {fileID: 114508223189516810, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
@@ -3370,22 +3379,25 @@ Prefab:
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText1
-      value: UpgradeText1
+      value: "\u201CProcessed\u201D Sick Chicks will cost you 50 $ instead of 100
+        $ ."
       objectReference: {fileID: 0}
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText2
-      value: UpgradeText2
+      value: "\u201CProcessed\u201D Sick Chicks will cost you 25 $ instead of 50 $
+        ."
       objectReference: {fileID: 0}
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText3
-      value: UpgradeText3
+      value: "\u201CProcessed\u201D Sick Chicks will cost you 12 $ instead of 25 $
+        ."
       objectReference: {fileID: 0}
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText4
-      value: UpgradeText4
+      value: You're the discount king, and "processed" sick chicks only costs $.
       objectReference: {fileID: 0}
     - target: {fileID: 114508223189516810, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
@@ -3852,22 +3864,26 @@ Prefab:
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText1
-      value: UpgradeText1
+      value: "Egg breaking will heal you 1 HP, but \u201Cprocessed\u201D eggs will
+        inflict more damage ! "
       objectReference: {fileID: 0}
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText2
-      value: UpgradeText2
+      value: "Egg breaking will heal you 2 HP, but \u201Cprocessed\u201D eggs will
+        inflict more damage ! "
       objectReference: {fileID: 0}
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText3
-      value: UpgradeText3
+      value: "Egg breaking will heal you 3 HP, but \u201Cprocessed\u201D eggs will
+        inflict more damage ! "
       objectReference: {fileID: 0}
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText4
-      value: UpgradeText4
+      value: Your eggs are dipped into the Youth Fountain before going to the factory.
+        They heal you HP.
       objectReference: {fileID: 0}
     - target: {fileID: 114508223189516810, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
@@ -4491,22 +4507,22 @@ Prefab:
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText1
-      value: UpgradeText1
+      value: The Eggbreaker Chick will get a much bigger aura.
       objectReference: {fileID: 0}
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText2
-      value: UpgradeText2
+      value: The Eggbreaker Chick have now a much bigger aura.
       objectReference: {fileID: 0}
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText3
-      value: UpgradeText3
+      value: The Eggbreaker Chick have now a much bigger aura.
       objectReference: {fileID: 0}
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText4
-      value: UpgradeText4
+      value: The Eggbreaker Chick have now a much bigger aura.
       objectReference: {fileID: 0}
     - target: {fileID: 114508223189516810, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
@@ -5019,22 +5035,24 @@ Prefab:
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText1
-      value: UpgradeText1
+      value: "You\u2019ll earn 5 bonus $ per \u201Cprocessed\u201D chicks."
       objectReference: {fileID: 0}
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText2
-      value: UpgradeText2
+      value: "You\u2019ll earn 10 bonus $ per \u201Cprocessed\u201D chicks. (Current
+        : 5$)"
       objectReference: {fileID: 0}
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText3
-      value: UpgradeText3
+      value: "You\u2019ll earn 20 bonus $ per \u201Cprocessed\u201D chicks. (Current
+        : 10$)"
       objectReference: {fileID: 0}
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText4
-      value: UpgradeText4
+      value: Your chicks are now the best in town. +15 $ per 'processed' chick.
       objectReference: {fileID: 0}
     - target: {fileID: 114508223189516810, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
@@ -5851,22 +5869,22 @@ Prefab:
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText1
-      value: UpgradeText1
+      value: The Soothing Chick will now prevent the bombs from exploding.
       objectReference: {fileID: 0}
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText2
-      value: UpgradeText2
+      value: The Soothing Chick will now prevent the bombs from exploding.
       objectReference: {fileID: 0}
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText3
-      value: UpgradeText3
+      value: The Soothing Chick will now prevent the bombs from exploding.
       objectReference: {fileID: 0}
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText4
-      value: UpgradeText4
+      value: The Soothing Chick will now prevent the bombs from exploding.
       objectReference: {fileID: 0}
     - target: {fileID: 114508223189516810, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
@@ -6406,22 +6424,22 @@ Prefab:
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText1
-      value: UpgradeText1
+      value: +50 $ per chucked bombs.
       objectReference: {fileID: 0}
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText2
-      value: UpgradeText2
+      value: '+100$ per chucked bombs. (Curent : 50$)'
       objectReference: {fileID: 0}
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText3
-      value: UpgradeText3
+      value: '+200 $ per chucked bombs. (Current : 100$)'
       objectReference: {fileID: 0}
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText4
-      value: UpgradeText4
+      value: Your chucked bombs are covered by welfare ! +200 $ per chucked bombs.
       objectReference: {fileID: 0}
     - target: {fileID: 114508223189516810, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
