@@ -86,8 +86,11 @@ public class GameManager : MonoBehaviour {
         yield return new WaitForSeconds(1);
         endPlayerMoneyTarget = playerMoney + money;
         playerMoney += money;
+
+        DataManager.Instance.Save(true);
         money = 0;
         endMoneyTarget = 0;
+
         yield return new WaitForSeconds(1);
         backToMenuButton.SetActive(true);
     }
@@ -118,8 +121,14 @@ public class GameManager : MonoBehaviour {
 
     public void LoadMenu()
     {
+        StartCoroutine(MenuLoadingCoroutine());
+    }
+
+    IEnumerator MenuLoadingCoroutine()
+    {
         Debug.Log("Loading Menu...");
-        DataManager.Instance.Save(true);
+        //DataManager.Instance.Save(true);
+        yield return new WaitForEndOfFrame();
         SceneManager.LoadScene("Menu");
     }
 
