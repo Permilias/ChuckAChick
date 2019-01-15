@@ -186,6 +186,8 @@ public class UpgradesManager : MonoBehaviour {
         playerMoneyText.text = playerMoney.ToString();
         playerMoneyText2.text = playerMoney.ToString();
         SelectButton(_button);
+
+        DataManager.Instance.Save(false);
     }
 
     public void Downgrade(UpgradeButton _button)
@@ -223,6 +225,9 @@ public class UpgradesManager : MonoBehaviour {
             playerMoneyText.text = playerMoney.ToString();
             playerMoneyText2.text = playerMoney.ToString();
             SelectButton(_button);
+
         }
+
+        DataManager.Instance.Save(false);
     }
 }

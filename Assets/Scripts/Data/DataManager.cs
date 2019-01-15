@@ -38,7 +38,7 @@ public class DataManager : MonoBehaviour {
     {
         if(!saved)
         {
-            Load(false, true);
+            Load(true, game);
             saved = true;
         }
         Debug.Log("Save");
@@ -75,23 +75,29 @@ public class DataManager : MonoBehaviour {
 
     public void Load(bool exploits, bool game)
     {
+        print("loading");
         if(File.Exists(path))
         {
             DeserializeData();
+            print("Deserializing");
         }
         else
         {
             data = new Data();
+            print("creating data");
         }
 
         if(exploits)
         {
+            print("exploiting");
             if (game)
             {
+                print("game");
                 ExploitDataGame();
             }
             else
             {
+                print("menu");
                 ExploitDataMenu();
             }
         }
@@ -101,6 +107,7 @@ public class DataManager : MonoBehaviour {
     {
         string loadedString = File.ReadAllText(path);
         data = JsonUtility.FromJson<Data>(loadedString);
+        Debug.Log(data.playerMoney);
     }
 
     public void ExploitDataGame()
@@ -114,10 +121,7 @@ public class DataManager : MonoBehaviour {
     public void ExploitDataMenu()
     {
         MuteButton.Instance.muted = data.soundMuted;
-        if(data.upgradesArray.Length > 0)
-        {
-            UpgradesManager.Instance.upgradesArray = data.upgradesArray;
-        }
+        UpgradesManager.Instance.upgradesArray = data.upgradesArray;
         UpgradesManager.Instance.playerMoney = data.playerMoney;
     }
 }

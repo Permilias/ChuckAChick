@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Data
 {
+    public bool saved;
     public bool soundMuted;
     public int totalGroundChicks;
     public int[] upgradesArray;
