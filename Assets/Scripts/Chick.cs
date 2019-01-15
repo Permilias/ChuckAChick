@@ -168,6 +168,7 @@ public class Chick : MonoBehaviour {
     {
         if(clickableObject.clicked)
         {
+       
             if (feathers != null)
                 feathers.SetActive(true);
             Vector3 touchPos;
@@ -192,6 +193,14 @@ public class Chick : MonoBehaviour {
 
             if (hasBeenClicked && !velDecaying)
             {
+                if (sick)
+                {
+                    SoundManager.Instance.PlaySound(SoundManager.Instance.piouDragMalade);
+                }
+                if (!sick)
+                {
+                    SoundManager.Instance.PlaySound(SoundManager.Instance.piouDragSain);
+                }
                 velDecaying = true;
                 decayingTime = ChickGenerator.Instance.chickVelDecayTime * Mathf.Abs(((newVel.x + newVel.y) / 2f));
                 decayingVel = newVel;
@@ -248,6 +257,7 @@ public class Chick : MonoBehaviour {
     public void Heal()
     {
         ChickGenerator.Instance.SpawnHealingFX(transform);
+
         sick = false;
         value = ChickGenerator.Instance.baseChickValue;
         anim.SetInteger("AnimIndex", 0);
@@ -261,7 +271,8 @@ public class Chick : MonoBehaviour {
         if(PS == null)
         {
             anim.SetInteger("AnimIndex", 7);
-             value += ChickGenerator.Instance.richChickValue;
+            SoundManager.Instance.PlaySound(SoundManager.Instance.moneySoundRepeat);
+            value += ChickGenerator.Instance.richChickValue;
              PS = Instantiate(ChickGenerator.Instance.richPS, transform);
         }
 
