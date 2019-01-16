@@ -29,6 +29,7 @@ public class UpgradeButton : MonoBehaviour {
     public int thirdCost;
 
     public int upgradeState;
+    public string title;
     public string upgradeText1;
     public string upgradeText2;
     public string upgradeText3;
@@ -39,6 +40,8 @@ public class UpgradeButton : MonoBehaviour {
     public Sprite unlockedSprite;
 
     public bool selected;
+
+
 
     private void Start()
     {

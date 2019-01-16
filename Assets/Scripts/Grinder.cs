@@ -51,10 +51,15 @@ public class Grinder : MonoBehaviour {
 
     public void Grind(Egg egg)
     {
+        if (!EggGenerator.Instance.canSpawn)
+        {
+            egg.CheckIfWronglyRemoved();
+        }
         egg.canMove = false;
         egg.colliderGO.SetActive(false);
         StartCoroutine(GrindEgg(egg));
         PlayerLife.Instance.LoseLife(PlayerLife.Instance.frontEggDamage, PlayerLife.Instance.frontEggShakeStrength);
+        SoundManager.Instance.PlaySound(SoundManager.Instance.bigDamage);
         NumberParticlesManager.Instance.SpawnNumberParticle(PlayerLife.Instance.frontEggDamage, PlayerLife.Instance.damageColor, egg.transform.position, 1f, 2f, false);
     }
 
@@ -63,9 +68,11 @@ public class Grinder : MonoBehaviour {
         StartCoroutine(BloodFX(chick.transform.position + new Vector3(0, 0, 1)));
         chick.canMove = false;
         chick.colliderGO.SetActive(false);
-        if(chick.bomb)
+        
+        if (chick.bomb)
         {
             PlayerLife.Instance.LoseLife(PlayerLife.Instance.frontBombDamage, PlayerLife.Instance.frontBombShakeStrength);
+            SoundManager.Instance.PlaySound(SoundManager.Instance.bigDamage);
             NumberParticlesManager.Instance.SpawnNumberParticle(PlayerLife.Instance.frontBombDamage, PlayerLife.Instance.damageColor, chick.transform.position, 1f, 1.5f, false);
         }
         StartCoroutine(GrindChick(chick));
@@ -73,16 +80,19 @@ public class Grinder : MonoBehaviour {
         GameManager.Instance.AddScore(chick.value);
         if(chick.sick)
         {
+            SoundManager.Instance.PlaySound(SoundManager.Instance.killChick);
             NumberParticlesManager.Instance.SpawnNumberParticle(chick.value * 10, chick.scoreColor, chick.transform.position, 0.9f, 1.2f, true);
         }
         else if(chick.magic)
         {
+            SoundManager.Instance.PlaySound(SoundManager.Instance.killChick);
             float size = 1.5f * (chick.value / 5);
             size = size > 2.5f ? 2.5f : size;
             NumberParticlesManager.Instance.SpawnNumberParticle(chick.value * 10, chick.scoreColor, chick.transform.position, 0.7f, size, true);
         }
         else
         {
+            SoundManager.Instance.PlaySound(SoundManager.Instance.killChick);
             float size = 0.5f + (chick.value / 2);
             size = size > 2 ? 2 : size;
             if (!chick.bomb)

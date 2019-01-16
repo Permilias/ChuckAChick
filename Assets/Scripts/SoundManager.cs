@@ -13,6 +13,9 @@ public class SoundManager : MonoBehaviour {
     public Sound bombExplosion;
     public Sound piouDragSain;
     public Sound piouDragMalade;
+    public Sound getMoney;
+    public Sound killChick;
+
 
     [Header("Interface & Background")]
     public Sound menuMusic;

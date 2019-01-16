@@ -19,6 +19,9 @@ public class Egg : MonoBehaviour
 
     public bool canMove;
 
+    public bool specificEgg;
+    public int specificIndex;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -55,6 +58,7 @@ public class Egg : MonoBehaviour
 
                 if (hp <= 0)
                 {
+                    ScreenShake.Instance.Shake(0.1f, 0.05f);
                     Break(false);
                 }
                 else
@@ -129,7 +133,19 @@ public class Egg : MonoBehaviour
 
             if (!magicEgg)
             {
-                ChickGenerator.Instance.SpawnChick(transform.position);
+                if(specificEgg)
+                {
+                    if(TutorialManager.Instance.waiting1)
+                    {
+                        TutorialManager.Instance.NextTutorial(1);
+                    }
+                    ChickGenerator.Instance.SpawnSpecificChick(transform.position, specificIndex);
+                }
+                else
+                {
+                    ChickGenerator.Instance.SpawnChick(transform.position);
+                }
+
             }
             else
             {
@@ -179,6 +195,40 @@ public class Egg : MonoBehaviour
         }
         EggGenerator.Instance.activeEggs.Remove(this);
         gameObject.SetActive(false);
+
+
+    }
+
+    public void CheckIfWronglyRemoved()
+    {
+        if (TutorialManager.Instance.waiting2)
+        {
+            TutorialManager.Instance.NextTutorial(1);
+        }
+        else if (TutorialManager.Instance.waiting3)
+        {
+            TutorialManager.Instance.NextTutorial(2);
+        }
+        else if (TutorialManager.Instance.waiting4 && magicEgg)
+        {
+            TutorialManager.Instance.NextTutorial(3);
+        }
+        else if (TutorialManager.Instance.waiting5 && magicEgg)
+        {
+            TutorialManager.Instance.NextTutorial(4);
+        }
+        else if (TutorialManager.Instance.waiting6 && magicEgg)
+        {
+            TutorialManager.Instance.NextTutorial(5);
+        }
+        else if (TutorialManager.Instance.waiting7 && magicEgg)
+        {
+            TutorialManager.Instance.NextTutorial(6);
+        }
+        else if (TutorialManager.Instance.waiting8 && magicEgg)
+        {
+            TutorialManager.Instance.NextTutorial(7);
+        }
     }
 
 

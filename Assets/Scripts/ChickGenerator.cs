@@ -261,6 +261,65 @@ public class ChickGenerator : MonoBehaviour {
         spawnedChick.value = value;
     }
 
+    public void SpawnSpecificChick(Vector3 _pos, int index)
+    {
+        //determine chick type
+        bool spawnsSickChick = false;
+        bool spawnsBombChick = false;
+        if (index == 2)
+        {
+            spawnsBombChick = true;
+        }
+        else if(index == 1)
+        {
+            spawnsSickChick = true;
+        }
+        //determine chick position
+        spawnedChickPos = _pos;
+        //fill pool if necessary
+        if (spawnsBombChick)
+        {
+            spawnedChickGO = bombChickPool.Dequeue();
+            value = baseBombChickvalue;
+            StartCoroutine(ShellExplosion(2, spawnedChickPos));
+            animIndex = 2;
+            scoreColor = bombColor;
+        }
+        else if (spawnsSickChick)
+        {
+            spawnedChickGO = sickChickPool.Dequeue();
+            value = baseSickChickValue;
+            StartCoroutine(ShellExplosion(1, spawnedChickPos));
+            animIndex = 1;
+            scoreColor = sickColor;
+        }
+        else
+        {
+            spawnedChickGO = chickPool.Dequeue();
+            value = baseChickValue;
+            StartCoroutine(ShellExplosion(0, spawnedChickPos));
+            animIndex = 0;
+            scoreColor = baseColor;
+        }
+
+        spawnedChickGO.transform.position = spawnedChickPos;
+        spawnedChickGO.SetActive(true);
+        //set the chick up
+        spawnedChick = spawnedChickGO.GetComponent<Chick>();
+        activeChicks.Add(spawnedChick);
+        if (spawnedChick.bomb)
+        {
+            spawnedChick.bombText.transform.rotation = Quaternion.identity;
+        }
+        spawnedChick.scoreColor = scoreColor;
+        spawnedChick.Initialize(animIndex);
+        spawnedChick.canMove = true;
+        spawnedChick.ySpeed = MatManager.Instance.matSpeed;
+
+        //set up chick value
+        spawnedChick.value = value;
+    }
+
     public void SpawnMagicChick(Vector3 _pos, int index)
     {
         spawnedChickPos = _pos;

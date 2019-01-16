@@ -64,6 +64,7 @@ public class PlayerLife : MonoBehaviour {
     {
         life += amount;
         if (life > maxLife) life = maxLife;
+        if (life < 0) life = 0;
         float newScale = life * scaleMultiplier;
     }
 }

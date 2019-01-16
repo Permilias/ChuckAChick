@@ -16,6 +16,7 @@ public class BackToMenuButton : MonoBehaviour {
     {
         if(button.clicked)
         {
+            Time.timeScale = 1;
             button.clicked = false;
             GameManager.Instance.LoadMenu();
         }

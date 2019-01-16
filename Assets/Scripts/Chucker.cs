@@ -40,11 +40,16 @@ public class Chucker : MonoBehaviour {
 
     public void Chuck(Egg egg, bool left)
     {
+        if(!EggGenerator.Instance.canSpawn)
+        {
+            egg.CheckIfWronglyRemoved();
+        }
         egg.canMove = false;
         egg.rb.velocity = Vector3.zero;
         egg.colliderGO.SetActive(false);
         StartCoroutine(ChuckEgg(egg, left));
         PlayerLife.Instance.LoseLife(PlayerLife.Instance.sideEggDamage, PlayerLife.Instance.sideEggShakeStrength);
+        SoundManager.Instance.PlaySound(SoundManager.Instance.damage);
         NumberParticlesManager.Instance.SpawnNumberParticle(PlayerLife.Instance.sideEggDamage, PlayerLife.Instance.damageColor, egg.transform.position, 0.8f, 1.5f, false);
     }
 
@@ -54,18 +59,21 @@ public class Chucker : MonoBehaviour {
         chick.rb.velocity = Vector3.zero;
         chick.colliderGO.SetActive(false);
         StartCoroutine(ChuckChick(chick, left));
-        if(chick.bomb)
+        SoundManager.Instance.PlaySound(SoundManager.Instance.piouDragSain);
+        if (chick.bomb)
         {
             if(chuckingBombGivesMoney)
             {
+                SoundManager.Instance.PlaySound(SoundManager.Instance.getMoney);
                 GameManager.Instance.AddScore(bombChickChuckingValue);
-                NumberParticlesManager.Instance.SpawnNumberParticle(bombChickChuckingValue * 10, ChickGenerator.Instance.bombColor, chick.transform.position, 0.8f, 1.5f, true);
+                NumberParticlesManager.Instance.SpawnNumberParticle(bombChickChuckingValue * 10, ChickGenerator.Instance.bombColor, chick.transform.position, 0.8f, 1.1f, true);
             }
         }
     }
 
     IEnumerator ChuckEgg(Egg egg, bool left)
     {
+        
         Transform eggTransform = egg.transform;
         egg.targetScale = Vector3.zero;
         egg.smoothSpeed = chuckingSpeed - 0.1f;

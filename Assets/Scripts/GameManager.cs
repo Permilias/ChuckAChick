@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour {
     public int playerMoney;
     public int baseMoneyMultiplier;
 
+    public bool tutorialEnabled;
+
     [Header("Game End")]
     public GameObject endBackSprite;
     public TextMeshPro endMoneyText;
@@ -35,12 +37,21 @@ public class GameManager : MonoBehaviour {
         endMoneyText.gameObject.SetActive(false);
         endPlayerMoneyText.gameObject.SetActive(false);
         backToMenuButton.SetActive(false);
+
         endMoneyTarget = 0;
         endPlayerMoneyTarget = 0;
-        DataManager.Instance.Load(true, true);
-        score = 0;
 
+        DataManager.Instance.Load(true, true);
+
+        score = 0;
         UpgradesApplier.Instance.ApplyUpgrades();
+
+        if(tutorialEnabled)
+        {
+            TutorialManager.Instance.StartTutorial();
+            EggGenerator.Instance.canSpawn = false;
+            MatManager.Instance.cannotIncrease = true;
+        }
     }
 
     float reference;
@@ -58,7 +69,7 @@ public class GameManager : MonoBehaviour {
         moneyText.text = Mathf.RoundToInt(shownMoney).ToString() + " $";
 
         endShownMoney = Mathf.SmoothDamp(endShownMoney, endMoneyTarget, ref reference2, 0.08f);
-        endMoneyText.text = Mathf.RoundToInt(endShownMoney).ToString() + " $";
+        endMoneyText.text = "MONEY : " + Mathf.RoundToInt(endShownMoney).ToString() + " $";
 
         endShownPlayerMoney = Mathf.SmoothDamp(endShownPlayerMoney, endPlayerMoneyTarget, ref reference3, 0.08f);
         endPlayerMoneyText.text = Mathf.RoundToInt(endShownPlayerMoney).ToString() + " $";
@@ -70,20 +81,22 @@ public class GameManager : MonoBehaviour {
     }
 
     public bool gameEnded;
+    public Animator endBackSpriteAnim;
     IEnumerator EndGameCoroutine()
     {
+        endBackSpriteAnim.SetBool("isVisible", true);
         gameEnded = true;
         MatManager.Instance.Stop();
         EggGenerator.Instance.Stop();
         endBackSprite.SetActive(true);
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
         endMoneyTarget = money;
         endMoneyText.gameObject.SetActive(true);
-        yield return new WaitForSeconds(1);
-        endPlayerMoneyText.text = playerMoney.ToString();
+        yield return new WaitForSeconds(2);
+        endPlayerMoneyText.text = playerMoney.ToString() + "$";
         endPlayerMoneyTarget = playerMoney;
         endPlayerMoneyText.gameObject.SetActive(true);
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
         endPlayerMoneyTarget = playerMoney + money;
         playerMoney += money;
 
@@ -99,7 +112,6 @@ public class GameManager : MonoBehaviour {
     {
         if(!gameEnded)
         {
-
             score += value;
             if (score < 0) score = 0;
             money = Mathf.RoundToInt(score * baseMoneyMultiplier);
@@ -129,8 +141,7 @@ public class GameManager : MonoBehaviour {
     }
 
     IEnumerator MenuLoadingCoroutine()
-    {
-        
+    {   
         Debug.Log("Loading Menu...");
         //DataManager.Instance.Save(true);
         yield return new WaitForEndOfFrame();
@@ -143,5 +154,13 @@ public class GameManager : MonoBehaviour {
         {
             LoadMenu();
         }
+    }
+
+    public AudioSource ambianceUsine;
+    IEnumerator StartFactorySound()
+    {
+        SoundManager.Instance.PlaySound(SoundManager.Instance.ambianceUsineStart);
+        yield return new WaitForSeconds(SoundManager.Instance.ambianceUsineStart.clips[0].length);
+        ambianceUsine.Play();
     }
 }

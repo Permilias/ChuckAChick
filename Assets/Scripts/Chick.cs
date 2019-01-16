@@ -254,6 +254,39 @@ public class Chick : MonoBehaviour {
         }
         ChickGenerator.Instance.activeChicks.Remove(this);
         gameObject.SetActive(false);
+
+        if(!EggGenerator.Instance.canSpawn)
+        {
+            if (TutorialManager.Instance.waiting2)
+            {
+                TutorialManager.Instance.NextTutorial(2);
+            }
+            else if (TutorialManager.Instance.waiting3)
+            {
+                TutorialManager.Instance.NextTutorial(3);
+            }
+            else if (TutorialManager.Instance.waiting4)
+            {
+                TutorialManager.Instance.NextTutorial(4);
+            }
+            else if (TutorialManager.Instance.waiting5 && magic)
+            {
+                TutorialManager.Instance.NextTutorial(5);
+            }
+            else if (TutorialManager.Instance.waiting6 && magic)
+            {
+                TutorialManager.Instance.NextTutorial(6);
+            }
+            else if (TutorialManager.Instance.waiting7 && magic)
+            {
+                TutorialManager.Instance.NextTutorial(7);
+            }
+            else if (TutorialManager.Instance.waiting8 && magic)
+            {
+                TutorialManager.Instance.NextTutorial(8);
+            }
+        }
+
     }
 
     public void Heal()
@@ -263,6 +296,7 @@ public class Chick : MonoBehaviour {
         sick = false;
         value = ChickGenerator.Instance.baseChickValue;
         anim.SetInteger("AnimIndex", 0);
+        scoreColor = ChickGenerator.Instance.baseColor;
 
         SoundManager.Instance.PlaySound(SoundManager.Instance.healedChick);
     }

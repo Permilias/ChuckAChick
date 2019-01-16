@@ -30,7 +30,7 @@ public class NumberParticle : MonoBehaviour {
         {
             if (value >= 0)
             {
-                text.text = "+" + Mathf.RoundToInt(value).ToString() + "HP";
+                text.text = "-" + Mathf.RoundToInt(value).ToString() + "HP";
             }
             else
             {
