@@ -26,6 +26,9 @@ public class ChickGenerator : MonoBehaviour {
     public float baseSickChickValue;
     public float baseBombChickvalue;
     public float richChickValue;
+    public Color baseColor;
+    public Color sickColor;
+    public Color bombColor;
 
     [Header("Chick Pooling")]
     public int chickPoolingAmount;
@@ -45,10 +48,6 @@ public class ChickGenerator : MonoBehaviour {
     public float chickVelDecayTime;
 
     [Header("Chick Sprites")]
-    public Sprite baseSprite;
-    public Color baseSpriteColor;
-    public Sprite sickSprite;
-    public Color sickColor;
     public Color enrichedColor;
 
     [Header("FX")]
@@ -170,6 +169,9 @@ public class ChickGenerator : MonoBehaviour {
     Chick spawnedChick;
     GameObject spawnedChickGO;
     Vector3 spawnedChickPos;
+    float value;
+    int animIndex;
+    Color scoreColor;
     //spawns new chick
     public void SpawnChick(Vector3 _pos)
     {
@@ -214,14 +216,14 @@ public class ChickGenerator : MonoBehaviour {
             }
         }
         //spawn the chick and set up value
-        float value;
-        int animIndex;
+
         if(spawnsBombChick)
         {
             spawnedChickGO = bombChickPool.Dequeue();
             value = baseBombChickvalue;
             StartCoroutine(ShellExplosion(2, spawnedChickPos));
             animIndex = 2;
+            scoreColor = bombColor;
         }
         else if(spawnsSickChick)
         {
@@ -229,6 +231,7 @@ public class ChickGenerator : MonoBehaviour {
             value = baseSickChickValue;
             StartCoroutine(ShellExplosion(1, spawnedChickPos));
             animIndex = 1;
+            scoreColor = sickColor;
         }
         else
         {
@@ -236,6 +239,7 @@ public class ChickGenerator : MonoBehaviour {
             value = baseChickValue;
             StartCoroutine(ShellExplosion(0, spawnedChickPos));
             animIndex = 0;
+            scoreColor = baseColor;
         }
 
         spawnedChickGO.transform.position = spawnedChickPos;
@@ -248,6 +252,7 @@ public class ChickGenerator : MonoBehaviour {
         {
             spawnedChick.bombText.transform.rotation = Quaternion.identity;
         }
+        spawnedChick.scoreColor = scoreColor;
         spawnedChick.Initialize(animIndex);
         spawnedChick.canMove = true;
         spawnedChick.ySpeed = MatManager.Instance.matSpeed;
@@ -275,6 +280,8 @@ public class ChickGenerator : MonoBehaviour {
         spawnedChick.Initialize(3 + index);
         spawnedChick.canMove = true;
         spawnedChick.ySpeed = MatManager.Instance.matSpeed;
+
+        spawnedChick.scoreColor = magicChickDatas[index].scoreColor;
 
         StartCoroutine(MagicShellExplosion(magicChickDatas[index], spawnedChickPos));
 

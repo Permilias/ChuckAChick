@@ -23,6 +23,8 @@ public class PlayerLife : MonoBehaviour {
 
     public bool lost;
 
+    public Color damageColor;
+
     private void Awake()
     {
         Instance = this;

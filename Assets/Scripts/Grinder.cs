@@ -55,6 +55,7 @@ public class Grinder : MonoBehaviour {
         egg.colliderGO.SetActive(false);
         StartCoroutine(GrindEgg(egg));
         PlayerLife.Instance.LoseLife(PlayerLife.Instance.frontEggDamage, PlayerLife.Instance.frontEggShakeStrength);
+        NumberParticlesManager.Instance.SpawnNumberParticle(PlayerLife.Instance.frontEggDamage, PlayerLife.Instance.damageColor, egg.transform.position, 1f, 2f, false);
     }
 
     public void Grind(Chick chick)
@@ -65,10 +66,29 @@ public class Grinder : MonoBehaviour {
         if(chick.bomb)
         {
             PlayerLife.Instance.LoseLife(PlayerLife.Instance.frontBombDamage, PlayerLife.Instance.frontBombShakeStrength);
+            NumberParticlesManager.Instance.SpawnNumberParticle(PlayerLife.Instance.frontBombDamage, PlayerLife.Instance.damageColor, chick.transform.position, 1f, 1.5f, false);
         }
         StartCoroutine(GrindChick(chick));
         GameManager.Instance.totalGroundChicks++;
         GameManager.Instance.AddScore(chick.value);
+        if(chick.sick)
+        {
+            NumberParticlesManager.Instance.SpawnNumberParticle(chick.value * 10, chick.scoreColor, chick.transform.position, 0.9f, 1.2f, true);
+        }
+        else if(chick.magic)
+        {
+            float size = 1.5f * (chick.value / 5);
+            size = size > 2.5f ? 2.5f : size;
+            NumberParticlesManager.Instance.SpawnNumberParticle(chick.value * 10, chick.scoreColor, chick.transform.position, 0.7f, size, true);
+        }
+        else
+        {
+            float size = 0.5f + (chick.value / 2);
+            size = size > 2 ? 2 : size;
+            if (!chick.bomb)
+            NumberParticlesManager.Instance.SpawnNumberParticle(chick.value * 10, chick.scoreColor, chick.transform.position, 1, size, true);
+        }
+
 
         //groundChicksText.text = "TOTAL GROUND CHICKS : " + GameManager.Instance.totalGroundChicks.ToString();
     }
