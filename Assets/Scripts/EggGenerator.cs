@@ -189,7 +189,7 @@ public class EggGenerator : MonoBehaviour {
         spawnedEgg.canMove = true;
         spawnedEgg.ySpeed = MatManager.Instance.matSpeed;
         spawnedEgg.hp = chosenData.eggHp;
-        spawnedEgg.mr.material = spawnedEgg.hpMaterials[chosenData.eggHp - 1];
+        spawnedEgg.sr.sprite = spawnedEgg.hpSprites[chosenData.eggHp - 1];
     }
 
     public void SpawnSpecificEgg(int index)
@@ -204,7 +204,7 @@ public class EggGenerator : MonoBehaviour {
             spawnedEgg.magicChickIndex = index - 3;
             spawnedEgg.hp = 5;
 
-            spawnedEgg.mr.material = spawnedEgg.hpMaterials[4];
+            spawnedEgg.sr.sprite = spawnedEgg.hpSprites[4];
         }
         else
         {

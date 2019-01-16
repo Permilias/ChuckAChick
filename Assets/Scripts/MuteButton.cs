@@ -37,7 +37,7 @@ public class MuteButton : MonoBehaviour {
         muted = true;
         foreach(AudioSource source in FindObjectsOfType<AudioSource>())
         {
-            source.enabled = false;
+            source.mute = false;
         }
     }
 
@@ -46,7 +46,7 @@ public class MuteButton : MonoBehaviour {
         muted = false;
         foreach (AudioSource source in FindObjectsOfType<AudioSource>())
         {
-            source.enabled = true;
+            source.mute = true;
         }
     }
 }

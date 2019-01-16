@@ -61,6 +61,14 @@ public class TutorialManager : MonoBehaviour {
         waiting1 = true;
     }
 
+    IEnumerator Tutorial0()
+    {
+        EggGenerator.Instance.SpawnSpecificEgg(0);
+        yield return new WaitForSeconds(1.5f);
+        tutorialText.text = text1;
+        waiting1 = true;
+    }
+
     IEnumerator Tutorial1()
     {
 
@@ -143,6 +151,7 @@ public class TutorialManager : MonoBehaviour {
         tutorialText.text = endText;
         MatManager.Instance.Reset();
         EggGenerator.Instance.canSpawn = true;
+        MatManager.Instance.cannotIncrease = false;
         yield return new WaitForSeconds(1.5f);
         tutorialTextAnim.SetTrigger("hide");
         yield return new WaitForSeconds(0.5f);
@@ -187,9 +196,13 @@ public class TutorialManager : MonoBehaviour {
             waiting7 = false;
             StartCoroutine("Tutorial7");
         }
-        else
+        else if(index == 8)
         {
             StartCoroutine("EndTutorial");
+        }
+        else
+        {
+            StartCoroutine("Tutorial0");
         }
     }
 }

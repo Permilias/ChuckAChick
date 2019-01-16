@@ -9,4 +9,5 @@ public class Data
     public int totalGroundChicks;
     public int[] upgradesArray;
     public int playerMoney;
+    public bool tutorialEnabled;
 }

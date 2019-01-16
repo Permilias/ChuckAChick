@@ -9,7 +9,7 @@ public class Egg : MonoBehaviour
     public int magicChickIndex;
     public int hp;
     public MeshRenderer mr;
-    public List<Material> hpMaterials;
+    public List<Sprite> hpSprites;
 
     public float ySpeed;
     public Rigidbody2D rb;
@@ -21,6 +21,9 @@ public class Egg : MonoBehaviour
 
     public bool specificEgg;
     public int specificIndex;
+
+    public GameObject bodySprite;
+    public SpriteRenderer sr;
 
     private void Awake()
     {
@@ -35,6 +38,12 @@ public class Egg : MonoBehaviour
         targetScale = Vector3.one;
         transform.localScale = Vector3.one;
         colliderGO.SetActive(true);
+    }
+
+    private void Update()
+    {
+        if (bodySprite != null)
+            bodySprite.transform.rotation = new Quaternion(Quaternion.identity.x, Quaternion.identity.y, transform.rotation.z, Quaternion.identity.w);
     }
 
     public Vector3 targetScale;
@@ -63,7 +72,7 @@ public class Egg : MonoBehaviour
                 }
                 else
                 {
-                    mr.material = hpMaterials[hp - 1];
+                    sr.sprite = hpSprites[hp - 1];
                 }
             }
             else
@@ -201,6 +210,10 @@ public class Egg : MonoBehaviour
 
     public void CheckIfWronglyRemoved()
     {
+        if(TutorialManager.Instance.waiting1)
+        {
+
+        }
         if (TutorialManager.Instance.waiting2)
         {
             TutorialManager.Instance.NextTutorial(1);

@@ -166,29 +166,38 @@ public class UpgradesManager : MonoBehaviour {
         {
             if (upgradesArray[_button.index] == 0)
             {
-              
-                playerMoney -= _button.initialCost;
-                NumberParticlesManager.Instance.SpawnNumberParticle(-_button.initialCost, Color.white, UpgradeBox.Instance.transform.position, particleSpeedUpgrade, particleSizeUpgrade, true);
-                upgradesArray[_button.index] += 1;
-                SoundManager.Instance.PlaySound(SoundManager.Instance.buyUpgradeSound);
+              if(playerMoney >= _button.initialCost)
+                {
+                    playerMoney -= _button.initialCost;
+                    NumberParticlesManager.Instance.SpawnNumberParticle(-_button.initialCost, Color.white, UpgradeBox.Instance.transform.position, particleSpeedUpgrade, particleSizeUpgrade, true);
+                    upgradesArray[_button.index] += 1;
+                    SoundManager.Instance.PlaySound(SoundManager.Instance.buyUpgradeSound);
+                }
+
             }
             else if (upgradesArray[_button.index] == 1 && _button.orderInBranch != 2)
             {
-                
-                playerMoney -= _button.secondCost;
-                NumberParticlesManager.Instance.SpawnNumberParticle(-_button.secondCost, Color.white, UpgradeBox.Instance.transform.position, particleSpeedUpgrade, particleSizeUpgrade, true);
-                upgradesArray[_button.index] += 1;
-                SoundManager.Instance.PlaySound(SoundManager.Instance.buyUpgradeSound);
+             if(playerMoney >= _button.secondCost)
+                {
+                    playerMoney -= _button.secondCost;
+                    NumberParticlesManager.Instance.SpawnNumberParticle(-_button.secondCost, Color.white, UpgradeBox.Instance.transform.position, particleSpeedUpgrade, particleSizeUpgrade, true);
+                    upgradesArray[_button.index] += 1;
+                    SoundManager.Instance.PlaySound(SoundManager.Instance.buyUpgradeSound);
+                }
+
             }
             else
             {
                 if(_button.orderInBranch != 2)
                 {
-                    
-                    playerMoney -= _button.thirdCost;
-                    NumberParticlesManager.Instance.SpawnNumberParticle(-_button.thirdCost, Color.white, UpgradeBox.Instance.transform.position, particleSpeedUpgrade, particleSizeUpgrade, true);
-                    upgradesArray[_button.index] += 1;
-                    SoundManager.Instance.PlaySound(SoundManager.Instance.buyUpgradeSound);
+                    if(playerMoney >= _button.thirdCost)
+                    {
+                        playerMoney -= _button.thirdCost;
+                        NumberParticlesManager.Instance.SpawnNumberParticle(-_button.thirdCost, Color.white, UpgradeBox.Instance.transform.position, particleSpeedUpgrade, particleSizeUpgrade, true);
+                        upgradesArray[_button.index] += 1;
+                        SoundManager.Instance.PlaySound(SoundManager.Instance.buyUpgradeSound);
+                    }
+
                 }
 
             }

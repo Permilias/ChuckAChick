@@ -56,6 +56,7 @@ public class DataManager : MonoBehaviour {
         }
         else
         {
+            data.tutorialEnabled = TutorialButton.Instance.tutorialEnabled;
             data.playerMoney = UpgradesManager.Instance.playerMoney;
             data.soundMuted = MuteButton.Instance.muted;
             if(UpgradesManager.Instance.upgradesArray != null)
@@ -112,6 +113,7 @@ public class DataManager : MonoBehaviour {
 
     public void ExploitDataGame()
     {
+        GameManager.Instance.tutorialEnabled = data.tutorialEnabled;
         GameManager.Instance.totalGroundChicks = data.totalGroundChicks;
         GameManager.Instance.playerMoney = data.playerMoney;
         MuteButton.Instance.muted = data.soundMuted;
@@ -120,6 +122,7 @@ public class DataManager : MonoBehaviour {
 
     public void ExploitDataMenu()
     {
+        TutorialButton.Instance.tutorialEnabled = data.tutorialEnabled;
         MuteButton.Instance.muted = data.soundMuted;
         UpgradesManager.Instance.upgradesArray = data.upgradesArray;
         UpgradesManager.Instance.playerMoney = data.playerMoney;

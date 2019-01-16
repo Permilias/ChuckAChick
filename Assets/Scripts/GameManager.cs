@@ -104,7 +104,6 @@ public class GameManager : MonoBehaviour {
         money = 0;
         endMoneyTarget = 0;
 
-        yield return new WaitForSeconds(1);
         backToMenuButton.SetActive(true);
     }
 
