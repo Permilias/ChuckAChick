@@ -4,13 +4,20 @@ using UnityEngine;
 
 public class TutorialManager : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public static TutorialManager Instance;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
+
+    public void StartTutorial()
+    {
+        StartCoroutine("WaitThenStartTutorial");
+    }
+
+    IEnumerator WaitThenStartTutorial()
+    {
+        yield return new WaitForSeconds(1);
+    }
 }

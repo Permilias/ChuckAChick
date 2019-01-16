@@ -19,6 +19,9 @@ public class Egg : MonoBehaviour
 
     public bool canMove;
 
+    public bool specificEgg;
+    public int specificIndex;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -55,6 +58,7 @@ public class Egg : MonoBehaviour
 
                 if (hp <= 0)
                 {
+                    ScreenShake.Instance.Shake(0.1f, 0.05f);
                     Break(false);
                 }
                 else

@@ -192,6 +192,40 @@ public class EggGenerator : MonoBehaviour {
         spawnedEgg.mr.material = spawnedEgg.hpMaterials[chosenData.eggHp - 1];
     }
 
+    public void SpawnSpecificEgg(int index)
+    {
+        spawnedEggXPos = ChooseX();
+        spawnedEggPos = new Vector3(spawnedEggXPos, yPos, 0);
+        //choose egg
+        if(index > 2)
+        {
+            spawnedEggGO = ChickGenerator.Instance.magicChickDatas[index - 3].eggPool.Dequeue();
+            spawnedEgg = spawnedEggGO.GetComponent<Egg>();
+            spawnedEgg.magicChickIndex = index - 3;
+            spawnedEgg.hp = 5;
+
+            spawnedEgg.mr.material = spawnedEgg.hpMaterials[4];
+        }
+        else
+        {
+            spawnedEggGO = eggPool.Dequeue();
+            spawnedEgg = spawnedEgg = spawnedEggGO.GetComponent<Egg>();
+            spawnedEgg.specificEgg = true;
+            spawnedEgg.specificIndex = index;
+        }
+
+        //spawn the egg
+        spawnedEggGO.transform.position = spawnedEggPos;
+        spawnedEggGO.transform.eulerAngles = ChooseEggEulers();
+        spawnedEggGO.SetActive(true);
+        //set the egg up
+        activeEggs.Add(spawnedEgg);
+        spawnedEgg.Initialize();
+        spawnedEgg.canMove = true;
+        spawnedEgg.ySpeed = MatManager.Instance.matSpeed;
+
+    }
+
     //chooses a random x position
     public float ChooseX()
     {

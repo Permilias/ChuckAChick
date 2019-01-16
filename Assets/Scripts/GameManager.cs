@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour {
     public int playerMoney;
     public int baseMoneyMultiplier;
 
+    public bool tutorialEnabled;
+
     [Header("Game End")]
     public GameObject endBackSprite;
     public TextMeshPro endMoneyText;
@@ -35,12 +37,21 @@ public class GameManager : MonoBehaviour {
         endMoneyText.gameObject.SetActive(false);
         endPlayerMoneyText.gameObject.SetActive(false);
         backToMenuButton.SetActive(false);
+
         endMoneyTarget = 0;
         endPlayerMoneyTarget = 0;
-        DataManager.Instance.Load(true, true);
-        score = 0;
 
+        DataManager.Instance.Load(true, true);
+
+        score = 0;
         UpgradesApplier.Instance.ApplyUpgrades();
+
+        if(tutorialEnabled)
+        {
+            TutorialManager.Instance.StartTutorial();
+            EggGenerator.Instance.canSpawn = false;
+            MatManager.Instance.cannotIncrease = true;
+        }
     }
 
     float reference;
@@ -99,7 +110,6 @@ public class GameManager : MonoBehaviour {
     {
         if(!gameEnded)
         {
-
             score += value;
             if (score < 0) score = 0;
             money = Mathf.RoundToInt(score * baseMoneyMultiplier);
