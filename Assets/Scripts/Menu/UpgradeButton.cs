@@ -49,6 +49,7 @@ public class UpgradeButton : MonoBehaviour {
     {
         if (button.clicked)
         {
+            button.clicked = false;
             if(!selected)
             {
                 UpgradesManager.Instance.SelectButton(this);

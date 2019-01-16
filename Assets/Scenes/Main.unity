@@ -158,7 +158,7 @@ MonoBehaviour:
   bombChickChuckingUpgradeMultiplier: 10
   breakingMoneyMultiplier: 5
   breakingHealingMultiplier: 1
-  sickChickReductionMultiplier: 2
+  sickChickReductionMultiplier: -2
   magicEggFrequencyReductionMultiplier: 2
   lifeUpgradeMultiplier: 60
   shockwaveRadiusMultiplier: 0.2
@@ -2445,6 +2445,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1182929264}
+  - component: {fileID: 1182929265}
   m_Layer: 0
   m_Name: TutorialManager
   m_TagString: Untagged
@@ -2465,6 +2466,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1182929265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1182929263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db4d061475f695b4fb5cc1f49d8fceab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1188283641
 GameObject:
   m_ObjectHideFlags: 0
