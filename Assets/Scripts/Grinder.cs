@@ -59,6 +59,7 @@ public class Grinder : MonoBehaviour {
         egg.colliderGO.SetActive(false);
         StartCoroutine(GrindEgg(egg));
         PlayerLife.Instance.LoseLife(PlayerLife.Instance.frontEggDamage, PlayerLife.Instance.frontEggShakeStrength);
+        SoundManager.Instance.PlaySound(SoundManager.Instance.bigDamage);
         NumberParticlesManager.Instance.SpawnNumberParticle(PlayerLife.Instance.frontEggDamage, PlayerLife.Instance.damageColor, egg.transform.position, 1f, 2f, false);
     }
 
@@ -70,6 +71,7 @@ public class Grinder : MonoBehaviour {
         if(chick.bomb)
         {
             PlayerLife.Instance.LoseLife(PlayerLife.Instance.frontBombDamage, PlayerLife.Instance.frontBombShakeStrength);
+            SoundManager.Instance.PlaySound(SoundManager.Instance.bigDamage);
             NumberParticlesManager.Instance.SpawnNumberParticle(PlayerLife.Instance.frontBombDamage, PlayerLife.Instance.damageColor, chick.transform.position, 1f, 1.5f, false);
         }
         StartCoroutine(GrindChick(chick));

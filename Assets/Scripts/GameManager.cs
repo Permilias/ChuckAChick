@@ -139,8 +139,7 @@ public class GameManager : MonoBehaviour {
     }
 
     IEnumerator MenuLoadingCoroutine()
-    {
-        
+    {   
         Debug.Log("Loading Menu...");
         //DataManager.Instance.Save(true);
         yield return new WaitForEndOfFrame();
@@ -153,5 +152,13 @@ public class GameManager : MonoBehaviour {
         {
             LoadMenu();
         }
+    }
+
+    public AudioSource ambianceUsine;
+    IEnumerator StartFactorySound()
+    {
+        SoundManager.Instance.PlaySound(SoundManager.Instance.ambianceUsineStart);
+        yield return new WaitForSeconds(SoundManager.Instance.ambianceUsineStart.clips[0].length);
+        ambianceUsine.Play();
     }
 }

@@ -49,6 +49,7 @@ public class Chucker : MonoBehaviour {
         egg.colliderGO.SetActive(false);
         StartCoroutine(ChuckEgg(egg, left));
         PlayerLife.Instance.LoseLife(PlayerLife.Instance.sideEggDamage, PlayerLife.Instance.sideEggShakeStrength);
+        SoundManager.Instance.PlaySound(SoundManager.Instance.damage);
         NumberParticlesManager.Instance.SpawnNumberParticle(PlayerLife.Instance.sideEggDamage, PlayerLife.Instance.damageColor, egg.transform.position, 0.8f, 1.5f, false);
     }
 
