@@ -14,4 +14,5 @@ public class MagicChickData
     public int eggOdds;
     public int eggHp;
     public int value;
+    public Color scoreColor;
 }

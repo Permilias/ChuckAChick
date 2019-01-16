@@ -27,6 +27,8 @@ public class Chick : MonoBehaviour {
     public bool magic;
     ClickableObject clickableObject;
 
+    public Color scoreColor;
+
     public bool canMove;
     public bool eater;
 
