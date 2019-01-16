@@ -2584,31 +2584,31 @@ MonoBehaviour:
     - {fileID: 8300000, guid: b838519eb108f204ea686128e6a49e47, type: 3}
     - {fileID: 8300000, guid: 6a8e4ebfa6206e94da164d8b355350ca, type: 3}
     - {fileID: 8300000, guid: 5bcb943120abd774796c3344eb3ffce6, type: 3}
-    minVolume: 0.3
-    maxVolume: 0.3
-    minPitch: 1
-    maxPitch: 1
+    minVolume: 0.1
+    maxVolume: 0.2
+    minPitch: 0.9
+    maxPitch: 1.1
   bombBip:
     clips:
     - {fileID: 8300000, guid: 6123a0e534ee0264381843c8c198d58e, type: 3}
     - {fileID: 8300000, guid: 45fbfdc0aae8f49459769d1b91968f32, type: 3}
     - {fileID: 8300000, guid: 4b016162e5d4bba469c29f4e35ba18d1, type: 3}
-    minVolume: 1
-    maxVolume: 1
-    minPitch: 0.8
-    maxPitch: 0.8
+    minVolume: 0.4
+    maxVolume: 0.4
+    minPitch: 0.7
+    maxPitch: 0.7
   bombLastBip:
     clips:
     - {fileID: 8300000, guid: 022980767839618438289242073ee765, type: 3}
-    minVolume: 1
-    maxVolume: 1
+    minVolume: 0.5
+    maxVolume: 0.5
     minPitch: 1
     maxPitch: 1
   bombExplosion:
     clips:
     - {fileID: 8300000, guid: 4cb94e9e07d009945b8c413cc1885789, type: 3}
-    minVolume: 1
-    maxVolume: 1
+    minVolume: 0.4
+    maxVolume: 0.4
     minPitch: 1
     maxPitch: 1
   piouDragSain:
@@ -2633,6 +2633,13 @@ MonoBehaviour:
     maxVolume: 1
     minPitch: 1
     maxPitch: 1
+  getMoney:
+    clips:
+    - {fileID: 8300000, guid: 7f3fe16744e40bf46a02f3ded2630146, type: 3}
+    minVolume: 0.6
+    maxVolume: 0.6
+    minPitch: 0.7
+    maxPitch: 1.2
   menuMusic:
     clips: []
     minVolume: 0
@@ -2714,8 +2721,8 @@ MonoBehaviour:
   moneySoundRepeat:
     clips:
     - {fileID: 8300000, guid: a8418d20d0b7edf47b42a4d5508148ae, type: 3}
-    minVolume: 1
-    maxVolume: 1
+    minVolume: 0.6
+    maxVolume: 0.6
     minPitch: 1
     maxPitch: 1
   buyUpgradeSound:
@@ -2732,52 +2739,52 @@ MonoBehaviour:
     maxPitch: 0
   magicTaps:
   - clips:
-    - {fileID: 8300000, guid: bf712136f71511b4aa16aa79b557b9bf, type: 3}
-    minVolume: 1
-    maxVolume: 1
+    - {fileID: 8300000, guid: 3b5d5e6a296f0cf459cc38c38c581eb1, type: 3}
+    minVolume: 0.8
+    maxVolume: 0.8
     minPitch: 1
     maxPitch: 1
   - clips:
-    - {fileID: 8300000, guid: d93dee7166289854da265ec7e35f4f6e, type: 3}
-    minVolume: 1
-    maxVolume: 1
+    - {fileID: 8300000, guid: 5db5fc0519dfbf5428d490bf250b8af1, type: 3}
+    minVolume: 0.8
+    maxVolume: 0.8
     minPitch: 1
     maxPitch: 1
   - clips:
-    - {fileID: 8300000, guid: d93dee7166289854da265ec7e35f4f6e, type: 3}
-    minVolume: 1
-    maxVolume: 1
+    - {fileID: 8300000, guid: 72173b5b816e5c440afd852b2893fce7, type: 3}
+    minVolume: 0.7
+    maxVolume: 0.7
     minPitch: 1
     maxPitch: 1
   - clips:
-    - {fileID: 8300000, guid: 8205f8e7aae76ac43803a3f888694dc3, type: 3}
-    minVolume: 1
-    maxVolume: 1
+    - {fileID: 8300000, guid: cc3ae555a389be74fac2e64fddaa8b48, type: 3}
+    minVolume: 0.6
+    maxVolume: 0.6
     minPitch: 1
     maxPitch: 1
   magicCracks:
   - clips:
     - {fileID: 8300000, guid: aad1b02eb4ea94045be7275df0071398, type: 3}
-    minVolume: 1
-    maxVolume: 1
+    minVolume: 0.7
+    maxVolume: 0.7
     minPitch: 1
     maxPitch: 1
   - clips:
     - {fileID: 8300000, guid: 8dd6118d780e4f2418a0ff9e33eaca8b, type: 3}
-    minVolume: 1
-    maxVolume: 1
+    minVolume: 0.8
+    maxVolume: 0.8
     minPitch: 1
     maxPitch: 1
   - clips:
     - {fileID: 8300000, guid: 5395012b47c5caa4fb093912a9160d69, type: 3}
-    minVolume: 1
-    maxVolume: 1
+    minVolume: 0.9
+    maxVolume: 0.9
     minPitch: 1
     maxPitch: 1
   - clips:
     - {fileID: 8300000, guid: 295991ddd80f9554fb69d7e56c5377ce, type: 3}
-    minVolume: 1
-    maxVolume: 1
+    minVolume: 0.9
+    maxVolume: 0.9
     minPitch: 1
     maxPitch: 1
   healedChick:
@@ -2790,8 +2797,8 @@ MonoBehaviour:
   vortexChickIncrementation:
     clips:
     - {fileID: 8300000, guid: 37a442903e77b5440a604e5d295cc3a7, type: 3}
-    minVolume: 1
-    maxVolume: 1
+    minVolume: 0.7
+    maxVolume: 0.7
     minPitch: 1
     maxPitch: 1
   vortexChickAuraLoop:
@@ -4810,7 +4817,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e7de68ae3e71bca4d9575fdd25c7ebf7, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.25
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
   Mute: 0
