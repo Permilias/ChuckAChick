@@ -25,12 +25,19 @@ public class SoundManager : MonoBehaviour {
     public Sound buttonPress;
     public Sound goBackButtonPress;
     public Sound menuPlayButtonPress;
+    public Sound moneySoundRepeat;
+    public Sound buyUpgradeSound;
+    public Sound downgradeSound;
 
     [Header("Magic Chicks SFX")]
     public List<Sound> magicTaps;
     public List<Sound> magicCracks;
     public Sound healedChick;
     public Sound vortexChickIncrementation;
+    public Sound vortexChickAuraLoop;
+    public Sound healChickAuraLoop;
+    public Sound eggbreakerChickAuraLoop;
+    public Sound godfatherChickAuraLoop;
 
 
     public Queue<GameObject> receptaclePool;

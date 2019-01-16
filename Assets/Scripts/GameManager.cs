@@ -99,9 +99,11 @@ public class GameManager : MonoBehaviour {
     {
         if(!gameEnded)
         {
+
             score += value;
             if (score < 0) score = 0;
             money = Mathf.RoundToInt(score * baseMoneyMultiplier);
+            SoundManager.Instance.PlaySound(SoundManager.Instance.moneySoundRepeat);
         }
 
     }
@@ -109,6 +111,7 @@ public class GameManager : MonoBehaviour {
     public void OnApplicationQuit()
     {
         Debug.Log("OnApplicationQuit");
+        
         DataManager.Instance.Save(true);
     }
 
@@ -121,11 +124,13 @@ public class GameManager : MonoBehaviour {
 
     public void LoadMenu()
     {
+        
         StartCoroutine(MenuLoadingCoroutine());
     }
 
     IEnumerator MenuLoadingCoroutine()
     {
+        
         Debug.Log("Loading Menu...");
         //DataManager.Instance.Save(true);
         yield return new WaitForEndOfFrame();

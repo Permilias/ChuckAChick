@@ -49,9 +49,12 @@ public class ChickGenerator : MonoBehaviour {
     public Color baseSpriteColor;
     public Sprite sickSprite;
     public Color sickColor;
+    public Color enrichedColor;
 
     [Header("FX")]
     public List<ShellExplosionData> shellExplosions;
+    public GameObject healingFX;
+    public Queue<GameObject> healingFXs;
 
     public List<Chick> activeChicks;
 
@@ -90,8 +93,11 @@ public class ChickGenerator : MonoBehaviour {
         {
             data.shellExplosionPool = new Queue<GameObject>();
         }
+        healingFXs = new Queue<GameObject>();
+
         FillShellExplosionPools();
         FillMagicShellExplosionPools();
+        FillHealingFXPool();
     }
 
     public void FillShellExplosionPools()
@@ -113,6 +119,16 @@ public class ChickGenerator : MonoBehaviour {
         {
             newGO = Instantiate(data.shellExplosion, transform);
             data.shellExplosionPool.Enqueue(newGO);
+            newGO.SetActive(false);
+        }
+    }
+
+    public void FillHealingFXPool()
+    {
+        for(int i = 0; i < 10; i++)
+        {
+            newGO = Instantiate(healingFX, transform);
+            healingFXs.Enqueue(newGO);
             newGO.SetActive(false);
         }
     }
@@ -302,5 +318,23 @@ public class ChickGenerator : MonoBehaviour {
         yield return new WaitForSeconds(1);
         currentShellExplosion.SetActive(false);
         _data.shellExplosionPool.Enqueue(currentShellExplosion);
+    }
+
+    public void SpawnHealingFX(Transform _transform)
+    {
+        StartCoroutine(HealingFX(_transform));  
+    }
+
+    IEnumerator HealingFX(Transform _transform)
+    {
+        GameObject chosenFX = healingFXs.Dequeue();
+        chosenFX.SetActive(true);
+        chosenFX.transform.position = _transform.position + new Vector3(0, 0, -1);
+        chosenFX.transform.rotation = Quaternion.identity;
+        chosenFX.transform.parent = _transform;
+        yield return new WaitForSeconds(1);
+        healingFXs.Enqueue(chosenFX);
+        chosenFX.transform.parent = transform;
+        chosenFX.SetActive(false);
     }
 }

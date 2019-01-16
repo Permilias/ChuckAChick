@@ -159,20 +159,26 @@ public class UpgradesManager : MonoBehaviour {
         {
             if (upgradesArray[_button.index] == 0)
             {
+              
                 playerMoney -= _button.initialCost;
                 upgradesArray[_button.index] += 1;
+                SoundManager.Instance.PlaySound(SoundManager.Instance.buyUpgradeSound);
             }
             else if (upgradesArray[_button.index] == 1 && _button.orderInBranch != 2)
             {
+                
                 playerMoney -= _button.secondCost;
                 upgradesArray[_button.index] += 1;
+                SoundManager.Instance.PlaySound(SoundManager.Instance.buyUpgradeSound);
             }
             else
             {
                 if(_button.orderInBranch != 2)
                 {
+                    
                     playerMoney -= _button.thirdCost;
                     upgradesArray[_button.index] += 1;
+                    SoundManager.Instance.PlaySound(SoundManager.Instance.buyUpgradeSound);
                 }
 
             }
@@ -197,7 +203,9 @@ public class UpgradesManager : MonoBehaviour {
             if(upgradesArray[_button.index] == 1)
             {
                 playerMoney += _button.initialCost;
-                if(_button.orderInBranch == 0)
+                SoundManager.Instance.PlaySound(SoundManager.Instance.downgradeSound);
+
+                if (_button.orderInBranch == 0)
                 {
                     upgradesArray[_button.branchButton1.index] = -1;
                 }
@@ -207,11 +215,14 @@ public class UpgradesManager : MonoBehaviour {
                 }
             }
             else if(upgradesArray[_button.index] == 2)
+
             {
+                SoundManager.Instance.PlaySound(SoundManager.Instance.downgradeSound);
                 playerMoney += _button.secondCost;
             }
             else
             {
+                SoundManager.Instance.PlaySound(SoundManager.Instance.downgradeSound);
                 playerMoney += _button.thirdCost;
             }
 

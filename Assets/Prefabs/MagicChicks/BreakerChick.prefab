@@ -434,7 +434,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1158842087622036}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.9615965, y: -0.81019044, z: -0.13}
+  m_LocalPosition: {x: 0.10455847, y: -3.0152664, z: 0.8951063}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4182716380382720}
@@ -828,7 +828,7 @@ MonoBehaviour:
   feathers: {fileID: 0}
   magicAura: {fileID: 1867471830627170}
   value: 0
-  SR: {fileID: 0}
+  SR: {fileID: 212508397969763468}
   anim: {fileID: 95139123140741150}
   magicChickIndex: 0
   magic: 1

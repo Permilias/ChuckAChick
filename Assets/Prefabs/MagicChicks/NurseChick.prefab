@@ -785,7 +785,7 @@ MonoBehaviour:
   feathers: {fileID: 0}
   magicAura: {fileID: 1763660381559920}
   value: 0
-  SR: {fileID: 0}
+  SR: {fileID: 212514515607884254}
   anim: {fileID: 95037511182831594}
   magicChickIndex: 0
   magic: 1
