@@ -73,7 +73,11 @@ Material:
     m_Floats:
     - Vector1_6F49643B: 4
     - Vector1_87AAC3B2: 0.516
+<<<<<<< HEAD
+    - Vector1_BF0E8121: 0.48420206
+=======
     - Vector1_BF0E8121: 0.42801017
+>>>>>>> b83253d9fc2649d9dac3ffd2c49f5218cee7fc8b
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
