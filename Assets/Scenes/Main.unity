@@ -927,7 +927,7 @@ MonoBehaviour:
   money: 0
   playerMoney: 0
   baseMoneyMultiplier: 10
-  tutorialEnabled: 0
+  tutorialEnabled: 1
   endBackSprite: {fileID: 220708927}
   endMoneyText: {fileID: 2092952726}
   endPlayerMoneyText: {fileID: 339485503}
@@ -2336,6 +2336,34 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1146215194
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1146215195}
+  m_Layer: 0
+  m_Name: Arrows1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1146215195
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1146215194}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1182929264}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1170527857
 GameObject:
   m_ObjectHideFlags: 0
@@ -2466,6 +2494,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1438115225}
+  - {fileID: 1146215195}
+  - {fileID: 1797014190}
   m_Father: {fileID: 0}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2480,6 +2510,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db4d061475f695b4fb5cc1f49d8fceab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tutorialText: {fileID: 1447325532}
+  tutorialTextAnim: {fileID: 1438115226}
+  welcomeText: Welcome to Chuck a Chick !
+  text1: Tap an Egg to crack it.
+  text2: Chicks earn you money !
+  text3: Throw Sick Chicks away.
+  text4: Throw Bomb Chicks away before they explode !
+  text5: Tap 5 times to open Magic Eggs. This one heals the Sick !
+  text6: Godfather Chicks make other Chicks more valuable.
+  text7: Breaker Chicks break Eggs instantly !
+  text8: Vortex Chicks like to eat egg shells !
+  endText: Have fun !!
+  waiting1: 0
+  waiting2: 0
+  waiting3: 0
+  waiting4: 0
+  waiting5: 0
+  waiting6: 0
+  waiting7: 0
+  waiting8: 0
+  sprite1: {fileID: 1146215194}
+  sprite2: {fileID: 1797014189}
 --- !u!1 &1188283641
 GameObject:
   m_ObjectHideFlags: 0
@@ -3111,6 +3163,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1438115225}
+  - component: {fileID: 1438115226}
   m_Layer: 0
   m_Name: TutorialText
   m_TagString: Untagged
@@ -3125,13 +3178,31 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1438115224}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.13, z: 0}
+  m_LocalPosition: {x: 0, y: 3.28, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1447325531}
   m_Father: {fileID: 1182929264}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1438115226
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1438115224}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 33d55b7e79dc48a448695cfbccf189e9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &1442460740 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4896847618764000, guid: 84b801dc05acd294089c5616bbfddd35,
@@ -3155,7 +3226,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1447325531
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3194,7 +3265,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: WELCOME TO CHUCK A CHICK !
+  m_text: THROW BOMB CHICKS AWAY BEFORE THEY EXPLODE !
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6fa86441ea2b7bd458f1856962b1cf82, type: 2}
   m_sharedMaterial: {fileID: 21288068302086814, guid: 6fa86441ea2b7bd458f1856962b1cf82,
@@ -3222,12 +3293,12 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 8.58
+  m_fontSize: 6.7
   m_fontSizeBase: 8.58
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 5
+  m_fontSizeMax: 8
   m_fontStyle: 0
   m_textAlignment: 514
   m_isAlignmentEnumConverted: 1
@@ -3263,12 +3334,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1447325532}
-    characterCount: 26
+    characterCount: 44
     spriteCount: 0
-    spaceCount: 5
-    wordCount: 5
+    spaceCount: 7
+    wordCount: 7
     linkCount: 0
-    lineCount: 2
+    lineCount: 3
     pageCount: 1
     materialCount: 1
   m_havePropertiesChanged: 0
@@ -3375,7 +3446,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1454861810}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 07994bfe8b0e4adb97d706de5dea48d5, type: 3}
   m_Name: 
@@ -3955,6 +4026,34 @@ Transform:
   m_Father: {fileID: 993806857}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1797014189
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1797014190}
+  m_Layer: 0
+  m_Name: Arrows2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1797014190
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1797014189}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1182929264}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1836691791
 GameObject:
   m_ObjectHideFlags: 0
@@ -4462,7 +4561,7 @@ MonoBehaviour:
   minX: -0.7
   maxX: 0.7
   spawningPos: {fileID: 1170527858}
-  yPos: -3
+  yPos: -2.7
   minXEul: 0
   maxXEul: 0
   minYEul: 0
@@ -4546,7 +4645,7 @@ MonoBehaviour:
       type: 2}
     eggOdds: 5
     eggHp: 5
-    value: 5
+    value: 0
     scoreColor: {r: 1, g: 0, b: 0.9233203, a: 1}
   richPS: {fileID: 1310036323403456, guid: 6b0dd05150a49aa4a965224f7ab26237, type: 2}
   poorPS: {fileID: 1994402319213000, guid: 1f54b3acc15c8a746ae821d116f50f72, type: 2}
@@ -4561,10 +4660,10 @@ MonoBehaviour:
   sickColor: {r: 0.39126024, g: 0.4811321, b: 0.25645247, a: 1}
   bombColor: {r: 1, g: 0, b: 0, a: 1}
   chickPoolingAmount: 50
-  minXEul: 0
-  maxXEul: 360
-  minYEul: -100
-  maxYEul: 100
+  minXEul: -20
+  maxXEul: 20
+  minYEul: -20
+  maxYEul: 20
   minZEul: 0
   maxZEul: 360
   chickVelDecayTime: 0.5

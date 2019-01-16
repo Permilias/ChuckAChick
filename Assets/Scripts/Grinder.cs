@@ -51,6 +51,10 @@ public class Grinder : MonoBehaviour {
 
     public void Grind(Egg egg)
     {
+        if (!EggGenerator.Instance.canSpawn)
+        {
+            egg.CheckIfWronglyRemoved();
+        }
         egg.canMove = false;
         egg.colliderGO.SetActive(false);
         StartCoroutine(GrindEgg(egg));

@@ -40,6 +40,10 @@ public class Chucker : MonoBehaviour {
 
     public void Chuck(Egg egg, bool left)
     {
+        if(!EggGenerator.Instance.canSpawn)
+        {
+            egg.CheckIfWronglyRemoved();
+        }
         egg.canMove = false;
         egg.rb.velocity = Vector3.zero;
         egg.colliderGO.SetActive(false);
@@ -59,7 +63,7 @@ public class Chucker : MonoBehaviour {
             if(chuckingBombGivesMoney)
             {
                 GameManager.Instance.AddScore(bombChickChuckingValue);
-                NumberParticlesManager.Instance.SpawnNumberParticle(bombChickChuckingValue * 10, ChickGenerator.Instance.bombColor, chick.transform.position, 0.8f, 1.5f, true);
+                NumberParticlesManager.Instance.SpawnNumberParticle(bombChickChuckingValue * 10, ChickGenerator.Instance.bombColor, chick.transform.position, 0.8f, 1.1f, true);
             }
         }
     }
