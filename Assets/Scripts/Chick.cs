@@ -296,6 +296,7 @@ public class Chick : MonoBehaviour {
         sick = false;
         value = ChickGenerator.Instance.baseChickValue;
         anim.SetInteger("AnimIndex", 0);
+        scoreColor = ChickGenerator.Instance.baseColor;
 
         SoundManager.Instance.PlaySound(SoundManager.Instance.healedChick);
     }

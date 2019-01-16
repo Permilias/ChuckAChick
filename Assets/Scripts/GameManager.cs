@@ -69,7 +69,7 @@ public class GameManager : MonoBehaviour {
         moneyText.text = Mathf.RoundToInt(shownMoney).ToString() + " $";
 
         endShownMoney = Mathf.SmoothDamp(endShownMoney, endMoneyTarget, ref reference2, 0.08f);
-        endMoneyText.text = Mathf.RoundToInt(endShownMoney).ToString() + " $";
+        endMoneyText.text = "MONEY : " + Mathf.RoundToInt(endShownMoney).ToString() + " $";
 
         endShownPlayerMoney = Mathf.SmoothDamp(endShownPlayerMoney, endPlayerMoneyTarget, ref reference3, 0.08f);
         endPlayerMoneyText.text = Mathf.RoundToInt(endShownPlayerMoney).ToString() + " $";
@@ -81,20 +81,22 @@ public class GameManager : MonoBehaviour {
     }
 
     public bool gameEnded;
+    public Animator endBackSpriteAnim;
     IEnumerator EndGameCoroutine()
     {
+        endBackSpriteAnim.SetBool("isVisible", true);
         gameEnded = true;
         MatManager.Instance.Stop();
         EggGenerator.Instance.Stop();
         endBackSprite.SetActive(true);
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
         endMoneyTarget = money;
         endMoneyText.gameObject.SetActive(true);
-        yield return new WaitForSeconds(1);
-        endPlayerMoneyText.text = playerMoney.ToString();
+        yield return new WaitForSeconds(2);
+        endPlayerMoneyText.text = playerMoney.ToString() + "$";
         endPlayerMoneyTarget = playerMoney;
         endPlayerMoneyText.gameObject.SetActive(true);
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
         endPlayerMoneyTarget = playerMoney + money;
         playerMoney += money;
 
