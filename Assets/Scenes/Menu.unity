@@ -747,23 +747,23 @@ Prefab:
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText1
-      value: Special Chicks will appear more often.
+      value: Magic Chicks will appear more often.
       objectReference: {fileID: 0}
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText2
-      value: Special Chicks will appear more often than more often.
+      value: Magic Chicks will appear more often than more often.
       objectReference: {fileID: 0}
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText3
-      value: Special Chicks will appear more often than more often than more often
-        (like, pretty often).
+      value: Magic Chicks will appear more often than more often than more often (like,
+        pretty often).
       objectReference: {fileID: 0}
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText4
-      value: Yep, Special Chicks actually appear the most often they can.
+      value: Magic Chicks appear the most often they can !
       objectReference: {fileID: 0}
     - target: {fileID: 114508223189516810, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
@@ -811,6 +811,26 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: 582cae3bcc3b7e6429e3925f7a784de2,
         type: 3}
+    - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
+        type: 2}
+      propertyPath: title
+      value: MORE MAGIC
+      objectReference: {fileID: 0}
+    - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
+        type: 2}
+      propertyPath: initialCost
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
+        type: 2}
+      propertyPath: secondCost
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
+        type: 2}
+      propertyPath: thirdCost
+      value: 5000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5eb6113a2b3354645b0a425a47e44c5d, type: 2}
   m_IsPrefabAsset: 0
@@ -1676,17 +1696,17 @@ Prefab:
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText1
-      value: 60 more total HP .
+      value: 60 more total HP !
       objectReference: {fileID: 0}
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText2
-      value: '60 more total HP ! (Current : 60 bonus HP)'
+      value: '60 more total HP !! (Current : 60 bonus HP)'
       objectReference: {fileID: 0}
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText3
-      value: '60 more total HP !!!!! (Current : 120 bonus HP)'
+      value: '60 more total HP !!! (Current : 120 bonus HP)'
       objectReference: {fileID: 0}
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
@@ -1734,6 +1754,26 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: 86b1c00bb0847f04998cac4469dc28c5,
         type: 3}
+    - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
+        type: 2}
+      propertyPath: title
+      value: BETTER STEELWARE
+      objectReference: {fileID: 0}
+    - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
+        type: 2}
+      propertyPath: initialCost
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
+        type: 2}
+      propertyPath: secondCost
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
+        type: 2}
+      propertyPath: thirdCost
+      value: 5000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5eb6113a2b3354645b0a425a47e44c5d, type: 2}
   m_IsPrefabAsset: 0
@@ -1876,6 +1916,26 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: 1b91fcd1d26d06d4a8c9ac012333f346,
         type: 3}
+    - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
+        type: 2}
+      propertyPath: title
+      value: SHELL SHOCK
+      objectReference: {fileID: 0}
+    - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
+        type: 2}
+      propertyPath: initialCost
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
+        type: 2}
+      propertyPath: secondCost
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
+        type: 2}
+      propertyPath: thirdCost
+      value: 5000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5eb6113a2b3354645b0a425a47e44c5d, type: 2}
   m_IsPrefabAsset: 0
@@ -1951,26 +2011,25 @@ Prefab:
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText1
-      value: The Godfather Chick will now constantly generate a 30 $ per second income
-        while on the treadmill.
+      value: The Godfather Chick will generates a 30 $ per second income while on
+        the treadmill.
       objectReference: {fileID: 0}
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText2
-      value: The Godfather Chick will now constantly generate a 30 $ per second income
-        while on the treadmill.
+      value: The Godfather Chick will generates a 30 $ per second income while on
+        the treadmill.
       objectReference: {fileID: 0}
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText3
-      value: The Godfather Chick will now constantly generate a 30 $ per second income
-        while on the treadmill.
+      value: The Godfather Chick will generates a 30 $ per second income while on
+        the treadmill.
       objectReference: {fileID: 0}
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText4
-      value: The Godfather Chick now constantly generate a 30 $ per second income
-        while on the treadmill.
+      value: The Godfather Chick generates a 30 $ per second income while on the treadmill.
       objectReference: {fileID: 0}
     - target: {fileID: 114508223189516810, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
@@ -2018,6 +2077,26 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: 7abf69aebfc5d5f4ea583a7738b6457a,
         type: 3}
+    - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
+        type: 2}
+      propertyPath: title
+      value: INCOME GODFATHER
+      objectReference: {fileID: 0}
+    - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
+        type: 2}
+      propertyPath: initialCost
+      value: 8000
+      objectReference: {fileID: 0}
+    - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
+        type: 2}
+      propertyPath: secondCost
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
+        type: 2}
+      propertyPath: thirdCost
+      value: 5000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5eb6113a2b3354645b0a425a47e44c5d, type: 2}
   m_IsPrefabAsset: 0
@@ -2895,6 +2974,26 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: 82d0c15c264fee94c819edf7965f2e4a,
         type: 3}
+    - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
+        type: 2}
+      propertyPath: title
+      value: VALUABLE SHELLS
+      objectReference: {fileID: 0}
+    - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
+        type: 2}
+      propertyPath: initialCost
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
+        type: 2}
+      propertyPath: secondCost
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
+        type: 2}
+      propertyPath: thirdCost
+      value: 5000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5eb6113a2b3354645b0a425a47e44c5d, type: 2}
   m_IsPrefabAsset: 0
@@ -3509,22 +3608,22 @@ Prefab:
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText1
-      value: The Vortex Chick will eat every egg souls liberated on the treadmill.
+      value: The Vortex Chick will eat every egg shell broken on the treadmill.
       objectReference: {fileID: 0}
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText2
-      value: The Vortex Chick will eat every egg souls liberated on the treadmill.
+      value: The Vortex Chick will eat every egg shell broken on the treadmill.
       objectReference: {fileID: 0}
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText3
-      value: The Vortex Chick will eat every egg souls liberated on the treadmill.
+      value: The Vortex Chick will eat every egg shell broken on the treadmill.
       objectReference: {fileID: 0}
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText4
-      value: The Vortex Chick will eat every egg souls liberated on the treadmill.
+      value: The Vortex Chick will eat every egg shell broken on the treadmill.
       objectReference: {fileID: 0}
     - target: {fileID: 114508223189516810, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
@@ -3572,6 +3671,26 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: 69711da7f45326d4c8a4fc8e3e0cd452,
         type: 3}
+    - target: {fileID: 114508223189516810, guid: 5eb6113a2b3354645b0a425a47e44c5d,
+        type: 2}
+      propertyPath: clicked
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
+        type: 2}
+      propertyPath: initialCost
+      value: 8000
+      objectReference: {fileID: 0}
+    - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
+        type: 2}
+      propertyPath: secondCost
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
+        type: 2}
+      propertyPath: thirdCost
+      value: 5000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5eb6113a2b3354645b0a425a47e44c5d, type: 2}
   m_IsPrefabAsset: 0
@@ -3675,25 +3794,22 @@ Prefab:
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText1
-      value: "\u201CProcessed\u201D Sick Chicks will cost you 50 $ instead of 100
-        $ ."
+      value: Sick Chicks will cost you 70 $ instead of 100 $.
       objectReference: {fileID: 0}
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText2
-      value: "\u201CProcessed\u201D Sick Chicks will cost you 25 $ instead of 50 $
-        ."
+      value: Sick Chicks will cost you 40 $ instead of 70 $.
       objectReference: {fileID: 0}
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText3
-      value: "\u201CProcessed\u201D Sick Chicks will cost you 12 $ instead of 25 $
-        ."
+      value: Sick Chicks will cost you 10 $ instead of 40 $.
       objectReference: {fileID: 0}
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText4
-      value: You're the discount king, and "processed" sick chicks only costs $.
+      value: Sick Chicks will only cost you 10 $ !
       objectReference: {fileID: 0}
     - target: {fileID: 114508223189516810, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
@@ -3736,6 +3852,26 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: 20f52a8e4bb82454181e05d139751912,
         type: 3}
+    - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
+        type: 2}
+      propertyPath: title
+      value: STERILIZING METHODS
+      objectReference: {fileID: 0}
+    - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
+        type: 2}
+      propertyPath: initialCost
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
+        type: 2}
+      propertyPath: secondCost
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
+        type: 2}
+      propertyPath: thirdCost
+      value: 5000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5eb6113a2b3354645b0a425a47e44c5d, type: 2}
   m_IsPrefabAsset: 0
@@ -4018,6 +4154,12 @@ MonoBehaviour:
     maxVolume: 0
     minPitch: 0
     maxPitch: 0
+  killChick:
+    clips: []
+    minVolume: 0
+    maxVolume: 0
+    minPitch: 0
+    maxPitch: 0
   menuMusic:
     clips:
     - {fileID: 8300000, guid: 91e90f3319571b94984ccd25a2246b04, type: 3}
@@ -4227,26 +4369,23 @@ Prefab:
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText1
-      value: "Egg breaking will heal you 1 HP, but \u201Cprocessed\u201D eggs will
-        inflict more damage ! "
+      value: Breaking an Egg will heal 1 HP !
       objectReference: {fileID: 0}
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText2
-      value: "Egg breaking will heal you 2 HP, but \u201Cprocessed\u201D eggs will
-        inflict more damage ! "
+      value: Breaking an Egg will heal 2 HP !
       objectReference: {fileID: 0}
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText3
-      value: "Egg breaking will heal you 3 HP, but \u201Cprocessed\u201D eggs will
-        inflict more damage ! "
+      value: Breaking an Egg will heal 3 HP !
       objectReference: {fileID: 0}
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText4
       value: Your eggs are dipped into the Youth Fountain before going to the factory.
-        They heal you HP.
+        They heal you 3 HP.
       objectReference: {fileID: 0}
     - target: {fileID: 114508223189516810, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
@@ -4294,6 +4433,21 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: 51c0009a1729ac947b9ab95671fdb212,
         type: 3}
+    - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
+        type: 2}
+      propertyPath: initialCost
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
+        type: 2}
+      propertyPath: secondCost
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
+        type: 2}
+      propertyPath: thirdCost
+      value: 5000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5eb6113a2b3354645b0a425a47e44c5d, type: 2}
   m_IsPrefabAsset: 0
@@ -4870,22 +5024,22 @@ Prefab:
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText1
-      value: The Eggbreaker Chick will get a much bigger aura.
+      value: The Eggbreaker Chick will get a bigger aura.
       objectReference: {fileID: 0}
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText2
-      value: The Eggbreaker Chick have now a much bigger aura.
+      value: The Eggbreaker Chick have now a bigger aura.
       objectReference: {fileID: 0}
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText3
-      value: The Eggbreaker Chick have now a much bigger aura.
+      value: The Eggbreaker Chick have now a bigger aura.
       objectReference: {fileID: 0}
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText4
-      value: The Eggbreaker Chick have now a much bigger aura.
+      value: The Eggbreaker Chick have now a bigger aura.
       objectReference: {fileID: 0}
     - target: {fileID: 114508223189516810, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
@@ -4933,6 +5087,26 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: 3dc766aa21c5217498735d6ecbe759ef,
         type: 3}
+    - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
+        type: 2}
+      propertyPath: title
+      value: EXTENDED BREAKING
+      objectReference: {fileID: 0}
+    - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
+        type: 2}
+      propertyPath: initialCost
+      value: 8000
+      objectReference: {fileID: 0}
+    - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
+        type: 2}
+      propertyPath: secondCost
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
+        type: 2}
+      propertyPath: thirdCost
+      value: 5000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5eb6113a2b3354645b0a425a47e44c5d, type: 2}
   m_IsPrefabAsset: 0
@@ -5400,24 +5574,22 @@ Prefab:
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText1
-      value: "You\u2019ll earn 5 bonus $ per \u201Cprocessed\u201D chicks."
+      value: "You\u2019ll earn 5 bonus $ per chicks."
       objectReference: {fileID: 0}
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText2
-      value: "You\u2019ll earn 10 bonus $ per \u201Cprocessed\u201D chicks. (Current
-        : 5$)"
+      value: "You\u2019ll earn 10 bonus $ per chicks. (Current : 5$)"
       objectReference: {fileID: 0}
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText3
-      value: "You\u2019ll earn 20 bonus $ per \u201Cprocessed\u201D chicks. (Current
-        : 10$)"
+      value: "You\u2019ll earn 20 bonus $ per chicks. (Current : 10$)"
       objectReference: {fileID: 0}
     - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
       propertyPath: upgradeText4
-      value: Your chicks are now the best in town. +15 $ per 'processed' chick.
+      value: Your chicks are now the best in town. +15 $ per chick.
       objectReference: {fileID: 0}
     - target: {fileID: 114508223189516810, guid: 5eb6113a2b3354645b0a425a47e44c5d,
         type: 2}
@@ -5460,6 +5632,26 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: 0487e93277eaa234c8d1779ba459e294,
         type: 3}
+    - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
+        type: 2}
+      propertyPath: title
+      value: PRICEY CHICKS
+      objectReference: {fileID: 0}
+    - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
+        type: 2}
+      propertyPath: initialCost
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
+        type: 2}
+      propertyPath: secondCost
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
+        type: 2}
+      propertyPath: thirdCost
+      value: 5000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5eb6113a2b3354645b0a425a47e44c5d, type: 2}
   m_IsPrefabAsset: 0
@@ -6155,7 +6347,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1764356596}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 5.31, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 502052082}
@@ -6297,6 +6489,26 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: e4bb6d93bdf260b4aaee21a6b765bee7,
         type: 3}
+    - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
+        type: 2}
+      propertyPath: title
+      value: MINESWEEPER CHICK
+      objectReference: {fileID: 0}
+    - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
+        type: 2}
+      propertyPath: initialCost
+      value: 8000
+      objectReference: {fileID: 0}
+    - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
+        type: 2}
+      propertyPath: secondCost
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
+        type: 2}
+      propertyPath: thirdCost
+      value: 5000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5eb6113a2b3354645b0a425a47e44c5d, type: 2}
   m_IsPrefabAsset: 0
@@ -6620,6 +6832,12 @@ MonoBehaviour:
   selector: {fileID: 1385397744}
   selectorSmallSize: 1.1
   selectorLargeSize: 1.4
+  upgradeColor: {r: 0, g: 0, b: 0, a: 0}
+  downgradeColor: {r: 0, g: 0, b: 0, a: 0}
+  particleSizeUpgrade: 0
+  particleSpeedUpgrade: 0
+  particleSizeDowngrade: 0
+  particleSpeedDowngrade: 0
 --- !u!4 &1858532627
 Transform:
   m_ObjectHideFlags: 0
@@ -6853,6 +7071,26 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: 64c059270a6e785469fde173c7bfc042,
         type: 3}
+    - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
+        type: 2}
+      propertyPath: title
+      value: SAFETY BONUS
+      objectReference: {fileID: 0}
+    - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
+        type: 2}
+      propertyPath: initialCost
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
+        type: 2}
+      propertyPath: secondCost
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 114602014902507936, guid: 5eb6113a2b3354645b0a425a47e44c5d,
+        type: 2}
+      propertyPath: thirdCost
+      value: 5000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5eb6113a2b3354645b0a425a47e44c5d, type: 2}
   m_IsPrefabAsset: 0
