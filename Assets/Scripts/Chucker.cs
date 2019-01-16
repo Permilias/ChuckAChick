@@ -59,10 +59,12 @@ public class Chucker : MonoBehaviour {
         chick.rb.velocity = Vector3.zero;
         chick.colliderGO.SetActive(false);
         StartCoroutine(ChuckChick(chick, left));
-        if(chick.bomb)
+        SoundManager.Instance.PlaySound(SoundManager.Instance.piouDragSain);
+        if (chick.bomb)
         {
             if(chuckingBombGivesMoney)
             {
+                SoundManager.Instance.PlaySound(SoundManager.Instance.getMoney);
                 GameManager.Instance.AddScore(bombChickChuckingValue);
                 NumberParticlesManager.Instance.SpawnNumberParticle(bombChickChuckingValue * 10, ChickGenerator.Instance.bombColor, chick.transform.position, 0.8f, 1.1f, true);
             }
@@ -71,6 +73,7 @@ public class Chucker : MonoBehaviour {
 
     IEnumerator ChuckEgg(Egg egg, bool left)
     {
+        
         Transform eggTransform = egg.transform;
         egg.targetScale = Vector3.zero;
         egg.smoothSpeed = chuckingSpeed - 0.1f;
