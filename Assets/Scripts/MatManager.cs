@@ -91,7 +91,7 @@ public class MatManager : MonoBehaviour {
         currentTimer = 0;
     }
 
-    void SetSpeed(float _speed)
+    public void SetSpeed(float _speed)
     {
         matSpeed = _speed;
 
