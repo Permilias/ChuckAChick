@@ -34,6 +34,7 @@ public class UpgradesPanel : MonoBehaviour {
     {
         if(canSwitch)
         {
+            SoundManager.Instance.PlaySound(SoundManager.Instance.buttonPress);
             StartCoroutine("ShowPanelCoroutine");
         }
     }
@@ -58,6 +59,7 @@ public class UpgradesPanel : MonoBehaviour {
     {
         if(canSwitch)
         {
+            SoundManager.Instance.PlaySound(SoundManager.Instance.goBackButtonPress);
             StartCoroutine("HidePanelCoroutine");
         }
     }
