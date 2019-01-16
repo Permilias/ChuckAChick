@@ -108,7 +108,7 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 0
     m_Colors:
-    - Color_B4EDD18C: {r: 0.2264151, g: 0.13028075, b: 0.01815593, a: 0}
+    - Color_B4EDD18C: {r: 1, g: 0.5102247, b: 0, a: 0}
     - Color_B6F55408: {r: 1, g: 0.6872298, b: 0.2028302, a: 0}
     - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
