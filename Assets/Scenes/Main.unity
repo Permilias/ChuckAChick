@@ -429,6 +429,130 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a497336845a0d754592aebaf10e6fd38, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &186154965
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 186154967}
+  - component: {fileID: 186154966}
+  m_Layer: 0
+  m_Name: FactoryAmbianceLoopTest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &186154966
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 186154965}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: c58f0addda9f3a84f97cea644213a255, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.2
+  m_Pitch: 0.8
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &186154967
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 186154965}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 25
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &190942217 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4896847618764000, guid: 84b801dc05acd294089c5616bbfddd35,
@@ -3165,7 +3289,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 6a8e4ebfa6206e94da164d8b355350ca, type: 3}
     - {fileID: 8300000, guid: 5bcb943120abd774796c3344eb3ffce6, type: 3}
     minVolume: 0.1
-    maxVolume: 0.2
+    maxVolume: 0.15
     minPitch: 0.9
     maxPitch: 1.1
   bombBip:
@@ -3220,6 +3344,20 @@ MonoBehaviour:
     maxVolume: 0.6
     minPitch: 0.7
     maxPitch: 1.2
+  killChick:
+    clips:
+    - {fileID: 8300000, guid: 9e18384dcbbb31b408dd57c48b438958, type: 3}
+    - {fileID: 8300000, guid: 866ccff05ad01464eaef4fb07a1cb1d4, type: 3}
+    - {fileID: 8300000, guid: 408d182a477134f45a7a22e721620d16, type: 3}
+    - {fileID: 8300000, guid: cf04bcdeb112ef94bac8d048271bbd5f, type: 3}
+    - {fileID: 8300000, guid: d7cbfad9bcb7aad439f32143349cfc0a, type: 3}
+    - {fileID: 8300000, guid: b5019594bd5ab5d46ab711f9f14e9596, type: 3}
+    - {fileID: 8300000, guid: 2728c14a18d0bfe42a0e0d67b11f4815, type: 3}
+    - {fileID: 8300000, guid: 847c8f7d82871a149a864ac774e90026, type: 3}
+    minVolume: 1
+    maxVolume: 1
+    minPitch: 1
+    maxPitch: 1
   menuMusic:
     clips: []
     minVolume: 0
@@ -3300,9 +3438,9 @@ MonoBehaviour:
     maxPitch: 1
   moneySoundRepeat:
     clips:
-    - {fileID: 8300000, guid: a8418d20d0b7edf47b42a4d5508148ae, type: 3}
-    minVolume: 0.6
-    maxVolume: 0.6
+    - {fileID: 8300000, guid: 7f3fe16744e40bf46a02f3ded2630146, type: 3}
+    minVolume: 0.2
+    maxVolume: 0.2
     minPitch: 1
     maxPitch: 1
   buyUpgradeSound:
