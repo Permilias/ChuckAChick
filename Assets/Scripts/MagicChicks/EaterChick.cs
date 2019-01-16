@@ -21,6 +21,7 @@ public class EaterChick : MonoBehaviour {
 
     public void Eat(Vector3 shellStartingPosition)
     {
+        SoundManager.Instance.PlaySound(SoundManager.Instance.vortexChickIncrementation);
         value += shellValue;
         valueText.text = value.ToString();
         chick.value = value;
