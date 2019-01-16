@@ -6,6 +6,10 @@ public class NurseChick : MonoBehaviour {
 
     public float detectionRadius;
 
+    private void Start()
+    {
+        SoundManager.Instance.PlaySound(SoundManager.Instance.healChickAuraLoop);
+    }
     private void Update()
     {
         foreach(Chick chick in ChickGenerator.Instance.activeChicks)

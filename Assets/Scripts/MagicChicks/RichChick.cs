@@ -6,6 +6,12 @@ public class RichChick : MonoBehaviour {
 
     public float detectionRadius;
 
+    private void Start()
+    {
+
+        SoundManager.Instance.PlaySound(SoundManager.Instance.godfatherChickAuraLoop);
+    }
+
     private void Update()
     {
         foreach (Chick chick in ChickGenerator.Instance.activeChicks)

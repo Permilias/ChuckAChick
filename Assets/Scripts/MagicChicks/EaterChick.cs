@@ -14,6 +14,7 @@ public class EaterChick : MonoBehaviour {
 
     private void Start()
     {
+        SoundManager.Instance.PlaySound(SoundManager.Instance.vortexChickAuraLoop);
         value = 0;
         valueText.text = "0";
         chick = GetComponent<Chick>();
