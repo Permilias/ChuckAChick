@@ -4039,8 +4039,8 @@ MonoBehaviour:
   getMoney:
     clips:
     - {fileID: 8300000, guid: 7f3fe16744e40bf46a02f3ded2630146, type: 3}
-    minVolume: 0.6
-    maxVolume: 0.6
+    minVolume: 0.5
+    maxVolume: 0.5
     minPitch: 0.7
     maxPitch: 1.2
   killChick:
@@ -4051,12 +4051,12 @@ MonoBehaviour:
     - {fileID: 8300000, guid: cf04bcdeb112ef94bac8d048271bbd5f, type: 3}
     - {fileID: 8300000, guid: d7cbfad9bcb7aad439f32143349cfc0a, type: 3}
     - {fileID: 8300000, guid: b5019594bd5ab5d46ab711f9f14e9596, type: 3}
-    - {fileID: 8300000, guid: 2728c14a18d0bfe42a0e0d67b11f4815, type: 3}
+    - {fileID: 8300000, guid: 9e18384dcbbb31b408dd57c48b438958, type: 3}
     - {fileID: 8300000, guid: 847c8f7d82871a149a864ac774e90026, type: 3}
-    minVolume: 0.33
-    maxVolume: 0.33
-    minPitch: 1
-    maxPitch: 1
+    minVolume: 0.3
+    maxVolume: 0.4
+    minPitch: 0.8
+    maxPitch: 1.1
   menuMusic:
     clips: []
     minVolume: 0
@@ -4085,16 +4085,16 @@ MonoBehaviour:
     maxPitch: 1
   damage:
     clips:
-    - {fileID: 8300000, guid: fc8633bc9a497d249baad59e54b67f34, type: 3}
+    - {fileID: 8300000, guid: 0ced56d6fc7e54146bb16b9fd031373d, type: 3}
     minVolume: 1
     maxVolume: 1
     minPitch: 1
     maxPitch: 1
   bigDamage:
     clips:
-    - {fileID: 8300000, guid: b83ed5ced7ab6a54a80d4659c65ad1fb, type: 3}
-    minVolume: 1
-    maxVolume: 1
+    - {fileID: 8300000, guid: 0ced56d6fc7e54146bb16b9fd031373d, type: 3}
+    minVolume: 0.9
+    maxVolume: 0.9
     minPitch: 1
     maxPitch: 1
   ambianceMenu:
@@ -4138,8 +4138,8 @@ MonoBehaviour:
   moneySoundRepeat:
     clips:
     - {fileID: 8300000, guid: 7f3fe16744e40bf46a02f3ded2630146, type: 3}
-    minVolume: 0.35
-    maxVolume: 0.35
+    minVolume: 0.15
+    maxVolume: 0.15
     minPitch: 1
     maxPitch: 1
   buyUpgradeSound:
@@ -4214,8 +4214,8 @@ MonoBehaviour:
   vortexChickIncrementation:
     clips:
     - {fileID: 8300000, guid: 37a442903e77b5440a604e5d295cc3a7, type: 3}
-    minVolume: 0.7
-    maxVolume: 0.7
+    minVolume: 0.8
+    maxVolume: 0.8
     minPitch: 1
     maxPitch: 1
   vortexChickAuraLoop:
