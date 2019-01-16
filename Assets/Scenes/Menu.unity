@@ -4783,7 +4783,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6da755932224c147936d25f4af945f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 1
+  radius: 0.41
   clicked: 0
   fingerId: 0
 --- !u!114 &1301196216
