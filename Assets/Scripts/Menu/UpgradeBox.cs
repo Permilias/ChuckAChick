@@ -5,9 +5,12 @@ using UnityEngine;
 public class UpgradeBox : MonoBehaviour {
 
     MenuButton button;
+    public static UpgradeBox Instance;
+
 
     private void Awake()
     {
+        Instance = this;
         button = GetComponent<MenuButton>();
     }
 

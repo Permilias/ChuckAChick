@@ -5,9 +5,11 @@ using UnityEngine;
 public class DowngradeBox : MonoBehaviour {
 
     MenuButton button;
+    public static DowngradeBox Instance;
 
     private void Awake()
     {
+        Instance = this;
         button = GetComponent<MenuButton>();
     }
 

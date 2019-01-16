@@ -94,7 +94,7 @@ public class TutorialManager : MonoBehaviour {
 
     IEnumerator Tutorial4()
     {
-
+        sprite2.SetActive(false);
         yield return new WaitForSeconds(0.5f);
         waiting5 = true;
         EggGenerator.Instance.SpawnSpecificEgg(3);
