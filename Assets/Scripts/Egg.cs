@@ -212,7 +212,7 @@ public class Egg : MonoBehaviour
     {
         if(TutorialManager.Instance.waiting1)
         {
-
+            TutorialManager.Instance.NextTutorial(1);
         }
         if (TutorialManager.Instance.waiting2)
         {
