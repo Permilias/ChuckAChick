@@ -34,6 +34,7 @@ public class Egg : MonoBehaviour
 
     public void Initialize()
     {
+        canBeGround = false;
         clickableObject.fingerId = -1;
         targetScale = Vector3.one;
         transform.localScale = Vector3.one;
@@ -49,6 +50,7 @@ public class Egg : MonoBehaviour
     public Vector3 targetScale;
     public float smoothSpeed;
     Vector3 reference;
+    public bool canBeGround;
     private void FixedUpdate()
     {
         transform.localScale = Vector3.SmoothDamp(transform.localScale, targetScale, ref reference, smoothSpeed);
@@ -85,10 +87,9 @@ public class Egg : MonoBehaviour
         if (canMove)
         {
             Move();
-            if (transform.position.y >= Grinder.Instance.maxY)
+            if (transform.position.y >= Grinder.Instance.maxY && !canBeGround)
             {
-                Grinder.Instance.Grind(this);
-                rb.velocity = Vector3.zero;
+                canBeGround = true;
             }
             if (transform.position.x < Chucker.Instance.leftPos)
             {

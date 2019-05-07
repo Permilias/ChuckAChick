@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 
 public class Chucker : MonoBehaviour {
@@ -22,6 +23,7 @@ public class Chucker : MonoBehaviour {
     public bool chuckingBombGivesMoney;
     public float bombChickChuckingValue;
 
+    public float chuckingTime;
 
     private void Awake()
     {
@@ -32,10 +34,6 @@ public class Chucker : MonoBehaviour {
     {
         leftPos = leftTransform.position.x;
         rightPos = rightTransform.position.x;
-
-        chuckingIncrements = Mathf.RoundToInt(chuckingSpeed * 20);
-        chuckingXIncrements = chuckingXGain / chuckingIncrements;
-        chuckingScaleIncrement = Vector3.one / chuckingIncrements;
     }
 
     public void Chuck(Egg egg, bool left)
@@ -73,54 +71,32 @@ public class Chucker : MonoBehaviour {
 
     IEnumerator ChuckEgg(Egg egg, bool left)
     {
-        
-        Transform eggTransform = egg.transform;
-        egg.targetScale = Vector3.zero;
-        egg.smoothSpeed = chuckingSpeed - 0.1f;
-        if(left)
+        egg.transform.DOScale(Vector3.zero, chuckingTime);
+        if (left)
         {
-            for (int i = 0; i < chuckingIncrements; i++)
-            {
-                eggTransform.position += new Vector3(-chuckingXIncrements, 0, 0);
-                yield return new WaitForSeconds(0.05f);
-            }
+            egg.transform.DOMove(egg.transform.position - new Vector3(chuckingXGain, 0, 0), chuckingTime);
         }
         else
         {
-            for (int i = 0; i < chuckingIncrements; i++)
-            {
-                eggTransform.position += new Vector3(chuckingXIncrements, 0, 0);
-                yield return new WaitForSeconds(0.05f);
-            }
+            egg.transform.DOMove(egg.transform.position + new Vector3(chuckingXGain, 0, 0), chuckingTime);
         }
-
-        eggTransform.localScale = Vector3.zero;
+        yield return new WaitForSeconds(chuckingTime);
         egg.Remove();
     }
 
     IEnumerator ChuckChick(Chick chick, bool left)
     {
-        Transform chickTransform = chick.transform;
-        chick.targetScale = Vector3.zero;
-        chick.smoothSpeed = chuckingSpeed - 0.1f;
+        chick.transform.DOScale(Vector3.zero, chuckingTime);
         if (left)
         {
-            for (int i = 0; i < chuckingIncrements; i++)
-            {
-                chickTransform.position += new Vector3(-chuckingXIncrements, 0, 0);
-                yield return new WaitForSeconds(0.05f);
-            }
+            chick.transform.DOMove(chick.transform.position - new Vector3(chuckingXGain, 0, 0), chuckingTime);
         }
         else
         {
-            for (int i = 0; i < chuckingIncrements; i++)
-            {
-                chickTransform.position += new Vector3(chuckingXIncrements, 0, 0);
-                yield return new WaitForSeconds(0.05f);
-            }
+            chick.transform.DOMove(chick.transform.position + new Vector3(chuckingXGain, 0, 0), chuckingTime);
         }
-
-        chickTransform.localScale = Vector3.zero;
+        yield return new WaitForSeconds(chuckingTime);
+        chick.Remove();
         chick.Remove();
     }
 

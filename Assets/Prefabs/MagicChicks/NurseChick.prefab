@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 50850140505076056}
   - component: {fileID: 114096673374832716}
   - component: {fileID: 114265283120738000}
+  - component: {fileID: 114681398341556592}
   m_Layer: 0
   m_Name: NurseChick
   m_TagString: Untagged
@@ -384,7 +385,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1215568160408946}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.12537986, y: -19.95634, z: 9.8806095}
+  m_LocalPosition: {x: -0.18037295, y: -13.230049, z: 9.8806095}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4920147838040844}
@@ -781,6 +782,7 @@ MonoBehaviour:
   eater: 0
   targetScale: {x: 0, y: 0, z: 0}
   smoothSpeed: 0
+  canBeGround: 0
   eaten: 0
   chickCollider: {fileID: 58992387241407922}
   newVel: {x: 0, y: 0, z: 0}
@@ -797,6 +799,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   detectionRadius: 2
+--- !u!114 &114681398341556592
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1215568160408946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d97cbc90d74ec545989c023fdfeee9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wavePS: {fileID: 198740806524202556}
+  waveStartingSize: 3.4
+  waveMinSize: 0.4
+  outlinePS: {fileID: 198654996545372888}
+  outlineStartingRadius: 2
+  outlineMinRadius: 0.4
+  paillettesPS: {fileID: 198555837560425342}
+  paillettesStartingRadius: 2
+  paillettesMinRadius: 0.1
+  vortexPS: {fileID: 198701708301509340}
+  vortexStartingSize: 2.5
+  vortexMinSize: 0.4
+  auraTime: 10
+  count: 0
 --- !u!114 &114923819025073840
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5459,7 +5486,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 2
+      scalar: 1
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -6153,7 +6180,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 141.13
+      scalar: 300
       minScalar: 10
       maxCurve:
         serializedVersion: 2

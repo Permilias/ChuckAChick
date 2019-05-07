@@ -42,6 +42,7 @@ public class Chick : MonoBehaviour {
 
     public void Initialize(int animIndex)
     {
+        canBeGround = false;
         chickCollider.enabled = true;
         eaten = false;
         clickableObject.fingerId = -1;
@@ -63,11 +64,17 @@ public class Chick : MonoBehaviour {
         {
             currentTimer = ChickGenerator.Instance.bombTimer;
         }
+
+        if(magic)
+        {
+            GetComponent<MagicChickAura>().StartAura();
+        }
     }
 
     public Vector3 targetScale;
     public float smoothSpeed;
     Vector3 reference;
+    public bool canBeGround;
     private void FixedUpdate()
     {
         transform.localScale = Vector3.SmoothDamp(transform.localScale, targetScale, ref reference, smoothSpeed);
@@ -75,10 +82,9 @@ public class Chick : MonoBehaviour {
         if (canMove)
         {
             Move();
-            if (transform.position.y >= Grinder.Instance.maxY && transform.position.x > Chucker.Instance.leftPos && transform.position.x < Chucker.Instance.rightPos)
+            if (transform.position.y >= Grinder.Instance.maxY && transform.position.x > Chucker.Instance.leftPos && transform.position.x < Chucker.Instance.rightPos && !canBeGround)
             {
-                Grinder.Instance.Grind(this);
-                rb.velocity = Vector3.zero;
+                canBeGround = true;
             }
             if(transform.position.x < Chucker.Instance.leftPos)
             {
@@ -175,9 +181,9 @@ public class Chick : MonoBehaviour {
     public IEnumerator GetEaten(Vector3 targetPos)
     {
         chickCollider.enabled = false;
-        transform.DOMove(targetPos, 0.5f);
-        transform.DOScale(0, 0.5f);
-        yield return new WaitForSeconds(0.5f);
+        transform.DOMove(targetPos, 0.8f);
+        transform.DOScale(0, 0.8f);
+        yield return new WaitForSeconds(0.8f);
         Remove();
     }
 

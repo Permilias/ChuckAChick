@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using DG.Tweening;
 
 public class Grinder : MonoBehaviour {
+
+    public Transform grinderHolePosition;
 
     public Transform grindingPos;
     public float maxY;
@@ -17,6 +20,10 @@ public class Grinder : MonoBehaviour {
     public GameObject bloodFX;
     public Queue<GameObject> bloodFXs;
 
+    public float grindingTime;
+
+    public float grindingDelay;
+
     private void Awake()
     {
         Instance = this;
@@ -28,13 +35,21 @@ public class Grinder : MonoBehaviour {
     private void Start()
     {
         maxY = grindingPos.position.y;
-        grindingIncrements = Mathf.RoundToInt(grindingSpeed * 20);
-        grindingYIncrement = grindingYGain / grindingIncrements;
-        grindingScaleIncrement = Vector3.one / grindingIncrements;
         //groundChicksText.text = "TOTAL GROUND CHICKS : " + GameManager.Instance.totalGroundChicks.ToString();
 
         bloodFXs = new Queue<GameObject>();
         FillBloodFXPool();
+    }
+
+    float grindingCount;
+    private void Update()
+    {
+        grindingCount += Time.deltaTime;
+        if(grindingCount >= grindingDelay)
+        {
+            grindingCount = 0;
+            GrindAll();
+        }
     }
 
     GameObject newGO;
@@ -48,6 +63,25 @@ public class Grinder : MonoBehaviour {
         }
     }
 
+    public void GrindAll()
+    {
+        foreach(Egg egg in FindObjectsOfType<Egg>())
+        {
+            if(egg.canBeGround)
+            {
+                Grind(egg);
+                egg.canBeGround = false;
+            }
+        }
+        foreach(Chick chick in FindObjectsOfType<Chick>())
+        {
+            if(chick.canBeGround)
+            {
+                Grind(chick);
+                chick.canBeGround = false;
+            }
+        }
+    }
 
     public void Grind(Egg egg)
     {
@@ -119,30 +153,17 @@ public class Grinder : MonoBehaviour {
 
     IEnumerator GrindEgg(Egg egg)
     {
-        Transform eggTransform = egg.transform;
-        egg.targetScale = Vector3.zero;
-        egg.smoothSpeed = grindingSpeed - 0.1f;
-        for(int i = 0; i < grindingIncrements; i++)
-        {
-            eggTransform.position += new Vector3(0, grindingYIncrement, 0);
-            yield return new WaitForSeconds(0.05f);
-        }
-        eggTransform.localScale = Vector3.zero;
+        egg.transform.DOMove(new Vector3(egg.transform.position.x, grinderHolePosition.position.y, egg.transform.position.z), grindingTime);
+        egg.transform.DOScale(Vector3.zero, grindingTime);
+        yield return new WaitForSeconds(grindingTime);
         egg.Remove();
     }
 
     IEnumerator GrindChick(Chick chick)
     {
-        Transform chickTransform = chick.transform;
-        chick.targetScale = Vector3.zero;
-        chick.smoothSpeed = grindingSpeed - 0.1f;
-        for (int i = 0; i < grindingIncrements; i++)
-        {
-            chickTransform.position += new Vector3(0, grindingYIncrement, 0);
-            yield return new WaitForSeconds(0.05f);
-        }
-        chickTransform.localScale = Vector3.zero;
-        
+        chick.transform.DOMove(new Vector3(chick.transform.position.x, grinderHolePosition.position.y, chick.transform.position.z), grindingTime);
+        chick.transform.DOScale(Vector3.zero, grindingTime);
+        yield return new WaitForSeconds(grindingTime);
         chick.Remove();
     }
 }
