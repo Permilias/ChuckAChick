@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using DG.Tweening;
 
 public class Chick : MonoBehaviour {
 
@@ -41,6 +42,8 @@ public class Chick : MonoBehaviour {
 
     public void Initialize(int animIndex)
     {
+        chickCollider.enabled = true;
+        eaten = false;
         clickableObject.fingerId = -1;
         clickableObject.clicked = false;
         newVel = Vector3.zero;
@@ -95,6 +98,7 @@ public class Chick : MonoBehaviour {
     }
 
     string lastText;
+    float dist;
     private void Update()
     {
         if(velDecaying)
@@ -148,6 +152,33 @@ public class Chick : MonoBehaviour {
             PS.transform.position = transform.position + new Vector3(0, 0, -1);
             PS.transform.rotation = Quaternion.identity;
         }
+
+        if(!sick && !bomb && !magic && !eaten)
+        {
+            foreach (EaterChick eaterScript in FindObjectsOfType<EaterChick>())
+            {
+                dist = Vector3.Distance(transform.position, eaterScript.transform.position);
+                if (dist <= eaterScript.detectionRadius)
+                {
+                    
+                    eaten = true;
+                    eaterScript.Eat(transform.position);
+                    StartCoroutine(GetEaten(eaterScript.transform.position));
+                }
+            }
+        }
+    }
+
+    public bool eaten;
+    public Collider2D chickCollider;
+
+    public IEnumerator GetEaten(Vector3 targetPos)
+    {
+        chickCollider.enabled = false;
+        transform.DOMove(targetPos, 0.5f);
+        transform.DOScale(0, 0.5f);
+        yield return new WaitForSeconds(0.5f);
+        Remove();
     }
 
     public void Explode()
