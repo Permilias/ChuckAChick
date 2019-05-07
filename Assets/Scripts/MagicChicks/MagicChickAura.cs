@@ -17,6 +17,10 @@ public class MagicChickAura : MonoBehaviour {
     public ParticleSystem.ShapeModule paillettesShape;
     public float paillettesStartingRadius;
     public float paillettesMinRadius;
+    public ParticleSystem vortexPS;
+    public ParticleSystem.MainModule vortexMain;
+    public float vortexStartingSize;
+    public float vortexMinSize;
 
     public float auraTime;
 
@@ -25,7 +29,11 @@ public class MagicChickAura : MonoBehaviour {
         waveMain = wavePS.main;
         outlineShape = outlinePS.shape;
         paillettesShape = paillettesPS.shape;
+        vortexMain = vortexPS.main;
+    }
 
+    public void StartAura()
+    {
         CalculateAuraTime();
         count = auraTime;
     }
@@ -33,26 +41,43 @@ public class MagicChickAura : MonoBehaviour {
     float wsMultiplier;
     float orMultiplier;
     float prMultiplier;
+    float vsMultiplier;
 
     public void CalculateAuraTime()
     {
         float wsDistance = waveStartingSize - waveMinSize;
         float orDistance = outlineStartingRadius - outlineMinRadius;
         float prDistance = paillettesStartingRadius - paillettesMinRadius;
+        float vsDistance = vortexStartingSize - vortexMinSize;
 
         wsMultiplier = wsDistance / auraTime;
         orMultiplier = orDistance / auraTime;
         prMultiplier = prDistance / auraTime;
+        vsMultiplier = vsDistance / auraTime;
     }
 
     public void RefreshAura()
     {
-        waveMain.startSize = waveMinSize + (wsMultiplier * count);
-        outlineShape.radius = outlineMinRadius + (orMultiplier * count);
-        paillettesShape.radius = paillettesMinRadius + (prMultiplier * count);
+        if(wavePS != null)
+        {
+            waveMain.startSize = waveMinSize + (wsMultiplier * count);
+        }
+        if(outlinePS != null)
+        {
+            outlineShape.radius = outlineMinRadius + (orMultiplier * count);
+        }
+        if(paillettesPS != null)
+        {
+            paillettesShape.radius = paillettesMinRadius + (prMultiplier * count);
+        }
+        if(vortexPS != null)
+        {
+            vortexMain.startSize = vortexMinSize + (vsMultiplier * count);
+        }
+
     }
 
-    float count;
+    public float count;
     private void Update()
     {
         if(count > 0)

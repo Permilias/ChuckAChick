@@ -501,7 +501,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1414017656679590}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.086, y: 0.104, z: 0}
+  m_LocalPosition: {x: 0.13, y: 0.17, z: 0}
   m_LocalScale: {x: 1.3854, y: 1.3854, z: 1.3854}
   m_Children: []
   m_Father: {fileID: 4190248276166790}
@@ -825,6 +825,7 @@ MonoBehaviour:
   eater: 0
   targetScale: {x: 0, y: 0, z: 0}
   smoothSpeed: 0
+  canBeGround: 0
   eaten: 0
   chickCollider: {fileID: 58990160075595708}
   newVel: {x: 0, y: 0, z: 0}
@@ -863,7 +864,11 @@ MonoBehaviour:
   paillettesPS: {fileID: 198915970908162400}
   paillettesStartingRadius: 2
   paillettesMinRadius: 0.1
+  vortexPS: {fileID: 0}
+  vortexStartingSize: 0
+  vortexMinSize: 0
   auraTime: 10
+  count: 0
 --- !u!135 &135658103517525636
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -1673,7 +1678,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 141.13
+      scalar: 400
       minScalar: 10
       maxCurve:
         serializedVersion: 2
