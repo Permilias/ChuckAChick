@@ -224,6 +224,7 @@ GameObject:
   - component: {fileID: 50787298076745118}
   - component: {fileID: 114540471000806032}
   - component: {fileID: 114684464938325624}
+  - component: {fileID: 114614512142115606}
   m_Layer: 0
   m_Name: EaterChick
   m_TagString: Untagged
@@ -487,7 +488,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1675081268320102}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.4478562, y: -16.0457, z: 2.2615185}
+  m_LocalPosition: {x: 3.88, y: -12.88, z: 2.2615185}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4128146618415600}
@@ -874,10 +875,36 @@ MonoBehaviour:
   eater: 1
   targetScale: {x: 0, y: 0, z: 0}
   smoothSpeed: 0
+  canBeGround: 0
   eaten: 0
   chickCollider: {fileID: 58595451997188638}
   newVel: {x: 0, y: 0, z: 0}
   PS: {fileID: 0}
+--- !u!114 &114614512142115606
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1675081268320102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d97cbc90d74ec545989c023fdfeee9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wavePS: {fileID: 198954518902120594}
+  waveStartingSize: 4
+  waveMinSize: 0.4
+  outlinePS: {fileID: 198910266788519484}
+  outlineStartingRadius: 2
+  outlineMinRadius: 0.4
+  paillettesPS: {fileID: 198411454051506792}
+  paillettesStartingRadius: 2
+  paillettesMinRadius: 0.1
+  vortexPS: {fileID: 198879245635049572}
+  vortexStartingSize: 2.5
+  vortexMinSize: 0.4
+  auraTime: 10
+  count: 0
 --- !u!114 &114681869458936604
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1004,7 +1031,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   detectionRadius: 2
-  shellValue: 1
+  shellValue: 2
   value: 0
   valueText: {fileID: 114681869458936604}
 --- !u!114 &114733371921102934
@@ -10202,7 +10229,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 3
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -10896,7 +10923,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 2
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -14735,7 +14762,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 1
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -15429,7 +15456,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 141.13
+      scalar: 400
       minScalar: 10
       maxCurve:
         serializedVersion: 2

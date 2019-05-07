@@ -18,7 +18,7 @@ public class PlayButton : MonoBehaviour {
         {
             button.clicked = false;
             chickenAnim.SetTrigger("Play");
-            MenuManager.Instance.LoadMain();
+            MenuManager.Instance.LoadLoadingScreen();
         }
     }
 }

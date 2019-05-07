@@ -35,17 +35,18 @@ public class MenuManager : MonoBehaviour {
         DataManager.Instance.Save(false);
     }
 
-    public void LoadMain()
+    public void LoadLoadingScreen()
     {
         SoundManager.Instance.PlaySound(SoundManager.Instance.menuPlayButtonPress);
-        StartCoroutine("LoadMainCoroutine");
+        StartCoroutine("LoadLoadingScreenCoroutine");
     }
 
-    IEnumerator LoadMainCoroutine()
+    IEnumerator LoadLoadingScreenCoroutine()
     {
-        AsyncOperation aop = SceneManager.LoadSceneAsync("Main");
+        OpeningScreen.Instance.Close();
+        AsyncOperation aop = SceneManager.LoadSceneAsync("LoadingScreen");
         aop.allowSceneActivation = false;
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.3f);
         aop.allowSceneActivation = true;
     }
 
@@ -53,7 +54,7 @@ public class MenuManager : MonoBehaviour {
     {
         if(Input.GetKeyDown(KeyCode.Return))
         {
-            LoadMain();
+            LoadLoadingScreen();
         }
     }
 }
