@@ -72,6 +72,7 @@ GameObject:
   - component: {fileID: 50702181576377940}
   - component: {fileID: 114158093139887932}
   - component: {fileID: 114029787270031642}
+  - component: {fileID: 114591776758898462}
   m_Layer: 0
   m_Name: BreakerChick
   m_TagString: Untagged
@@ -500,7 +501,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1414017656679590}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0, z: 0}
+  m_LocalPosition: {x: 0.086, y: 0.104, z: 0}
   m_LocalScale: {x: 1.3854, y: 1.3854, z: 1.3854}
   m_Children: []
   m_Father: {fileID: 4190248276166790}
@@ -824,6 +825,8 @@ MonoBehaviour:
   eater: 0
   targetScale: {x: 0, y: 0, z: 0}
   smoothSpeed: 0
+  eaten: 0
+  chickCollider: {fileID: 58990160075595708}
   newVel: {x: 0, y: 0, z: 0}
   PS: {fileID: 0}
 --- !u!114 &114466475212727916
@@ -840,6 +843,27 @@ MonoBehaviour:
   clicked: 0
   detectionRadius: 0.4
   fingerId: -1
+--- !u!114 &114591776758898462
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1158842087622036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d97cbc90d74ec545989c023fdfeee9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wavePS: {fileID: 198680536380216226}
+  waveStartingSize: 3.3
+  waveMinSize: 0.4
+  outlinePS: {fileID: 198126664590921458}
+  outlineStartingRadius: 2
+  outlineMinRadius: 0.4
+  paillettesPS: {fileID: 198915970908162400}
+  paillettesStartingRadius: 2
+  paillettesMinRadius: 0.1
+  auraTime: 10
 --- !u!135 &135658103517525636
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -955,7 +979,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 2
+      scalar: 1
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -1504,7 +1528,7 @@ ParticleSystem:
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
-    donutRadius: 0.006966276
+    donutRadius: 0.0001
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
     m_Scale: {x: 1, y: 1, z: 1}
@@ -5595,7 +5619,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.9983523, g: 1, b: 1, a: 1}
+      maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -10021,7 +10045,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1000
+      scalar: 1.48
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -10190,7 +10214,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 3.3
+      scalar: 3.27
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -10571,7 +10595,7 @@ ParticleSystem:
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
     donutRadius: 0.2
-    m_Position: {x: 0, y: 0, z: 0}
+    m_Position: {x: -0.06, y: -0.06, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
     m_Scale: {x: 1, y: 1, z: 1}
     placementMode: 0
@@ -10715,7 +10739,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 2
+      scalar: 20
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -15114,7 +15138,7 @@ ParticleSystem:
     radiusThickness: 1
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
-    m_Rotation: {x: -90, y: 0, z: 0}
+    m_Rotation: {x: 0, y: 0, z: 0}
     m_Scale: {x: 1, y: 1, z: 1}
     placementMode: 0
     m_MeshMaterialIndex: 0

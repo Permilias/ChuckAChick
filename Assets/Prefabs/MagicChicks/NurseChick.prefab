@@ -781,6 +781,8 @@ MonoBehaviour:
   eater: 0
   targetScale: {x: 0, y: 0, z: 0}
   smoothSpeed: 0
+  eaten: 0
+  chickCollider: {fileID: 58992387241407922}
   newVel: {x: 0, y: 0, z: 0}
   PS: {fileID: 0}
 --- !u!114 &114265283120738000

@@ -20,7 +20,7 @@ public class EaterChick : MonoBehaviour {
         chick = GetComponent<Chick>();
     }
 
-    public void Eat(Vector3 shellStartingPosition)
+    public void Eat(Vector3 chickStartingPosition)
     {
         SoundManager.Instance.PlaySound(SoundManager.Instance.vortexChickIncrementation);
         value += shellValue;

@@ -118,15 +118,6 @@ public class Egg : MonoBehaviour
             InputHandler.Instance.usedFingerIdList.Remove(clickableObject.fingerId);
             clickableObject.fingerId = -1;
 
-            foreach (EaterChick eater in FindObjectsOfType<EaterChick>())
-            {
-                dist = Vector3.Distance(transform.position, eater.transform.position);
-                if (dist <= eater.detectionRadius)
-                {
-                    eater.Eat(transform.position);
-                }
-            }
-
 
 
             if (EggGenerator.Instance.breakingGivesMoney)
