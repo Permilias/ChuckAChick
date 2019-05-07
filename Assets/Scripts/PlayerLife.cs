@@ -25,6 +25,10 @@ public class PlayerLife : MonoBehaviour {
 
     public Color damageColor;
 
+    public Sprite yellowBulbSprite;
+    public Sprite redBulbSprite;
+    public Sprite brokenBulbSprite;
+
     private void Awake()
     {
         Instance = this;

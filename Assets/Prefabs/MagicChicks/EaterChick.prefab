@@ -1031,7 +1031,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   detectionRadius: 2
-  shellValue: 1
+  shellValue: 2
   value: 0
   valueText: {fileID: 114681869458936604}
 --- !u!114 &114733371921102934
