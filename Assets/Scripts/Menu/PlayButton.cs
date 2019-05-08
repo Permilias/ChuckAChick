@@ -6,6 +6,7 @@ public class PlayButton : MonoBehaviour {
 
     MenuButton button;
     public Animator chickenAnim;
+    public Animator playTextAnim;
 
     private void Awake()
     {
@@ -18,6 +19,7 @@ public class PlayButton : MonoBehaviour {
         {
             button.clicked = false;
             chickenAnim.SetTrigger("Play");
+            playTextAnim.SetTrigger("play");
             MenuManager.Instance.LoadLoadingScreen();
         }
     }

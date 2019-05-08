@@ -4,28 +4,14 @@ using UnityEngine;
 
 public class UpgradesPanelButton : MonoBehaviour {
 
-    MenuButton button;
-    public bool shows;
 
-    private void Awake()
+    public void ShowPanel()
     {
-        button = GetComponent<MenuButton>();
+        UpgradesPanel.Instance.ShowPanel();
     }
 
-    private void Update()
+    public void HidePanel()
     {
-        if(button.clicked)
-        {
-
-            if(shows)
-            {
-                UpgradesPanel.Instance.ShowPanel();
-            }
-            else
-            {
-                UpgradesPanel.Instance.HidePanel();
-            }
-            button.clicked = false;
-        }
+        UpgradesPanel.Instance.HidePanel();
     }
 }

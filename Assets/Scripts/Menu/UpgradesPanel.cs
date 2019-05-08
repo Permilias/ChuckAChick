@@ -7,6 +7,8 @@ public class UpgradesPanel : MonoBehaviour {
     public static UpgradesPanel Instance;
     public List<MenuButton> shownButtons;
     public List<MenuButton> hiddenButtons;
+    public GameObject showingButton;
+    public GameObject hidingButton;
 
     Animator anim;
 
@@ -20,6 +22,7 @@ public class UpgradesPanel : MonoBehaviour {
 
     private void Start()
     {
+        hidingButton.SetActive(false);
         foreach (MenuButton button in shownButtons)
         {
             button.enabled = false;
@@ -47,11 +50,14 @@ public class UpgradesPanel : MonoBehaviour {
         {
             button.enabled = false;
         }
+        showingButton.SetActive(false);
+
         yield return new WaitForSeconds(0.5f);
         foreach (MenuButton button in shownButtons)
         {
             button.enabled = true;
         }
+        hidingButton.SetActive(true);
         canSwitch = true;
     }
 
@@ -67,6 +73,7 @@ public class UpgradesPanel : MonoBehaviour {
     IEnumerator HidePanelCoroutine()
     {
         anim.SetBool("isVisible", false);
+        hidingButton.SetActive(false);
         canSwitch = false;
         foreach (MenuButton button in shownButtons)
         {
@@ -77,6 +84,8 @@ public class UpgradesPanel : MonoBehaviour {
         {
             button.enabled = true;
         }
+        showingButton.SetActive(true);
+
         canSwitch = true;
     }
 }
