@@ -6,13 +6,11 @@ public class PauseButton : MonoBehaviour {
 
     public bool pauses;
 
-    public MenuButton otherButton;
+    public GameObject otherButton;
     public GameObject pauseMenu;
-    MenuButton button;
 
     private void Start()
     {
-        button = GetComponent<MenuButton>();
         pauseMenu.SetActive(false);
     }
 
@@ -21,23 +19,14 @@ public class PauseButton : MonoBehaviour {
         if(pauses)
         {
             pauseMenu.SetActive(true);
-            Time.timeScale = 0;
-            gameObject.SetActive(false);
+            //gameObject.SetActive(false);
+            //Time.timeScale = 0;
         }
         else
         {
             Time.timeScale = 1;
-            otherButton.gameObject.SetActive(true);
+            otherButton.SetActive(true);
             pauseMenu.SetActive(false);
-        }
-    }
-
-    private void Update()
-    {
-        if(button.clicked)
-        {
-            button.clicked = false;
-            Pause();
         }
     }
 }

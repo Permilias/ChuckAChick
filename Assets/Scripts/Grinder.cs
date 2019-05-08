@@ -115,14 +115,14 @@ public class Grinder : MonoBehaviour {
         if(chick.sick)
         {
             SoundManager.Instance.PlaySound(SoundManager.Instance.killChick);
-            NumberParticlesManager.Instance.SpawnNumberParticle(chick.value * 10, chick.scoreColor, chick.transform.position, 0.9f, 1.2f, true);
+            NumberParticlesManager.Instance.SpawnNumberParticle(chick.value, chick.scoreColor, chick.transform.position, 0.9f, 1.2f, true);
         }
         else if(chick.magic)
         {
             SoundManager.Instance.PlaySound(SoundManager.Instance.killChick);
             float size = 1.5f * (chick.value / 5);
             size = size > 2.5f ? 2.5f : size;
-            NumberParticlesManager.Instance.SpawnNumberParticle(chick.value * 10, chick.scoreColor, chick.transform.position, 0.7f, size, true);
+            NumberParticlesManager.Instance.SpawnNumberParticle(chick.value, chick.scoreColor, chick.transform.position, 0.7f, size, true);
         }
         else
         {
@@ -130,11 +130,8 @@ public class Grinder : MonoBehaviour {
             float size = 0.5f + (chick.value / 2);
             size = size > 2 ? 2 : size;
             if (!chick.bomb)
-            NumberParticlesManager.Instance.SpawnNumberParticle(chick.value * 10, chick.scoreColor, chick.transform.position, 1, size, true);
+            NumberParticlesManager.Instance.SpawnNumberParticle(chick.value, chick.scoreColor, chick.transform.position, 1, size, true);
         }
-
-
-        //groundChicksText.text = "TOTAL GROUND CHICKS : " + GameManager.Instance.totalGroundChicks.ToString();
     }
 
     IEnumerator BloodFX(Vector3 pos)
