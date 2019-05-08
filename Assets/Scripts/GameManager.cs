@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour {
 
     public static GameManager Instance;
 
-    public TextMeshPro moneyText;
+    public TextMeshProUGUI moneyText;
 
     public float score;
     public int money;
@@ -66,13 +66,13 @@ public class GameManager : MonoBehaviour {
     private void FixedUpdate()
     {
         shownMoney = Mathf.SmoothDamp(shownMoney, money, ref reference, 0.08f);
-        moneyText.text = Mathf.RoundToInt(shownMoney).ToString() + " $";
+        moneyText.text = Mathf.RoundToInt(shownMoney).ToString();
 
         endShownMoney = Mathf.SmoothDamp(endShownMoney, endMoneyTarget, ref reference2, 0.08f);
-        endMoneyText.text = "MONEY : " + Mathf.RoundToInt(endShownMoney).ToString() + " $";
+        endMoneyText.text = "MONEY : " + Mathf.RoundToInt(endShownMoney).ToString();
 
         endShownPlayerMoney = Mathf.SmoothDamp(endShownPlayerMoney, endPlayerMoneyTarget, ref reference3, 0.08f);
-        endPlayerMoneyText.text = Mathf.RoundToInt(endShownPlayerMoney).ToString() + " $";
+        endPlayerMoneyText.text = Mathf.RoundToInt(endShownPlayerMoney).ToString();
     }
 
     public void EndGame()
@@ -115,6 +115,7 @@ public class GameManager : MonoBehaviour {
             if (score < 0) score = 0;
             money = Mathf.RoundToInt(score * baseMoneyMultiplier);
             SoundManager.Instance.PlaySound(SoundManager.Instance.moneySoundRepeat);
+            ScoreDisplay.Instance.RefreshCases();
         }
 
     }

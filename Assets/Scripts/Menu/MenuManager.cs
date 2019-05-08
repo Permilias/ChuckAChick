@@ -46,7 +46,7 @@ public class MenuManager : MonoBehaviour {
         OpeningScreen.Instance.Close();
         AsyncOperation aop = SceneManager.LoadSceneAsync("LoadingScreen");
         aop.allowSceneActivation = false;
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.4f);
         aop.allowSceneActivation = true;
     }
 

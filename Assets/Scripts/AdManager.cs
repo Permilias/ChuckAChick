@@ -4,37 +4,46 @@ using UnityEngine;
 using UnityEngine.Advertisements;
 
 public class AdManager : MonoBehaviour {
-
+    private string gameId = "3141072";
     public int adNumber = 3;
-    public void Update()
+    private void Start()
     {
-
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            PlayShortAd();
-        }
-
+        Advertisement.Initialize(gameId);
     }
+  
+    public static void ShowAd()
+    {
+        
+    }
+
 
     public void PlayLongAd()
     {
+
+
+      /*  var options = new ShowOptions();
+        options.resultCallback = CheckLongAdState;
+        Debug.Log(Advertisement.IsReady("LongAd"));
+        Advertisement.Show(gameId, options);
+        */
         if (Advertisement.IsReady("LongAd"))
         {
-            var options = new ShowOptions { resultCallback = CheckLongAdState };
-            Advertisement.Show("LongAd", options);
+            Debug.Log("La pub s'affiche");
+            Advertisement.Show("LongAd");
         }
-        
+        else
+        {
+            Debug.Log("ben ça marche pas hein");
+        }
     }
 
     
     public void PlayShortAd()
     {
-
-        if (Advertisement.IsReady("ShortAd"))
-        {
+        Debug.Log("Pressed the Button");
             var options = new ShowOptions { resultCallback = CheckShortAdState };
             Advertisement.Show("ShortAd", options);
-        }
+        
     }
 
     private void CheckLongAdState(ShowResult result)
