@@ -5,7 +5,7 @@ AnimationClip:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Chicken_Play
+  m_Name: BackgroundGraphics_Idle
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -19,16 +19,20 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: df8634db8f013f047b393d85052788fb, type: 3}
-    - time: 0.14285715
-      value: {fileID: 21300000, guid: d6dc9dd8c75330a48910eecd91c455e4, type: 3}
-    - time: 0.2857143
-      value: {fileID: 21300000, guid: 871fec2fcd430684b8d61b8951efda18, type: 3}
+      value: {fileID: 21300000, guid: 7d1c1e71b5bf2c7458c12355aa6c0ba7, type: 3}
+    - time: 0.21666667
+      value: {fileID: 21300000, guid: c13f2322755f5d94c9a2ab8d8e6005bf, type: 3}
+    - time: 0.41666666
+      value: {fileID: 21300000, guid: bca282f535fc0ab43ac077368f60a21b, type: 3}
+    - time: 0.6333333
+      value: {fileID: 21300000, guid: 8d73e35d6acac894d9dc0e7ed01acdc3, type: 3}
+    - time: 0.8333333
+      value: {fileID: 21300000, guid: 7d1c1e71b5bf2c7458c12355aa6c0ba7, type: 3}
     attribute: m_Sprite
-    path: ChickenSprite
+    path: BackGroundSprite
     classID: 212
     script: {fileID: 0}
-  m_SampleRate: 7
+  m_SampleRate: 60
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -36,27 +40,29 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 786635722
+      path: 3869267094
       attribute: 0
       script: {fileID: 0}
       typeID: 212
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: df8634db8f013f047b393d85052788fb, type: 3}
-    - {fileID: 21300000, guid: d6dc9dd8c75330a48910eecd91c455e4, type: 3}
-    - {fileID: 21300000, guid: 871fec2fcd430684b8d61b8951efda18, type: 3}
+    - {fileID: 21300000, guid: 7d1c1e71b5bf2c7458c12355aa6c0ba7, type: 3}
+    - {fileID: 21300000, guid: c13f2322755f5d94c9a2ab8d8e6005bf, type: 3}
+    - {fileID: 21300000, guid: bca282f535fc0ab43ac077368f60a21b, type: 3}
+    - {fileID: 21300000, guid: 8d73e35d6acac894d9dc0e7ed01acdc3, type: 3}
+    - {fileID: 21300000, guid: 7d1c1e71b5bf2c7458c12355aa6c0ba7, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.42857146
+    m_StopTime: 0.84999996
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
     m_HasAdditiveReferencePose: 0
-    m_LoopTime: 0
+    m_LoopTime: 1
     m_LoopBlend: 0
     m_LoopBlendOrientation: 0
     m_LoopBlendPositionY: 0
