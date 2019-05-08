@@ -762,9 +762,9 @@ PlayerSettings:
     UNet: 1
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 2
-  cloudProjectId: 946d97ac-b15c-46e0-87ae-f97876236500
+  cloudProjectId: 0af6e6c3-0e0a-437c-b38b-df0a68b774c1
   projectName: ChuckAChick
-  organizationId: permilias
+  organizationId: unity_zzftquaeuau7dg
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
