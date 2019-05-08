@@ -127,11 +127,6 @@ public class Egg : MonoBehaviour
                 NumberParticlesManager.Instance.SpawnNumberParticle(EggGenerator.Instance.breakingMoney, EggGenerator.Instance.breakingMoneyColor, transform.position, 1.7f, 1.2f, true);  
             }
 
-            if (EggGenerator.Instance.breakingHeals)
-            {
-                PlayerLife.Instance.GainLife(EggGenerator.Instance.breakingHealing);
-            }
-
             if (!magicEgg)
             {
                 if(specificEgg)
