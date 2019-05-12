@@ -22,6 +22,8 @@ public class MagicChickAura : MonoBehaviour {
     public float vortexStartingSize;
     public float vortexMinSize;
 
+    public bool canDeplete;
+
     public float auraTime;
 
     private void Start()
@@ -34,6 +36,7 @@ public class MagicChickAura : MonoBehaviour {
 
     public void StartAura()
     {
+        canDeplete = true;
         CalculateAuraTime();
         count = auraTime;
     }
@@ -80,10 +83,27 @@ public class MagicChickAura : MonoBehaviour {
     public float count;
     private void Update()
     {
+        if (UpgradesApplier.Instance.healerAuraBuff)
+        {
+            canDeplete = true;
+            foreach (NurseChick healer in FindObjectsOfType<NurseChick>())
+            {
+                float dist = Vector2.Distance(healer.transform.position, transform.position);
+                if (dist <= healer.detectionRadius)
+                {
+                    canDeplete = false;
+                    break;
+                }
+            }
+        }
+
         if(count > 0)
         {
-            count -= Time.deltaTime;
-            RefreshAura();
+            if(canDeplete)
+            {
+                count -= Time.deltaTime;
+                RefreshAura();
+            }
         }
         else
         {

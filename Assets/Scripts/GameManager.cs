@@ -135,17 +135,20 @@ public class GameManager : MonoBehaviour {
     }
 
     public void LoadMenu()
-    {
-        
+    {   
         StartCoroutine(MenuLoadingCoroutine());
     }
 
+    AsyncOperation ao;
     IEnumerator MenuLoadingCoroutine()
     {   
         Debug.Log("Loading Menu...");
         //DataManager.Instance.Save(true);
-        yield return new WaitForEndOfFrame();
-        SceneManager.LoadScene("Menu");
+        ao = SceneManager.LoadSceneAsync("Menu");
+        ao.allowSceneActivation = false;
+        OpeningScreen.Instance.Close();
+        yield return new WaitForSeconds(0.5F);
+        ao.allowSceneActivation = true;
     }
 
     private void Update()

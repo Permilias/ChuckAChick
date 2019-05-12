@@ -32,6 +32,8 @@ public class NurseChick : MonoBehaviour {
                     chick.Heal();
                 }
             }
+
+
         }
     }
 }

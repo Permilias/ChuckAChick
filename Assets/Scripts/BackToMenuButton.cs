@@ -5,20 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class BackToMenuButton : MonoBehaviour {
 
-    MenuButton button;
-
-    private void Awake()
+    public void LoadMenu()
     {
-        button = GetComponent<MenuButton>();
-    }
-
-    private void Update()
-    {
-        if(button.clicked)
-        {
-            Time.timeScale = 1;
-            button.clicked = false;
-            GameManager.Instance.LoadMenu();
-        }
+        Time.timeScale = 1;
+        GameManager.Instance.LoadMenu();
     }
 }

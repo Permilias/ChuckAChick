@@ -68,10 +68,14 @@ public class EggGenerator : MonoBehaviour {
         {
             totalMagicEggOdds += data.eggOdds;
         }
+
+
+        currentMagicFrequency = magicEggFrequency;
     }
 
     float eggTimer;
     float magicEggTimer;
+    float currentMagicFrequency;
     private void Update()
     {
         if(canSpawn)
@@ -85,9 +89,10 @@ public class EggGenerator : MonoBehaviour {
             }
 
             magicEggTimer += Time.deltaTime;
-            if (magicEggTimer >= magicEggFrequency)
+            if (magicEggTimer >= currentMagicFrequency)
             {
                 magicEggTimer = 0;
+                currentMagicFrequency = magicEggFrequency + Random.Range(-6, 4);
                 SpawnMagicEgg();
             }
         }

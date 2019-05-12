@@ -19,8 +19,8 @@ public class PauseButton : MonoBehaviour {
         if(pauses)
         {
             pauseMenu.SetActive(true);
-            //gameObject.SetActive(false);
-            //Time.timeScale = 0;
+            Time.timeScale = 0;
+            gameObject.SetActive(false);
         }
         else
         {

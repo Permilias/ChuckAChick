@@ -4,48 +4,51 @@ using UnityEngine;
 
 /*UPGRADES PATHS
 
-A : TW
-1. Les poussins valent plus
-2. Chuck une bombe rapporte de l'argent
-3. Les poussins riches génèrent de l'income
+A.
+1. Poussin Healer
+2. Les auras ne se depletent pas dans le rayon du poussin healer
+3. Le poussin healer désamorçe les bombes
 
-B : CW
-4. Casser un oeuf rapporte
-5. Casser un oeuf soigne, mais faire tomber un oeuf est plus dangereux
-6. Les poussins eater ont un effet global
+B.
+4. Poussin Riche
+5. Income poussin riche
+6. 2 poussins riches
 
-C : TF
-7. Les poussins malades pénalisent moins
-8. Les poussins magiques sont plus fréquents
-9. Les poussins soigneurs désamorcent les bombes
+C.
+7. Poussin Casseurs
+8. Casse les oeufs magiques
+9. Plus grande aura
 
-D. CF
-10. Plus de vie pour l'usine
-11. Les oeufs magiques ont 1 PV
-12. Les poussins casseurs ont plus de portée
+D.
+10. Poussin Vortex
+11. Plus d'argent par poussin
+12. Aspire aussi les poussins malades
 
 */
 public class UpgradesApplier : MonoBehaviour {
 
 	public static UpgradesApplier Instance;
 
-    public int[] upgradesArray;
+    public int[] upgradesArray; 
 
     [Header("FIRST PATH")]
-    public float chickValueUpgradeMultiplier;
-    public float bombChickChuckingUpgradeMultiplier;
+    public bool healerAuraBuff;
+    public bool healerDisableBombs;
 
     [Header("SECOND PATH")]
-    public float breakingMoneyMultiplier;
-    public float breakingHealingMultiplier;
+    public bool richChickGeneratesIncome;
+    public int richChickIncome;
+    public bool spawns2RichChicks;
 
     [Header("THIRD PATH")]
-    public int sickChickReductionMultiplier;
-    public float magicEggFrequencyReductionMultiplier;
+    public bool breakerBreaksMagic;
+    public bool breakerHasBonusAura;
+    public float breakerBonusAura;
 
     [Header("FOURTH PATH")]
-    public int lifeUpgradeMultiplier;
-    public float shockwaveRadiusMultiplier;
+    public bool vortexHasMoneyBonus;
+    public int vortexMoneyBonus;
+    public bool vortexEatsSick;
 
     private void Awake()
     {
@@ -60,25 +63,27 @@ public class UpgradesApplier : MonoBehaviour {
             if(upgradesArray[0] <= 0)
             {
                 print("No First Path");
+                ChickGenerator.Instance.magicChickDatas[0].eggOdds = 0;
             }
             else
             {
-                ChickGenerator.Instance.baseChickValue += (chickValueUpgradeMultiplier * upgradesArray[0]);
+                ChickGenerator.Instance.magicChickDatas[0].eggOdds = 5;
                 if(upgradesArray[1] <= 0)
                 {
                     print("First Path Stops at 1");
+                    healerAuraBuff = false;
                 }
                 else
                 {
-                    Chucker.Instance.chuckingBombGivesMoney = true;
-                    Chucker.Instance.bombChickChuckingValue = bombChickChuckingUpgradeMultiplier * upgradesArray[1];
+                    healerAuraBuff = true;
                     if(upgradesArray[2] <= 0)
                     {
                         print("First Path stops at 2");
+                        healerDisableBombs = false;
                     }
                     else
                     {
-                        //A COMPLETER
+                        healerDisableBombs = true;
                     }
                 }
             }
@@ -86,26 +91,27 @@ public class UpgradesApplier : MonoBehaviour {
             if (upgradesArray[3] <= 0)
             {
                 print("No Second Path");
+                ChickGenerator.Instance.magicChickDatas[1].eggOdds = 0;
             }
             else
             {
-                EggGenerator.Instance.breakingGivesMoney = true;
-                EggGenerator.Instance.breakingMoney = breakingMoneyMultiplier * upgradesArray[3];
+                ChickGenerator.Instance.magicChickDatas[1].eggOdds = 5;
                 if (upgradesArray[4] <= 0)
                 {
                     print("Second Path Stops at 1");
+                    richChickGeneratesIncome = false;
                 }
                 else
                 {
-                    EggGenerator.Instance.breakingHeals = true;
-                    EggGenerator.Instance.breakingHealing = breakingHealingMultiplier * upgradesArray[4];
+                    richChickGeneratesIncome = true;
                     if (upgradesArray[5] <= 0)
                     {
                         print("Second Path stops at 2");
+                        spawns2RichChicks = false;
                     }
                     else
                     {
-                        //A COMPLETER
+                        spawns2RichChicks = true;
                     }
                 }
             }
@@ -113,24 +119,27 @@ public class UpgradesApplier : MonoBehaviour {
             if (upgradesArray[6] <= 0)
             {
                 print("No Third Path");
+                ChickGenerator.Instance.magicChickDatas[2].eggOdds = 0;
             }
             else
             {
-                ChickGenerator.Instance.baseSickChickValue -= (sickChickReductionMultiplier * upgradesArray[6]);
+                ChickGenerator.Instance.magicChickDatas[2].eggOdds = 5;
                 if (upgradesArray[7] <= 0)
                 {
                     print("Third Path Stops at 1");
+                    breakerBreaksMagic = false;
                 }
                 else
                 {
-                    EggGenerator.Instance.magicEggFrequency -= (magicEggFrequencyReductionMultiplier * upgradesArray[8]);
+                    breakerBreaksMagic = true;
                     if (upgradesArray[8] <= 0)
                     {
                         print("Third Path stops at 2");
+                        breakerHasBonusAura = false;
                     }
                     else
                     {
-                        //A COMPLETER
+                        breakerHasBonusAura = true;
                     }
                 }
             }
@@ -138,26 +147,27 @@ public class UpgradesApplier : MonoBehaviour {
             if (upgradesArray[9] <= 0)
             {
                 print("No Fourth Path");
+                ChickGenerator.Instance.magicChickDatas[3].eggOdds = 0;
             }
             else
             {
-                PlayerLife.Instance.maxLife += (lifeUpgradeMultiplier * upgradesArray[9]);
-                PlayerLife.Instance.life = PlayerLife.Instance.maxLife;
+                ChickGenerator.Instance.magicChickDatas[3].eggOdds = 5;
                 if (upgradesArray[10] <= 0)
                 {
                     print("Fourth Path Stops at 1");
+                    vortexHasMoneyBonus = false;
                 }
                 else
                 {
-                    EggGenerator.Instance.shockwaves = true;
-                    EggGenerator.Instance.shockwaveRadius = shockwaveRadiusMultiplier * upgradesArray[10];
+                    vortexHasMoneyBonus = true;
                     if (upgradesArray[11] <= 0)
                     {
                         print("Fourth Path stops at 2");
+                        vortexEatsSick = false;
                     }
                     else
                     {
-                        //A COMPLETER
+                        vortexEatsSick = true;
                     }
                 }
             }

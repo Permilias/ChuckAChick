@@ -8,18 +8,13 @@ public class MuteButton : MonoBehaviour {
 
     public bool muted;
 
-    MenuButton button;
-
     private void Awake()
     {
         Instance = this;
-        button = GetComponent<MenuButton>();
     }
 
-    private void Update()
+    public void Activate()
     {
-        if(button.clicked)
-        {
             if (muted)
             {
                 Unmute();
@@ -28,8 +23,6 @@ public class MuteButton : MonoBehaviour {
             {
                 Mute();
             }
-            button.clicked = false;
-        }
     }
 
     public void Mute()
