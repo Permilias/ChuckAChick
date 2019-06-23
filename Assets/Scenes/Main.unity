@@ -154,14 +154,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upgradesArray: 
-  chickValueUpgradeMultiplier: 0.5
-  bombChickChuckingUpgradeMultiplier: 10
-  breakingMoneyMultiplier: 5
-  breakingHealingMultiplier: 1
-  sickChickReductionMultiplier: -2
-  magicEggFrequencyReductionMultiplier: 2
-  lifeUpgradeMultiplier: 60
-  shockwaveRadiusMultiplier: 0.2
+  healerAuraBuff: 0
+  healerDisableBombs: 0
+  richChickGeneratesIncome: 0
+  richChickIncome: 0
+  spawns2RichChicks: 0
+  breakerBreaksMagic: 0
+  breakerHasBonusAura: 0
+  breakerBonusAura: 0
+  vortexHasMoneyBonus: 0
+  vortexMoneyBonus: 0
+  vortexEatsSick: 0
 --- !u!1 &48450973
 GameObject:
   m_ObjectHideFlags: 0
@@ -3397,7 +3400,7 @@ MonoBehaviour:
   m_fontStyle: 1
   m_textAlignment: 514
   m_isAlignmentEnumConverted: 1
-  m_characterSpacing: 88.85
+  m_characterSpacing: 87
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -7126,6 +7129,8 @@ MonoBehaviour:
   sickChickOdds: 5
   bombChickOdds: 20
   bombTimer: 2
+  chickPulseTime: 0.7
+  chickPulseSize: 0.055
   baseChickValue: 1
   baseSickChickValue: -10
   baseBombChickvalue: -20

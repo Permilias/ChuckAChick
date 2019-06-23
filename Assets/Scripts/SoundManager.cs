@@ -62,7 +62,7 @@ public class SoundManager : MonoBehaviour {
     GameObject newReceptacle;
     public void FillReceptaclePool()
     {
-        for(int i = 0; i < 100; i++)
+        for(int i = 0; i < 150; i++)
         {
             GameObject newReceptacle = Instantiate(templateReceptacle, transform);
             receptaclePool.Enqueue(newReceptacle);

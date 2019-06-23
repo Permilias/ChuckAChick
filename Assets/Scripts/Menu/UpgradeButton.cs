@@ -22,22 +22,17 @@ public class UpgradeButton : MonoBehaviour {
     [HideInInspector]
     public MenuButton button;
 
-    public int currentCost;
-
-    public int initialCost;
-    public int secondCost;
-    public int thirdCost;
+    public int cost;
 
     public int upgradeState;
     public string title;
-    public string upgradeText1;
-    public string upgradeText2;
-    public string upgradeText3;
-    public string upgradeText4;
+    public string upgradeText;
 
     public Sprite lockedSprite;
     public Sprite availableSprite;
     public Sprite unlockedSprite;
+    public Sprite pushAvailableSprite;
+    public Sprite pushUnlockedSprite;
 
     public bool selected;
 
@@ -66,28 +61,42 @@ public class UpgradeButton : MonoBehaviour {
         if (upgradeState == -1)
         {
             state = UpgradeButtonState.locked;
-            currentCost = initialCost;
             SR.sprite = lockedSprite;
             if(orderInBranch == 0)
             {
-                if (UpgradesManager.Instance.playerMoney >= currentCost)
+                if (UpgradesManager.Instance.playerMoney >= cost)
                 {
                     state = UpgradeButtonState.available;
                     upgradeState = 0;
                     UpgradesManager.Instance.upgradesArray[index] = 0;
-                    SR.sprite = availableSprite;
+                    if(selected)
+                    {
+                        SR.sprite = pushAvailableSprite;
+                    }
+                    else
+                    {
+                        SR.sprite = availableSprite;
+                    }
+
                 }
             }
             else if(orderInBranch == 1)
             {
                 if(UpgradesManager.Instance.upgradesArray[branchButton1.index] > 0)
                 {
-                    if (UpgradesManager.Instance.playerMoney >= currentCost)
+                    if (UpgradesManager.Instance.playerMoney >= cost)
                     {
                         state = UpgradeButtonState.available;
                         upgradeState = 0;
                         UpgradesManager.Instance.upgradesArray[index] = 0;
-                        SR.sprite = availableSprite;
+                        if (selected)
+                        {
+                            SR.sprite = pushAvailableSprite;
+                        }
+                        else
+                        {
+                            SR.sprite = availableSprite;
+                        }
                     }
                 }
             }
@@ -95,12 +104,19 @@ public class UpgradeButton : MonoBehaviour {
             {
                 if (UpgradesManager.Instance.upgradesArray[branchButton2.index] > 0)
                 {
-                    if (UpgradesManager.Instance.playerMoney >= currentCost)
+                    if (UpgradesManager.Instance.playerMoney >= cost)
                     {
                         state = UpgradeButtonState.available;
                         upgradeState = 0;
                         UpgradesManager.Instance.upgradesArray[index] = 0;
-                        SR.sprite = availableSprite;
+                        if (selected)
+                        {
+                            SR.sprite = pushAvailableSprite;
+                        }
+                        else
+                        {
+                            SR.sprite = availableSprite;
+                        }
                     }
                 }
             }
@@ -108,14 +124,12 @@ public class UpgradeButton : MonoBehaviour {
         else if (upgradeState == 0)
         {
             state = UpgradeButtonState.available;
-            currentCost = initialCost;
             SR.sprite = availableSprite;
             if (orderInBranch == 0)
             {
-                if (UpgradesManager.Instance.playerMoney < currentCost)
+                if (UpgradesManager.Instance.playerMoney < cost)
                 {
                     state = UpgradeButtonState.locked;
-                    currentCost = initialCost;
                     upgradeState = -1;
                     UpgradesManager.Instance.upgradesArray[index] = -1;
                     SR.sprite = lockedSprite;
@@ -125,10 +139,9 @@ public class UpgradeButton : MonoBehaviour {
             {
                 if (UpgradesManager.Instance.upgradesArray[branchButton1.index] > 0)
                 {
-                    if (UpgradesManager.Instance.playerMoney < currentCost)
+                    if (UpgradesManager.Instance.playerMoney < cost)
                     {
                         state = UpgradeButtonState.locked;
-                        currentCost = initialCost;
                         upgradeState = -1;
                         UpgradesManager.Instance.upgradesArray[index] = -1;
                         SR.sprite = lockedSprite;
@@ -139,10 +152,9 @@ public class UpgradeButton : MonoBehaviour {
             {
                 if (UpgradesManager.Instance.upgradesArray[branchButton2.index] > 0)
                 {
-                    if (UpgradesManager.Instance.playerMoney < currentCost)
+                    if (UpgradesManager.Instance.playerMoney < cost)
                     {
                         state = UpgradeButtonState.locked;
-                        currentCost = initialCost;
                         upgradeState = -1;
                         UpgradesManager.Instance.upgradesArray[index] = -1;
                         SR.sprite = lockedSprite;
@@ -150,17 +162,41 @@ public class UpgradeButton : MonoBehaviour {
                 }
             }
         }
-        else
+        else if(upgradeState == 1)
         {
-            state = UpgradeButtonState.taken;
-            if (upgradeState == 1)
+            if (selected)
             {
-                currentCost = secondCost;
+                SR.sprite = pushUnlockedSprite;
             }
-            else if (upgradeState == 2)
+            else
             {
-                currentCost = thirdCost;
+                SR.sprite = unlockedSprite;
             }
+        }
+    }
+
+    public void Select()
+    {
+        selected = true;
+        if(SR.sprite == availableSprite)
+        {
+            SR.sprite = pushAvailableSprite;
+        }
+        else if(SR.sprite == unlockedSprite)
+        {
+            SR.sprite = pushUnlockedSprite;
+        }
+    }
+
+    public void Unselect()
+    {
+        selected = false;
+        if (SR.sprite == pushAvailableSprite)
+        {
+            SR.sprite = availableSprite;
+        }
+        else if (SR.sprite == pushUnlockedSprite)
+        {
             SR.sprite = unlockedSprite;
         }
     }

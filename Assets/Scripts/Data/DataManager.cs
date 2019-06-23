@@ -51,14 +51,14 @@ public class DataManager : MonoBehaviour {
         if(game)
         {
             data.totalGroundChicks = GameManager.Instance.totalGroundChicks;
-            data.soundMuted = MuteButton.Instance.muted;
+            //data.soundMuted = MuteButton.Instance.muted;
             data.playerMoney = GameManager.Instance.playerMoney;
         }
         else
         {
-            data.tutorialEnabled = TutorialButton.Instance.tutorialEnabled;
             data.playerMoney = UpgradesManager.Instance.playerMoney;
-            data.soundMuted = MuteButton.Instance.muted;
+            data.factoryLevel = UpgradesManager.Instance.factoryLevel;
+            //data.soundMuted = MuteButton.Instance.muted;
             if(UpgradesManager.Instance.upgradesArray != null)
             {
                 data.upgradesArray = UpgradesManager.Instance.upgradesArray;
@@ -116,15 +116,16 @@ public class DataManager : MonoBehaviour {
         GameManager.Instance.tutorialEnabled = data.tutorialEnabled;
         GameManager.Instance.totalGroundChicks = data.totalGroundChicks;
         GameManager.Instance.playerMoney = data.playerMoney;
-        MuteButton.Instance.muted = data.soundMuted;
+        MatManager.Instance.factoryLevel = data.factoryLevel;
+        //MuteButton.Instance.muted = data.soundMuted;
         UpgradesApplier.Instance.upgradesArray = data.upgradesArray;
     }
 
     public void ExploitDataMenu()
     {
-        TutorialButton.Instance.tutorialEnabled = data.tutorialEnabled;
-        MuteButton.Instance.muted = data.soundMuted;
+        //MuteButton.Instance.muted = data.soundMuted;
         UpgradesManager.Instance.upgradesArray = data.upgradesArray;
         UpgradesManager.Instance.playerMoney = data.playerMoney;
+        UpgradesManager.Instance.factoryLevel = data.factoryLevel;
     }
 }

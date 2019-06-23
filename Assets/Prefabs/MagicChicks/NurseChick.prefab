@@ -820,8 +820,9 @@ MonoBehaviour:
   paillettesStartingRadius: 2
   paillettesMinRadius: 0.1
   vortexPS: {fileID: 198701708301509340}
-  vortexStartingSize: 2.5
+  vortexStartingSize: 1
   vortexMinSize: 0.4
+  canDeplete: 0
   auraTime: 10
   count: 0
 --- !u!114 &114923819025073840

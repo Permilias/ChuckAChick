@@ -39,6 +39,13 @@ public class Chick : MonoBehaviour {
         colliderGO = GetComponentInChildren<Collider2D>().gameObject;
         clickableObject = colliderGO.GetComponent<ClickableObject>();
     }
+    private void Start()
+    {
+        pulseTime = ChickGenerator.Instance.chickPulseTime;
+        pulseSize = ChickGenerator.Instance.chickPulseSize;
+        pulseMultiplier = pulseSize / pulseTime;
+        baseScale = SR.transform.localScale;
+    }
 
     public void Initialize(int animIndex)
     {
@@ -107,6 +114,8 @@ public class Chick : MonoBehaviour {
     float dist;
     private void Update()
     {
+        UpdatePulse();
+
         if(velDecaying)
         {
             decayingTime -= Time.deltaTime;
@@ -203,11 +212,50 @@ public class Chick : MonoBehaviour {
 
     Vector3 currentTouchPos;
 
+    public float pulseTimer;
+    float pulseTime;
+    float pulseSize;
+    float pulseMultiplier;
+    float bonusSize;
+    Vector3 baseScale;
+    bool goingUp = true;
+    public void UpdatePulse()
+    {
+            if(goingUp)
+            {
+            pulseTimer += Time.deltaTime;
+            if (hasBeenClicked)
+            {
+                pulseTimer += Time.deltaTime;
+            }
+                if (pulseTimer >= pulseTime)
+                {
+                    pulseTimer = pulseTime;
+                    goingUp = false;
+                }
+            }
+            else
+            {
+                pulseTimer -= Time.deltaTime;
+            if (hasBeenClicked)
+            {
+                pulseTimer -= Time.deltaTime;
+            }
+            if (pulseTimer <= 0)
+                {
+                    pulseTimer = 0;
+                    goingUp = true;
+                }
+            }
+
+            bonusSize = pulseTimer * pulseMultiplier;
+            SR.transform.localScale = baseScale + new Vector3(bonusSize, bonusSize, 0);
+    }
+
     public void Move()
     {
         if(clickableObject.clicked)
         {
-       
             if (feathers != null)
                 feathers.SetActive(true);
             Vector3 touchPos;

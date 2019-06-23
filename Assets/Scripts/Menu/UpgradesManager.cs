@@ -10,16 +10,15 @@ public class UpgradesManager : MonoBehaviour {
     public int playerMoney;
 
     public int[] upgradesArray;
+    public int factoryLevel;
 
     public List<UpgradeButton> upgradeButtons;
 
-    public TextMeshPro playerMoneyText;
-    public TextMeshPro playerMoneyText2;
+    public TextMeshProUGUI playerMoneyText;
 
     public TextMeshPro upgradeText;
-    public TextMeshPro currentLevelText;
+    public TextMeshPro currentStateText;
     public TextMeshPro costText;
-    public TextMeshPro nextLevelText;
     public TextMeshPro titleText;
 
     public UpgradeButton currentSelectedButton;
@@ -46,40 +45,41 @@ public class UpgradesManager : MonoBehaviour {
     {
         foreach (UpgradeButton button in upgradeButtons)
         {
-            button.selected = false;
+            button.Unselect();
         }
-        _button.selected = true;
+        _button.Select();
         titleText.text = _button.title;
-        selector.SetActive(true);
-        selector.transform.position = _button.transform.position;
-        if(_button.orderInBranch == 2)
-        {
-            selector.transform.localScale = new Vector3(selectorLargeSize, selectorLargeSize, selectorLargeSize);
-        }
-        else
-        {
-            selector.transform.localScale = new Vector3(selectorSmallSize, selectorSmallSize, selectorSmallSize);
-        }
+
         currentSelectedButton = _button;
         if (_button.upgradeState == -1)
         {
-            upgradeText.text = _button.upgradeText1;
-            currentLevelText.text = "CURRENT LEVEL : 0";
-            nextLevelText.text = "";
-            costText.text = "LOCKED";
-            downgradeBox.SetActive(false);
+            BuyButton.Instance.SetInactive();
+            upgradeText.text = _button.upgradeText;
+            costText.text = _button.cost.ToString() + "$";
+            currentStateText.text = "LOCKED";
         }
         else if (_button.upgradeState == 0)
         {
-            upgradeText.text = _button.upgradeText1;
-            currentLevelText.text = "CURRENT LEVEL : 0";
-            costText.text = _button.initialCost.ToString() + "$";
-            nextLevelText.text = "LVL 1";
-            downgradeBox.SetActive(false);
+            BuyButton.Instance.SetActive(true);
+
+
+
+            upgradeText.text = _button.upgradeText;
+            costText.text = _button.cost.ToString() + "$";
+            currentStateText.text = "AVAILABLE";
         }
         else if (_button.upgradeState == 1)
         {
-            upgradeText.text = _button.upgradeText2;
+            BuyButton.Instance.SetActive(false);
+            upgradeText.text = _button.upgradeText;
+            currentStateText.text = "ACTIVE";
+            costText.text = _button.cost.ToString() + "$";
+
+
+
+
+            //nextLevelText.text = "";
+            /*upgradeText.text = _button.upgradeText2;
             currentLevelText.text = "CURRENT LEVEL : 1";
             costText.text = _button.secondCost.ToString() + "$";
             nextLevelText.text = "LVL 2";
@@ -128,7 +128,7 @@ public class UpgradesManager : MonoBehaviour {
             currentLevelText.text = "CURRENT LEVEL : 3";
             costText.text = "MAX";
             nextLevelText.text = "";
-            downgradeBox.SetActive(true);
+            downgradeBox.SetActive(true);*/
         }
     }
 
@@ -149,67 +149,33 @@ public class UpgradesManager : MonoBehaviour {
         }
 
         playerMoneyText.text = playerMoney.ToString();
-        playerMoneyText2.text = playerMoney.ToString();
 
-        selector.SetActive(false);
-        downgradeBox.SetActive(false);
+        //selector.SetActive(false);
+        //downgradeBox.SetActive(false);
 
-        currentLevelText.text = "";
+        currentStateText.text = "";
         upgradeText.text = "";
-        nextLevelText.text = "";
         costText.text = "";
     }
 
     public void Upgrade(UpgradeButton _button)
     {
-        if (upgradesArray[_button.index] < 3)
-        {
             if (upgradesArray[_button.index] == 0)
             {
-              if(playerMoney >= _button.initialCost)
+              if(playerMoney >= _button.cost)
                 {
-                    playerMoney -= _button.initialCost;
-                    NumberParticlesManager.Instance.SpawnNumberParticle(-_button.initialCost, Color.white, UpgradeBox.Instance.transform.position, particleSpeedUpgrade, particleSizeUpgrade, true);
-                    upgradesArray[_button.index] += 1;
+                    playerMoney -= _button.cost;
+                    NumberParticlesManager.Instance.SpawnNumberParticle(-_button.cost, Color.white, BuyButton.Instance.transform.position, particleSpeedUpgrade, particleSizeUpgrade, true);
+                upgradesArray[_button.index] = 1;
                     SoundManager.Instance.PlaySound(SoundManager.Instance.buyUpgradeSound);
                 }
-
             }
-            else if (upgradesArray[_button.index] == 1 && _button.orderInBranch != 2)
-            {
-             if(playerMoney >= _button.secondCost)
-                {
-                    playerMoney -= _button.secondCost;
-                    NumberParticlesManager.Instance.SpawnNumberParticle(-_button.secondCost, Color.white, UpgradeBox.Instance.transform.position, particleSpeedUpgrade, particleSizeUpgrade, true);
-                    upgradesArray[_button.index] += 1;
-                    SoundManager.Instance.PlaySound(SoundManager.Instance.buyUpgradeSound);
-                }
-
-            }
-            else
-            {
-                if(_button.orderInBranch != 2)
-                {
-                    if(playerMoney >= _button.thirdCost)
-                    {
-                        playerMoney -= _button.thirdCost;
-                        NumberParticlesManager.Instance.SpawnNumberParticle(-_button.thirdCost, Color.white, UpgradeBox.Instance.transform.position, particleSpeedUpgrade, particleSizeUpgrade, true);
-                        upgradesArray[_button.index] += 1;
-                        SoundManager.Instance.PlaySound(SoundManager.Instance.buyUpgradeSound);
-                    }
-
-                }
-
-            }
-
-        }
         foreach (UpgradeButton button in upgradeButtons)
         {
             button.RefreshAvailability();
         }
 
         playerMoneyText.text = playerMoney.ToString();
-        playerMoneyText2.text = playerMoney.ToString();
         SelectButton(_button);
 
         DataManager.Instance.Save(false);
@@ -219,12 +185,10 @@ public class UpgradesManager : MonoBehaviour {
 
     public void Downgrade(UpgradeButton _button)
     {
-        if(upgradesArray[_button.index] > 0)
-        {
             if(upgradesArray[_button.index] == 1)
             {
-                playerMoney += _button.initialCost;
-                NumberParticlesManager.Instance.SpawnNumberParticle(_button.initialCost, Color.white, UpgradeBox.Instance.transform.position, particleSpeedUpgrade, particleSizeUpgrade, true);
+                playerMoney += _button.cost;
+                NumberParticlesManager.Instance.SpawnNumberParticle(_button.cost, Color.white, BuyButton.Instance.transform.position, particleSpeedUpgrade, particleSizeUpgrade, true);
                 SoundManager.Instance.PlaySound(SoundManager.Instance.downgradeSound);
 
                 if (_button.orderInBranch == 0)
@@ -236,21 +200,8 @@ public class UpgradesManager : MonoBehaviour {
                     upgradesArray[_button.branchButton2.index] = -1;
                 }
             }
-            else if(upgradesArray[_button.index] == 2)
 
-            {
-                SoundManager.Instance.PlaySound(SoundManager.Instance.downgradeSound);
-                playerMoney += _button.secondCost;
-                NumberParticlesManager.Instance.SpawnNumberParticle(_button.secondCost, Color.white, UpgradeBox.Instance.transform.position, particleSpeedUpgrade, particleSizeUpgrade, true);
-            }
-            else
-            {
-                SoundManager.Instance.PlaySound(SoundManager.Instance.downgradeSound);
-                playerMoney += _button.thirdCost;
-                NumberParticlesManager.Instance.SpawnNumberParticle(_button.thirdCost, Color.white, UpgradeBox.Instance.transform.position, particleSpeedUpgrade, particleSizeUpgrade, true);
-            }
-
-            upgradesArray[_button.index] -= 1;
+        upgradesArray[_button.index] = 0;
 
             foreach (UpgradeButton button in upgradeButtons)
             {
@@ -258,10 +209,7 @@ public class UpgradesManager : MonoBehaviour {
             }
 
             playerMoneyText.text = playerMoney.ToString();
-            playerMoneyText2.text = playerMoney.ToString();
             SelectButton(_button);
-
-        }
 
         DataManager.Instance.Save(false);
     }

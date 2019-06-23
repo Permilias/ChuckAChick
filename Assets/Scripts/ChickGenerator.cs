@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class ChickGenerator : MonoBehaviour {
 
@@ -22,6 +23,8 @@ public class ChickGenerator : MonoBehaviour {
     public float bombTimer;
 
     [Header("Chick Values")]
+    public float chickPulseTime;
+    public float chickPulseSize;
     public float baseChickValue;
     public float baseSickChickValue;
     public float baseBombChickvalue;
@@ -259,6 +262,9 @@ public class ChickGenerator : MonoBehaviour {
 
         //set up chick value
         spawnedChick.value = value;
+
+        spawnedChickGO.transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
+        spawnedChickGO.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutElastic, 1.8f);
     }
 
     public void SpawnSpecificChick(Vector3 _pos, int index)
@@ -316,6 +322,9 @@ public class ChickGenerator : MonoBehaviour {
         spawnedChick.canMove = true;
         spawnedChick.ySpeed = MatManager.Instance.matSpeed;
 
+        spawnedChickGO.transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
+        spawnedChickGO.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutElastic, 1.8f);
+
         //set up chick value
         spawnedChick.value = value;
     }
@@ -346,6 +355,9 @@ public class ChickGenerator : MonoBehaviour {
 
         //set up chick value
         spawnedChick.value = magicChickData.value;
+
+        spawnedChickGO.transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
+        spawnedChickGO.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutElastic, 1.8f);
     }
 
     Vector3 eul;

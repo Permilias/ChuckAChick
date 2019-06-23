@@ -110,61 +110,61 @@ public class ScoreDisplay : MonoBehaviour {
         {
             DeactivateAll();
             scrts[0].gameObject.SetActive(true);
-            scrts[0].DOAnchorPos(rt.anchoredPosition, tweenSpeed);
+            scrts[0].DOAnchorPos(rt.anchoredPosition, tweenSpeed).SetEase(Ease.OutBack, 1.03f);
         }
         else if(currentCaseAmount == 2)
         {
             DeactivateAll();
             scrts[0].gameObject.SetActive(true);
-            scrts[0].DOAnchorPos(rt.anchoredPosition + new Vector2(-(caseDistance/2), 0), tweenSpeed);
+            scrts[0].DOAnchorPos(rt.anchoredPosition + new Vector2(-(caseDistance/2), 0), tweenSpeed).SetEase(Ease.OutBack, 1.03f);
             scrts[1].gameObject.SetActive(true);
-            scrts[1].DOAnchorPos(rt.anchoredPosition + new Vector2(caseDistance / 2, 0), tweenSpeed);
+            scrts[1].DOAnchorPos(rt.anchoredPosition + new Vector2(caseDistance / 2, 0), tweenSpeed).SetEase(Ease.OutBack, 1.03f);
         }
         else if(currentCaseAmount == 3)
         {
             DeactivateAll();
             scrts[0].gameObject.SetActive(true);
-            scrts[0].DOAnchorPos(rt.anchoredPosition + new Vector2(-caseDistance, 0), tweenSpeed);
+            scrts[0].DOAnchorPos(rt.anchoredPosition + new Vector2(-caseDistance, 0), tweenSpeed).SetEase(Ease.OutBack, 1.03f);
             scrts[1].gameObject.SetActive(true);
-            scrts[1].DOAnchorPos(rt.anchoredPosition, tweenSpeed);
+            scrts[1].DOAnchorPos(rt.anchoredPosition, tweenSpeed).SetEase(Ease.OutBack, 1.03f);
             scrts[2].gameObject.SetActive(true);
-            scrts[2].DOAnchorPos(rt.anchoredPosition + new Vector2(caseDistance, 0), tweenSpeed);
+            scrts[2].DOAnchorPos(rt.anchoredPosition + new Vector2(caseDistance, 0), tweenSpeed).SetEase(Ease.OutBack, 1.03f);
         }
         else if(currentCaseAmount == 4)
         {
             DeactivateAll();
             scrts[0].gameObject.SetActive(true);
-            scrts[0].DOAnchorPos(rt.anchoredPosition + new Vector2(-(caseDistance + (caseDistance/2)), 0), tweenSpeed);
+            scrts[0].DOAnchorPos(rt.anchoredPosition + new Vector2(-(caseDistance + (caseDistance/2)), 0), tweenSpeed).SetEase(Ease.OutBack, 1.03f);
             scrts[1].gameObject.SetActive(true);
-            scrts[1].DOAnchorPos(rt.anchoredPosition + new Vector2(-(caseDistance / 2), 0), tweenSpeed);
+            scrts[1].DOAnchorPos(rt.anchoredPosition + new Vector2(-(caseDistance / 2), 0), tweenSpeed).SetEase(Ease.OutBack, 1.03f);
             scrts[2].gameObject.SetActive(true);
-            scrts[2].DOAnchorPos(rt.anchoredPosition + new Vector2(caseDistance / 2, 0), tweenSpeed);
+            scrts[2].DOAnchorPos(rt.anchoredPosition + new Vector2(caseDistance / 2, 0), tweenSpeed).SetEase(Ease.OutBack, 1.03f);
             scrts[3].gameObject.SetActive(true);
-            scrts[3].DOAnchorPos(rt.anchoredPosition + new Vector2(caseDistance + (caseDistance / 2), 0), tweenSpeed);
+            scrts[3].DOAnchorPos(rt.anchoredPosition + new Vector2(caseDistance + (caseDistance / 2), 0), tweenSpeed).SetEase(Ease.OutBack, 1.03f);
         }
         else if(currentCaseAmount == 5)
         {
             DeactivateAll();
             scrts[0].gameObject.SetActive(true);
-            scrts[0].DOAnchorPos(rt.anchoredPosition + new Vector2(-(caseDistance*2), 0), tweenSpeed);
+            scrts[0].DOAnchorPos(rt.anchoredPosition + new Vector2(-(caseDistance*2), 0), tweenSpeed).SetEase(Ease.OutBack, 1.03f);
             scrts[1].gameObject.SetActive(true);
-            scrts[1].DOAnchorPos(rt.anchoredPosition + new Vector2(-caseDistance, 0), tweenSpeed);
+            scrts[1].DOAnchorPos(rt.anchoredPosition + new Vector2(-caseDistance, 0), tweenSpeed).SetEase(Ease.OutBack, 1.03f);
             scrts[2].gameObject.SetActive(true);
-            scrts[2].DOAnchorPos(rt.anchoredPosition, tweenSpeed);
+            scrts[2].DOAnchorPos(rt.anchoredPosition, tweenSpeed).SetEase(Ease.OutBack, 1.03f);
             scrts[3].gameObject.SetActive(true);
-            scrts[3].DOAnchorPos(rt.anchoredPosition + new Vector2(caseDistance, 0), tweenSpeed);
+            scrts[3].DOAnchorPos(rt.anchoredPosition + new Vector2(caseDistance, 0), tweenSpeed).SetEase(Ease.OutBack, 1.03f);
             scrts[4].gameObject.SetActive(true);
-            scrts[4].DOAnchorPos(rt.anchoredPosition + new Vector2(caseDistance * 2, 0), tweenSpeed);
+            scrts[4].DOAnchorPos(rt.anchoredPosition + new Vector2(caseDistance * 2, 0), tweenSpeed).SetEase(Ease.OutBack, 1.03f);
         }
         else
         {
             ActivateAll();
-            scrts[0].DOAnchorPos(rt.anchoredPosition + new Vector2(-((2*caseDistance) + (caseDistance / 2)), 0), tweenSpeed);
-            scrts[1].DOAnchorPos(rt.anchoredPosition + new Vector2(-(caseDistance + (caseDistance / 2)), 0), tweenSpeed);
-            scrts[2].DOAnchorPos(rt.anchoredPosition + new Vector2(-(caseDistance / 2), 0), tweenSpeed);
-            scrts[3].DOAnchorPos(rt.anchoredPosition + new Vector2(caseDistance / 2, 0), tweenSpeed);
-            scrts[4].DOAnchorPos(rt.anchoredPosition + new Vector2(caseDistance + (caseDistance / 2), 0), tweenSpeed);
-            scrts[5].DOAnchorPos(rt.anchoredPosition + new Vector2((2*caseDistance) + (caseDistance / 2), 0), tweenSpeed);
+            scrts[0].DOAnchorPos(rt.anchoredPosition + new Vector2(-((2*caseDistance) + (caseDistance / 2)), 0), tweenSpeed).SetEase(Ease.OutBack, 1.03f);
+            scrts[1].DOAnchorPos(rt.anchoredPosition + new Vector2(-(caseDistance + (caseDistance / 2)), 0), tweenSpeed).SetEase(Ease.OutBack, 1.03f);
+            scrts[2].DOAnchorPos(rt.anchoredPosition + new Vector2(-(caseDistance / 2), 0), tweenSpeed).SetEase(Ease.OutBack, 1.03f);
+            scrts[3].DOAnchorPos(rt.anchoredPosition + new Vector2(caseDistance / 2, 0), tweenSpeed).SetEase(Ease.OutBack, 1.03f);
+            scrts[4].DOAnchorPos(rt.anchoredPosition + new Vector2(caseDistance + (caseDistance / 2), 0), tweenSpeed).SetEase(Ease.OutBack, 1.03f);
+            scrts[5].DOAnchorPos(rt.anchoredPosition + new Vector2((2 * caseDistance) + (caseDistance / 2), 0), tweenSpeed).SetEase(Ease.OutBack, 1.03f);
 
         }
     }

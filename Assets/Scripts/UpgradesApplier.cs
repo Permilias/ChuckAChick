@@ -29,7 +29,9 @@ public class UpgradesApplier : MonoBehaviour {
 
 	public static UpgradesApplier Instance;
 
-    public int[] upgradesArray; 
+    public int[] upgradesArray;
+
+    public int factoryLevel;
 
     [Header("FIRST PATH")]
     public bool healerAuraBuff;
@@ -68,6 +70,7 @@ public class UpgradesApplier : MonoBehaviour {
             else
             {
                 ChickGenerator.Instance.magicChickDatas[0].eggOdds = 5;
+
                 if(upgradesArray[1] <= 0)
                 {
                     print("First Path Stops at 1");
@@ -76,6 +79,7 @@ public class UpgradesApplier : MonoBehaviour {
                 else
                 {
                     healerAuraBuff = true;
+
                     if(upgradesArray[2] <= 0)
                     {
                         print("First Path stops at 2");
@@ -96,6 +100,7 @@ public class UpgradesApplier : MonoBehaviour {
             else
             {
                 ChickGenerator.Instance.magicChickDatas[1].eggOdds = 5;
+
                 if (upgradesArray[4] <= 0)
                 {
                     print("Second Path Stops at 1");
@@ -104,6 +109,7 @@ public class UpgradesApplier : MonoBehaviour {
                 else
                 {
                     richChickGeneratesIncome = true;
+
                     if (upgradesArray[5] <= 0)
                     {
                         print("Second Path stops at 2");
@@ -124,6 +130,7 @@ public class UpgradesApplier : MonoBehaviour {
             else
             {
                 ChickGenerator.Instance.magicChickDatas[2].eggOdds = 5;
+
                 if (upgradesArray[7] <= 0)
                 {
                     print("Third Path Stops at 1");
@@ -132,6 +139,7 @@ public class UpgradesApplier : MonoBehaviour {
                 else
                 {
                     breakerBreaksMagic = true;
+
                     if (upgradesArray[8] <= 0)
                     {
                         print("Third Path stops at 2");
@@ -152,6 +160,7 @@ public class UpgradesApplier : MonoBehaviour {
             else
             {
                 ChickGenerator.Instance.magicChickDatas[3].eggOdds = 5;
+
                 if (upgradesArray[10] <= 0)
                 {
                     print("Fourth Path Stops at 1");
@@ -160,6 +169,7 @@ public class UpgradesApplier : MonoBehaviour {
                 else
                 {
                     vortexHasMoneyBonus = true;
+
                     if (upgradesArray[11] <= 0)
                     {
                         print("Fourth Path stops at 2");

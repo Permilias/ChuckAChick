@@ -7,6 +7,8 @@ public class MatManager : MonoBehaviour {
     public static MatManager Instance;
 
     [Header("Difficulty")]
+    public int factoryLevel;
+    public float levelMultiplier;
     public float baseDifficulty;
     public float difficulty;
     public float maxDifficulty;

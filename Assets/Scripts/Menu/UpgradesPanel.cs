@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class UpgradesPanel : MonoBehaviour {
 
@@ -9,6 +10,10 @@ public class UpgradesPanel : MonoBehaviour {
     public List<MenuButton> hiddenButtons;
     public GameObject showingButton;
     public GameObject hidingButton;
+
+    public RectTransform upgradeButtonRt;
+
+    public RectTransform optionsButtonRt;
 
     Animator anim;
 
@@ -37,6 +42,8 @@ public class UpgradesPanel : MonoBehaviour {
     {
         if(canSwitch)
         {
+
+            optionsButtonRt.DOScale(Vector3.zero, 0.4f);
             SoundManager.Instance.PlaySound(SoundManager.Instance.buttonPress);
             StartCoroutine("ShowPanelCoroutine");
         }
@@ -59,12 +66,20 @@ public class UpgradesPanel : MonoBehaviour {
         }
         hidingButton.SetActive(true);
         canSwitch = true;
+        upgradeButtonRt.DOScale(Vector3.zero, 0.5f);
+        BuyButton.Instance.Show();
     }
 
     public void HidePanel()
     {
         if(canSwitch)
         {
+            if(BuyButton.Instance.active)
+            {
+                BuyButton.Instance.SetInactive();
+            }
+            BuyButton.Instance.Hide();
+            optionsButtonRt.DOScale(Vector3.one, 0.4f).SetEase(Ease.OutBack, 1.1f);
             SoundManager.Instance.PlaySound(SoundManager.Instance.goBackButtonPress);
             StartCoroutine("HidePanelCoroutine");
         }
@@ -85,7 +100,7 @@ public class UpgradesPanel : MonoBehaviour {
             button.enabled = true;
         }
         showingButton.SetActive(true);
-
+        upgradeButtonRt.DOScale(Vector3.one, 0.4f);
         canSwitch = true;
     }
 }
