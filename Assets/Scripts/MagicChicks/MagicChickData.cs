@@ -15,4 +15,5 @@ public class MagicChickData
     public int eggHp;
     public int value;
     public Color scoreColor;
+    public bool disabled;
 }

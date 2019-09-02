@@ -12,6 +12,7 @@ public class Chick : MonoBehaviour {
     public TextMeshPro bombText;
     public bool sick;
     public bool bomb;
+    public GameObject bombAura;
     public float currentTimer;
 
     public GameObject bodySprite;
@@ -33,6 +34,8 @@ public class Chick : MonoBehaviour {
     public bool canMove;
     public bool eater;
 
+    public bool vortexEatsSick;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -45,10 +48,13 @@ public class Chick : MonoBehaviour {
         pulseSize = ChickGenerator.Instance.chickPulseSize;
         pulseMultiplier = pulseSize / pulseTime;
         baseScale = SR.transform.localScale;
+        SR.sortingOrder = Random.Range(900, 1000);
+        vortexEatsSick = UpgradesApplier.Instance.vortexEatsSick;
     }
 
     public void Initialize(int animIndex)
     {
+        rich = false;
         canBeGround = false;
         chickCollider.enabled = true;
         eaten = false;
@@ -69,12 +75,28 @@ public class Chick : MonoBehaviour {
 
         if(bomb)
         {
+            bombAura.SetActive(true);
             currentTimer = ChickGenerator.Instance.bombTimer;
         }
 
         if(magic)
         {
-            GetComponent<MagicChickAura>().StartAura();
+            if(GetComponent<BreakerChick>() != null)
+            {
+                if (UpgradesApplier.Instance.breakerHasBonusAura)
+                {
+                    GetComponent<MagicChickAura>().StartAura(2);
+                }
+                else
+                {
+                    GetComponent<MagicChickAura>().StartAura(1);
+                }
+            }
+            else
+            {
+                GetComponent<MagicChickAura>().StartAura(1);
+            }
+
         }
     }
 
@@ -168,17 +190,30 @@ public class Chick : MonoBehaviour {
             PS.transform.rotation = Quaternion.identity;
         }
 
-        if(!sick && !bomb && !magic && !eaten)
+        if(!bomb && !magic && !eaten)
         {
-            foreach (EaterChick eaterScript in FindObjectsOfType<EaterChick>())
+            foreach (EaterChick eaterScript in ChickGenerator.Instance.activeEaters)
             {
                 dist = Vector3.Distance(transform.position, eaterScript.transform.position);
                 if (dist <= eaterScript.detectionRadius)
-                {
-                    
-                    eaten = true;
-                    eaterScript.Eat(transform.position);
-                    StartCoroutine(GetEaten(eaterScript.transform.position));
+                { 
+                    if(sick)
+                    {
+                        if(vortexEatsSick)
+                        {
+                            eaten = true;
+                            eaterScript.Eat(transform.position, rich);
+                            StartCoroutine(GetEaten(eaterScript.transform.position));
+                        }
+                        
+                    }
+                    else
+                    {
+                        eaten = true;
+                        eaterScript.Eat(transform.position, rich);
+                        StartCoroutine(GetEaten(eaterScript.transform.position));
+                    }
+
                 }
             }
         }
@@ -325,6 +360,11 @@ public class Chick : MonoBehaviour {
             {
                 GetComponent<EaterChick>().value = 0;
                 GetComponent<EaterChick>().valueText.text = "0";
+                ChickGenerator.Instance.activeEaters.Remove(GetComponent<EaterChick>());
+            }
+            if(magicChickIndex == 0)
+            {
+                ChickGenerator.Instance.activeHealers.Remove(GetComponent<NurseChick>());
             }
             ChickGenerator.Instance.magicChickDatas[magicChickIndex].chickPool.Enqueue(gameObject);
         }
@@ -386,11 +426,33 @@ public class Chick : MonoBehaviour {
         SoundManager.Instance.PlaySound(SoundManager.Instance.healedChick);
     }
 
+    public void Soothe()
+    {
+        if(bomb)
+        {
+            ChickGenerator.Instance.SpawnHealingFX(transform);
+            value = ChickGenerator.Instance.baseChickValue;
+            anim.SetInteger("AnimIndex", 0);
+            scoreColor = ChickGenerator.Instance.baseColor;
+
+            SoundManager.Instance.PlaySound(SoundManager.Instance.healedChick);
+
+            bombAura.SetActive(false);
+
+            bomb = false;
+            currentTimer = 0;
+            bombText.text = "";
+        }
+
+    }
+
     public GameObject PS;
+    public bool rich;
     public void Enrich()
     {
         if(PS == null)
         {
+            rich = true;
             anim.SetInteger("AnimIndex", 7);
             SoundManager.Instance.PlaySound(SoundManager.Instance.moneySoundRepeat);
             value += ChickGenerator.Instance.richChickValue;

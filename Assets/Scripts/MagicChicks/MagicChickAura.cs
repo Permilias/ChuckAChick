@@ -32,13 +32,15 @@ public class MagicChickAura : MonoBehaviour {
         outlineShape = outlinePS.shape;
         paillettesShape = paillettesPS.shape;
         vortexMain = vortexPS.main;
+
+        healerAuraBuff = UpgradesApplier.Instance.healerAuraBuff;
     }
 
-    public void StartAura()
+    public void StartAura(int multiplier)
     {
         canDeplete = true;
         CalculateAuraTime();
-        count = auraTime;
+        count = auraTime * multiplier;
     }
 
     float wsMultiplier;
@@ -80,13 +82,14 @@ public class MagicChickAura : MonoBehaviour {
 
     }
 
+    public bool healerAuraBuff;
     public float count;
     private void Update()
     {
-        if (UpgradesApplier.Instance.healerAuraBuff)
+        if (healerAuraBuff)
         {
             canDeplete = true;
-            foreach (NurseChick healer in FindObjectsOfType<NurseChick>())
+            foreach (NurseChick healer in ChickGenerator.Instance.activeHealers)
             {
                 float dist = Vector2.Distance(healer.transform.position, transform.position);
                 if (dist <= healer.detectionRadius)

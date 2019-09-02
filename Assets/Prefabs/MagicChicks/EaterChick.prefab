@@ -650,7 +650,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 1200
 --- !u!23 &23564799593899132
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -861,6 +861,7 @@ MonoBehaviour:
   bombText: {fileID: 0}
   sick: 0
   bomb: 0
+  bombAura: {fileID: 0}
   currentTimer: 0
   bodySprite: {fileID: 1573421727223376}
   feathers: {fileID: 0}
@@ -873,13 +874,16 @@ MonoBehaviour:
   scoreColor: {r: 0, g: 0, b: 0, a: 0}
   canMove: 0
   eater: 1
+  vortexEatsSick: 0
   targetScale: {x: 0, y: 0, z: 0}
   smoothSpeed: 0
   canBeGround: 0
   eaten: 0
   chickCollider: {fileID: 58595451997188638}
   newVel: {x: 0, y: 0, z: 0}
+  pulseTimer: 0
   PS: {fileID: 0}
+  rich: 0
 --- !u!114 &114614512142115606
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -903,6 +907,7 @@ MonoBehaviour:
   vortexPS: {fileID: 198879245635049572}
   vortexStartingSize: 2.5
   vortexMinSize: 0.4
+  canDeplete: 0
   auraTime: 10
   count: 0
 --- !u!114 &114681869458936604
@@ -1032,8 +1037,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   detectionRadius: 2
   shellValue: 2
+  richShellValue: 10
   value: 0
   valueText: {fileID: 114681869458936604}
+  multiplier: 0
 --- !u!114 &114733371921102934
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -7,9 +7,10 @@ public class EaterChick : MonoBehaviour {
 
     public float detectionRadius;
     public int shellValue;
+    public int richShellValue;
     public int value;
     public TextMeshPro valueText;
-
+    public bool multiplier;
 
     MagicChickAura aura;
 
@@ -24,16 +25,23 @@ public class EaterChick : MonoBehaviour {
     private void Start()
     {
         radiusMultiplier = detectionRadius / aura.auraTime;
-        SoundManager.Instance.PlaySound(SoundManager.Instance.vortexChickAuraLoop);
+        if (Time.timeSinceLevelLoad > 4f)
+            SoundManager.Instance.PlaySound(SoundManager.Instance.vortexChickAuraLoop);
         value = 0;
         valueText.text = "0";
         chick = GetComponent<Chick>();
+
+        multiplier = UpgradesApplier.Instance.vortexHasMoneyBonus;
     }
 
-    public void Eat(Vector3 chickStartingPosition)
+    public void Eat(Vector3 chickStartingPosition, bool rich)
     {
         SoundManager.Instance.PlaySound(SoundManager.Instance.vortexChickIncrementation);
-        value += shellValue;
+        int bonus = 0;
+        if (rich) bonus = richShellValue;
+        else bonus = shellValue;
+        if (multiplier) bonus *= 2;
+        value += bonus;
         valueText.text = value.ToString();
         chick.value = value;
     }

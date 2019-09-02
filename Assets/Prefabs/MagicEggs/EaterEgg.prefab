@@ -192,7 +192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   magicEgg: 1
-  magicChickIndex: 2
+  magicChickIndex: 3
   hp: 5
   mr: {fileID: 0}
   hpSprites:
@@ -211,6 +211,7 @@ MonoBehaviour:
   sr: {fileID: 212008679710381682}
   targetScale: {x: 0, y: 0, z: 0}
   smoothSpeed: 0
+  canBeGround: 0
 --- !u!212 &212008679710381682
 SpriteRenderer:
   m_ObjectHideFlags: 1

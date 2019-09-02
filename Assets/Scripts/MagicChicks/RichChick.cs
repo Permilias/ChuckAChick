@@ -8,7 +8,11 @@ public class RichChick : MonoBehaviour {
     MagicChickAura aura;
     float radiusMultiplier;
 
+    Color incomeColor;
+
     public float detectionRadius;
+
+    public bool income;
 
     private void Awake()
     {
@@ -18,9 +22,16 @@ public class RichChick : MonoBehaviour {
     private void Start()
     {
         radiusMultiplier = detectionRadius / aura.auraTime;
-        SoundManager.Instance.PlaySound(SoundManager.Instance.godfatherChickAuraLoop);
+        if (Time.timeSinceLevelLoad > 4f)
+            SoundManager.Instance.PlaySound(SoundManager.Instance.godfatherChickAuraLoop);
+
+        income = UpgradesApplier.Instance.richChickGeneratesIncome;
+        incomeDelay = UpgradesApplier.Instance.richChickIncomeDelay;
+        incomeColor = UpgradesApplier.Instance.richChickIncomeColor;
     }
 
+    float incomeCount;
+    float incomeDelay;
     private void Update()
     {
         detectionRadius = 0.7F + radiusMultiplier * aura.count;
@@ -35,5 +46,22 @@ public class RichChick : MonoBehaviour {
                 }
             }
         }
+
+        if(income)
+        {
+            incomeCount += Time.deltaTime;
+            if(incomeCount >= incomeDelay)
+            {
+                incomeCount = 0;
+                GenerateIncome();
+            }
+        }
+    }
+
+    void GenerateIncome()
+    {
+        GameManager.Instance.AddScore(3);
+        float size = 1.2f;
+        NumberParticlesManager.Instance.SpawnNumberParticle(3, incomeColor, transform.position, 2, size, true);
     }
 }

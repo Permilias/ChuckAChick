@@ -11,9 +11,14 @@ public class UpgradesPanel : MonoBehaviour {
     public GameObject showingButton;
     public GameObject hidingButton;
 
+    public GameObject body;
+
     public RectTransform upgradeButtonRt;
 
     public RectTransform optionsButtonRt;
+
+    public Vector3 shownPos, hiddenPos;
+    public float shownX, hiddenX;
 
     Animator anim;
 
@@ -22,11 +27,16 @@ public class UpgradesPanel : MonoBehaviour {
     private void Awake()
     {
         Instance = this;
-        anim = GetComponent<Animator>();
+        //anim = GetComponent<Animator>();
     }
 
     private void Start()
     {
+        Vector3 pos = body.transform.position;
+        shownPos = new Vector3(shownX, pos.y, 0);
+        hiddenPos = new Vector3(hiddenX, pos.y, 0);
+        body.transform.localPosition = hiddenPos;
+
         hidingButton.SetActive(false);
         foreach (MenuButton button in shownButtons)
         {
@@ -51,7 +61,16 @@ public class UpgradesPanel : MonoBehaviour {
 
     IEnumerator ShowPanelCoroutine()
     {
-        anim.SetBool("isVisible", true);
+        if(UpgradesManager.Instance.currentSelectedButton == null)
+        {
+            UpgradesManager.Instance.titleText.text = "";
+            UpgradesManager.Instance.costText.text = "";
+            UpgradesManager.Instance.upgradeText.text = "";
+        }
+
+        //anim.SetBool("isVisible", true);
+        body.transform.DOLocalMove(shownPos, 0.8f).SetEase(Ease.OutBack, 0.5f);
+        upgradeButtonRt.DOScale(Vector3.zero, 0.3f).SetEase(Ease.InBack);
         canSwitch = false;
         foreach (MenuButton button in hiddenButtons)
         {
@@ -65,8 +84,10 @@ public class UpgradesPanel : MonoBehaviour {
             button.enabled = true;
         }
         hidingButton.SetActive(true);
+        hidingButton.transform.localScale = Vector3.zero;
+        hidingButton.transform.DOScale(Vector3.one, 0.3f).SetEase(Ease.OutBack);
         canSwitch = true;
-        upgradeButtonRt.DOScale(Vector3.zero, 0.5f);
+
         BuyButton.Instance.Show();
     }
 
@@ -87,14 +108,18 @@ public class UpgradesPanel : MonoBehaviour {
 
     IEnumerator HidePanelCoroutine()
     {
-        anim.SetBool("isVisible", false);
-        hidingButton.SetActive(false);
+        //anim.SetBool("isVisible", false);
+        body.transform.DOLocalMove(hiddenPos, 0.6f).SetEase(Ease.InBack, 0.01f);
+
+        hidingButton.transform.localScale = Vector3.one;
+        hidingButton.transform.DOScale(Vector3.zero, 0.3f).SetEase(Ease.InBack);
         canSwitch = false;
         foreach (MenuButton button in shownButtons)
         {
             button.enabled = false;
         }
         yield return new WaitForSeconds(0.5f);
+        hidingButton.SetActive(false);
         foreach (MenuButton button in hiddenButtons)
         {
             button.enabled = true;

@@ -100,6 +100,9 @@ public class ChickGenerator : MonoBehaviour {
         FillShellExplosionPools();
         FillMagicShellExplosionPools();
         FillHealingFXPool();
+
+        activeEaters = new List<EaterChick>();
+        activeHealers = new List<NurseChick>();
     }
 
     public void FillShellExplosionPools()
@@ -329,6 +332,8 @@ public class ChickGenerator : MonoBehaviour {
         spawnedChick.value = value;
     }
 
+    public List<EaterChick> activeEaters;
+    public List<NurseChick> activeHealers;
     public void SpawnMagicChick(Vector3 _pos, int index)
     {
         spawnedChickPos = _pos;
@@ -346,6 +351,14 @@ public class ChickGenerator : MonoBehaviour {
         spawnedChick.magicChickIndex = index;
         activeChicks.Add(spawnedChick);
         spawnedChick.Initialize(3 + index);
+        if(index == 3)
+        {
+            activeEaters.Add(spawnedChick.GetComponent<EaterChick>());
+        }
+        else if(index == 0)
+        {
+            activeHealers.Add(spawnedChick.GetComponent<NurseChick>());
+        }
         spawnedChick.canMove = true;
         spawnedChick.ySpeed = MatManager.Instance.matSpeed;
 

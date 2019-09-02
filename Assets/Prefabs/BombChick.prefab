@@ -409,7 +409,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1605043596033392}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.9202124, y: -8.583465, z: 3.034057}
+  m_LocalPosition: {x: -5.379953, y: 0.63091356, z: 3.034057}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4255178875449484}
@@ -662,7 +662,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 1300
 --- !u!33 &33013012996885512
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -786,6 +786,7 @@ MonoBehaviour:
   bombText: {fileID: 114973488017026370}
   sick: 0
   bomb: 1
+  bombAura: {fileID: 1080749743361134}
   currentTimer: 0
   bodySprite: {fileID: 1757442797445442}
   feathers: {fileID: 0}
@@ -800,10 +801,13 @@ MonoBehaviour:
   eater: 0
   targetScale: {x: 0, y: 0, z: 0}
   smoothSpeed: 0
+  canBeGround: 0
   eaten: 0
   chickCollider: {fileID: 58325748499724986}
   newVel: {x: 0, y: 0, z: 0}
+  pulseTimer: 0
   PS: {fileID: 0}
+  rich: 0
 --- !u!114 &114036577626970932
 MonoBehaviour:
   m_ObjectHideFlags: 1

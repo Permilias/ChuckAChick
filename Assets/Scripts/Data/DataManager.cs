@@ -117,6 +117,7 @@ public class DataManager : MonoBehaviour {
         GameManager.Instance.totalGroundChicks = data.totalGroundChicks;
         GameManager.Instance.playerMoney = data.playerMoney;
         MatManager.Instance.factoryLevel = data.factoryLevel;
+        UpgradesApplier.Instance.factoryLevel = data.factoryLevel;
         //MuteButton.Instance.muted = data.soundMuted;
         UpgradesApplier.Instance.upgradesArray = data.upgradesArray;
     }
