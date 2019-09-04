@@ -36,8 +36,6 @@ public class UpgradeButton : MonoBehaviour {
 
     public bool selected;
 
-
-
     private void Start()
     {
         button = GetComponent<MenuButton>();
@@ -58,6 +56,13 @@ public class UpgradeButton : MonoBehaviour {
     public void RefreshAvailability()
     {
         upgradeState = UpgradesManager.Instance.upgradesArray[index];
+        if (orderInBranch + 1 > UpgradesManager.Instance.factoryLevel)
+        {
+            state = UpgradeButtonState.locked;
+            SR.sprite = lockedSprite;
+            return;
+        }
+
         if (upgradeState == -1)
         {
             state = UpgradeButtonState.locked;
@@ -147,6 +152,13 @@ public class UpgradeButton : MonoBehaviour {
                         SR.sprite = lockedSprite;
                     }
                 }
+                else
+                {
+                    state = UpgradeButtonState.locked;
+                    upgradeState = -1;
+                    UpgradesManager.Instance.upgradesArray[index] = -1;
+                    SR.sprite = lockedSprite;
+                }
             }
             else
             {
@@ -159,6 +171,13 @@ public class UpgradeButton : MonoBehaviour {
                         UpgradesManager.Instance.upgradesArray[index] = -1;
                         SR.sprite = lockedSprite;
                     }
+                }
+                else
+                {
+                    state = UpgradeButtonState.locked;
+                    upgradeState = -1;
+                    UpgradesManager.Instance.upgradesArray[index] = -1;
+                    SR.sprite = lockedSprite;
                 }
             }
         }

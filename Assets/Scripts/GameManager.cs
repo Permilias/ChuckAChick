@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour {
 
         DataManager.Instance.Load(true, true);
 
+        
         score = 0;
         UpgradesApplier.Instance.ApplyUpgrades();
 

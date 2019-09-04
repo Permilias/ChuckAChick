@@ -342,7 +342,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1313213481673538}
   m_LocalRotation: {x: -0.026135975, y: 0.045557443, z: 0.3800168, w: 0.92348725}
-  m_LocalPosition: {x: 0.24300003, y: 8.041001, z: -0.22000027}
+  m_LocalPosition: {x: 0.24300003, y: 7.93, z: 0.19}
   m_LocalScale: {x: 0.7644706, y: 0.7604183, z: 0.63617456}
   m_Children: []
   m_Father: {fileID: 4102108685784136}
@@ -409,7 +409,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1008407085025566}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.9954488, y: -8.2642145, z: 10.129467}
+  m_LocalPosition: {x: 0.26687992, y: -1.442964, z: 10.129467}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4889548689054400}
@@ -788,6 +788,7 @@ MonoBehaviour:
   vortexPS: {fileID: 198871917554170164}
   vortexStartingSize: 0
   vortexMinSize: 0
+  canDeplete: 0
   auraTime: 10
   count: 0
 --- !u!114 &114614287948385664
@@ -825,7 +826,9 @@ MonoBehaviour:
   eaten: 0
   chickCollider: {fileID: 58353519092036440}
   newVel: {x: 0, y: 0, z: 0}
+  pulseTimer: 0
   PS: {fileID: 0}
+  rich: 0
 --- !u!114 &114928882522688170
 MonoBehaviour:
   m_ObjectHideFlags: 1

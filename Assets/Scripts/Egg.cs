@@ -70,7 +70,7 @@ public class Egg : MonoBehaviour
                 if (hp <= 0)
                 {
                     ScreenShake.Instance.Shake(0.1f, 0.05f);
-                    Break(false);
+                    Break();
                 }
                 else
                 {
@@ -79,7 +79,7 @@ public class Egg : MonoBehaviour
             }
             else
             {
-                Break(true);
+                Break();
             }
 
         }
@@ -110,7 +110,7 @@ public class Egg : MonoBehaviour
 
     List<Egg> eggsToBreak;
     float dist;
-    public void Break(bool canShockwave)
+    public void Break()
     {
         if (!GameManager.Instance.gameEnded)
         {
@@ -146,28 +146,16 @@ public class Egg : MonoBehaviour
             else
             {
                 ChickGenerator.Instance.SpawnMagicChick(transform.position, magicChickIndex);
-            }
-
-            if (EggGenerator.Instance.shockwaves && canShockwave)
-            {
-                eggsToBreak = new List<Egg>();
-                Collider2D[] colArray = Physics2D.OverlapCircleAll(transform.position, EggGenerator.Instance.shockwaveRadius, LayerMask.GetMask("Default"), -1, 1);
-                foreach (Collider2D col in colArray)
+                if(magicChickIndex == 1)
                 {
-                    if (col.tag == "Egg")
+                    if(UpgradesApplier.Instance.spawns2RichChicks)
                     {
-                        eggsToBreak.Add(col.GetComponentInParent<Egg>());
+                        ChickGenerator.Instance.SpawnMagicChick(transform.position, magicChickIndex);
                     }
                 }
-
-                eggsToBreak.Remove(this);
-
-                foreach (Egg egg in eggsToBreak)
-                {
-                    egg.Break(false);
-                }
-
             }
+
+          
             Remove();
         }
     }

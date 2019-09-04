@@ -16,10 +16,12 @@ public class MenuManager : MonoBehaviour {
     }
 
     private void Start()
-    {
-      
+    {      
         DataManager.Instance.Load(true, false);
         DataManager.Instance.Save(false);
+
+        //FactoryLevelButton.Instance.ChangeLevel(0);
+        FactoryLevelButton.Instance.ChangeLevel(UpgradesManager.Instance.factoryLevel);
     }
 
     public void OnApplicationQuit()
@@ -55,6 +57,11 @@ public class MenuManager : MonoBehaviour {
         if(Input.GetKeyDown(KeyCode.Return))
         {
             LoadLoadingScreen();
+        }
+
+        if(Input.GetKeyDown(KeyCode.D))
+        {
+            UpgradesManager.Instance.playerMoney += 1000;
         }
     }
 }

@@ -39,6 +39,7 @@ public class PlayerLife : MonoBehaviour {
     LifeBulb newLifeBulb;
     private void Start()
     {
+        maxLife = 6 + (2 * UpgradesApplier.Instance.factoryLevel);
         life = maxLife;
 
         lifeBulbs = new List<LifeBulb>();

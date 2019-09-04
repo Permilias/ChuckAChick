@@ -34,15 +34,15 @@ public class BuyButton : MonoBehaviour {
 
     public void Show()
     {
-        rt.DOScale(Vector3.one, 0.5f);      
+        rt.DOScale(Vector3.one, 0.3f).SetEase(Ease.OutBack);
     }
 
     public void Hide()
     {
-        rt.DOScale(Vector3.zero, 0.5f);
+        rt.DOScale(Vector3.zero, 0.3f).SetEase(Ease.InBack);
     }
 
-    public void SetActive(bool _buys)
+    public void SetActionnable(bool _buys)
     {
         if(_buys)
         {
@@ -77,14 +77,36 @@ public class BuyButton : MonoBehaviour {
     {
         if(buys)
         {
-            if (UpgradesManager.Instance.currentSelectedButton.upgradeState > -1)
+            if(UpgradesManager.Instance.factoryButtonSelected)
             {
-                UpgradesManager.Instance.Upgrade(UpgradesManager.Instance.currentSelectedButton);
+                UpgradesManager.Instance.UpgradeFactoryLevel();
+            }
+            else
+            {
+                if (UpgradesManager.Instance.currentSelectedButton != null)
+                {
+                    if (UpgradesManager.Instance.currentSelectedButton.upgradeState > -1)
+                    {
+                        UpgradesManager.Instance.Upgrade(UpgradesManager.Instance.currentSelectedButton);
+                    }
+                }
             }
         }
         else
         {
-            UpgradesManager.Instance.Downgrade(UpgradesManager.Instance.currentSelectedButton);
+            if(UpgradesManager.Instance.factoryButtonSelected)
+            {
+
+            }
+            else
+            {
+                if (UpgradesManager.Instance.currentSelectedButton != null)
+                {
+                    UpgradesManager.Instance.Downgrade(UpgradesManager.Instance.currentSelectedButton);
+                }
+            }
+
+
         }
 
     }

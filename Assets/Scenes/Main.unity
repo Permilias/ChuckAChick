@@ -154,17 +154,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upgradesArray: 
-  healerAuraBuff: 0
-  healerDisableBombs: 0
-  richChickGeneratesIncome: 0
-  richChickIncome: 0
-  spawns2RichChicks: 0
+  factoryLevel: 0
   breakerBreaksMagic: 0
   breakerHasBonusAura: 0
   breakerBonusAura: 0
+  healerAuraBuff: 0
+  healerDisableBombs: 0
   vortexHasMoneyBonus: 0
   vortexMoneyBonus: 0
   vortexEatsSick: 0
+  richChickGeneratesIncome: 0
+  richChickIncomeDelay: 1
+  richChickIncomeColor: {r: 1, g: 0.97548175, b: 0.6650944, a: 1}
+  spawns2RichChicks: 0
 --- !u!1 &48450973
 GameObject:
   m_ObjectHideFlags: 0
@@ -1097,6 +1099,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 21
       objectReference: {fileID: 0}
+    - target: {fileID: 23862500109392184, guid: 844421dfe7703ff469631041ecefbbf7,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 484c44fd06461f74e999f94dc1436c34, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 844421dfe7703ff469631041ecefbbf7, type: 2}
   m_IsPrefabAsset: 0
@@ -3650,6 +3657,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46625b958352de84ea1f113c51188232, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  factoryLevel: 0
+  levelMultiplier: 0
   baseDifficulty: 1
   difficulty: 1
   maxDifficulty: 4
@@ -7055,8 +7064,13 @@ MonoBehaviour:
   eggLayer:
     serializedVersion: 2
     m_Bits: 4294967295
+  oneMagicFrequency: 0
+  twoMagicFrequency: 0
+  threeMagicFrequency: 0
+  fourMagicFrequency: 0
   activeEggs: []
   canSpawn: 1
+  availableIndexes: 
 --- !u!1 &2051819864
 GameObject:
   m_ObjectHideFlags: 0
@@ -7097,6 +7111,7 @@ MonoBehaviour:
     eggHp: 5
     value: 5
     scoreColor: {r: 1, g: 1, b: 1, a: 1}
+    disabled: 0
   - magicChick: {fileID: 1008407085025566, guid: 844421dfe7703ff469631041ecefbbf7,
       type: 2}
     magicEgg: {fileID: 1962141715943620, guid: 10378f591eb2a844ebd6767aa8dd6dbc, type: 2}
@@ -7106,6 +7121,7 @@ MonoBehaviour:
     eggHp: 5
     value: 5
     scoreColor: {r: 1, g: 0.8291087, b: 0, a: 1}
+    disabled: 0
   - magicChick: {fileID: 1158842087622036, guid: af0c2f0a212fb254fa4f1bcb00b732be,
       type: 2}
     magicEgg: {fileID: 1891826604661892, guid: 5a95edf3f9feaea4ba31715c7c862fc1, type: 2}
@@ -7115,6 +7131,7 @@ MonoBehaviour:
     eggHp: 5
     value: 5
     scoreColor: {r: 0.3160377, g: 0.5466728, b: 1, a: 1}
+    disabled: 0
   - magicChick: {fileID: 1675081268320102, guid: fd31e28d3aca1f249962a5c8cc458b14,
       type: 2}
     magicEgg: {fileID: 1367972991733638, guid: bfb67bd9f90a08244b488fe04f133560, type: 2}
@@ -7124,6 +7141,7 @@ MonoBehaviour:
     eggHp: 5
     value: 0
     scoreColor: {r: 1, g: 0, b: 0.9233203, a: 1}
+    disabled: 0
   richPS: {fileID: 1310036323403456, guid: 6b0dd05150a49aa4a965224f7ab26237, type: 2}
   poorPS: {fileID: 1994402319213000, guid: 1f54b3acc15c8a746ae821d116f50f72, type: 2}
   sickChickOdds: 5
@@ -7156,6 +7174,8 @@ MonoBehaviour:
       type: 2}
   healingFX: {fileID: 1816575289672188, guid: 1dc8508673bf42f4889677ac10a9f0e8, type: 2}
   activeChicks: []
+  activeEaters: []
+  activeHealers: []
 --- !u!4 &2051819866
 Transform:
   m_ObjectHideFlags: 0

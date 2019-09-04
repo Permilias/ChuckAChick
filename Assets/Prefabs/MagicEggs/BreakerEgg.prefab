@@ -211,6 +211,7 @@ MonoBehaviour:
   sr: {fileID: 212299146259697892}
   targetScale: {x: 0, y: 0, z: 0}
   smoothSpeed: 0
+  canBeGround: 0
 --- !u!212 &212299146259697892
 SpriteRenderer:
   m_ObjectHideFlags: 1

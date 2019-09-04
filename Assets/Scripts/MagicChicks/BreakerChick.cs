@@ -13,10 +13,16 @@ public class BreakerChick : MonoBehaviour {
     }
 
     public float detectionRadius;
+    bool canBreakMagicEgg;
     private void Start()
     {
         radiusMultiplier = detectionRadius / aura.auraTime;
+        if (Time.timeSinceLevelLoad > 4f)
         SoundManager.Instance.PlaySound(SoundManager.Instance.eggbreakerChickAuraLoop);
+
+        canBreakMagicEgg = UpgradesApplier.Instance.breakerBreaksMagic;
+
+
     }
     private void Update()
     {
@@ -26,10 +32,19 @@ public class BreakerChick : MonoBehaviour {
             float dist = Vector2.Distance(egg.transform.position, transform.position);
             if (dist <= detectionRadius)
             {
+                
                 if (!egg.magicEgg)
                 {
-                    egg.Break(false);
+                    egg.Break();
                     break;
+                }
+                else
+                {
+                    if(canBreakMagicEgg)
+                    {
+                        egg.Break();
+                        break;
+                    }
                 }
             }
         }

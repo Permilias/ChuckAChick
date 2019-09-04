@@ -13,11 +13,15 @@ public class NurseChick : MonoBehaviour {
     }
 
     public float detectionRadius;
+    public bool canSootheBombs;
 
     private void Start()
     {
         radiusMultiplier = detectionRadius / aura.auraTime;
-        SoundManager.Instance.PlaySound(SoundManager.Instance.healChickAuraLoop);
+        if (Time.timeSinceLevelLoad > 4f)
+            SoundManager.Instance.PlaySound(SoundManager.Instance.healChickAuraLoop);
+
+        canSootheBombs = UpgradesApplier.Instance.healerDisableBombs;
     }
     private void Update()
     {
@@ -30,6 +34,14 @@ public class NurseChick : MonoBehaviour {
                 if(chick.sick)
                 {
                     chick.Heal();
+                }
+                
+                if(canSootheBombs)
+                {
+                    if(chick.bomb)
+                    {
+                        chick.Soothe();
+                    }
                 }
             }
 
