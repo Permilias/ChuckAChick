@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Scenepilou/ScenePilou.unity
     guid: 83b12d7cd139cad42a7ee02cc7f55157
+  - enabled: 0
+    path: Assets/Scenes/AdScene.unity
+    guid: eb99d2c3e5fc1c5419ba62378b659c74
   m_configObjects: {}
