@@ -90,7 +90,7 @@ namespace GoogleMobileAds.Api
         public event EventHandler<Reward> OnUserEarnedReward;
 
         // Loads a new rewarded ad.
-        public void LoadAd(AdRequest request)
+        public void LoadAd(AdRequest request, string adID)
         {
             client.LoadAd(request);
         }

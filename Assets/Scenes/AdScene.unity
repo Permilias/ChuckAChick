@@ -141,6 +141,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   adID: 
+  appID: 
+  internetConnected: 0
 --- !u!4 &24811437
 Transform:
   m_ObjectHideFlags: 0
@@ -243,6 +245,7 @@ RectTransform:
   - {fileID: 1432646800}
   - {fileID: 901099808}
   - {fileID: 1516831085}
+  - {fileID: 1827276801}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -315,10 +318,10 @@ MonoBehaviour:
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Full Ad Alternatliche
+  m_Text: "Full Ad TEST \nMOBILE AUSSI"
 --- !u!222 &512592853
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -393,7 +396,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'SkipAd2 : Pour voir si les fonctions marchent bien'
+  m_Text: 'ShortAd : LE TEST MOBILE'
 --- !u!222 &711091054
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -413,7 +416,7 @@ GameObject:
   - component: {fileID: 901099810}
   - component: {fileID: 901099809}
   m_Layer: 5
-  m_Name: SkippableAdAlternative
+  m_Name: SkippableAdTest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -427,7 +430,7 @@ RectTransform:
   m_GameObject: {fileID: 901099807}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.0809, y: 2.0809, z: 2.0809}
   m_Children:
   - {fileID: 711091052}
   m_Father: {fileID: 384902955}
@@ -435,7 +438,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 277, y: 215}
+  m_AnchoredPosition: {x: -12, y: 140}
   m_SizeDelta: {x: 160, y: 44.84}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &901099809
@@ -862,7 +865,7 @@ GameObject:
   - component: {fileID: 1516831087}
   - component: {fileID: 1516831086}
   m_Layer: 5
-  m_Name: FullAdAlternative
+  m_Name: FullAdTest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -876,7 +879,7 @@ RectTransform:
   m_GameObject: {fileID: 1516831084}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.7318, y: 1.4928463, z: 1.7318}
   m_Children:
   - {fileID: 512592851}
   m_Father: {fileID: 384902955}
@@ -884,8 +887,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -242, y: 206}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: -12, y: 452}
+  m_SizeDelta: {x: 160, y: 74.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1516831086
 MonoBehaviour:
@@ -1047,6 +1050,81 @@ CanvasRenderer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1814314099}
+  m_CullTransparentMesh: 0
+--- !u!1 &1827276800
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1827276801}
+  - component: {fileID: 1827276803}
+  - component: {fileID: 1827276802}
+  m_Layer: 5
+  m_Name: RECOMPENSE
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1827276801
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1827276800}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 384902955}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -390}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1827276802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1827276800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0, b: 0.88149357, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 61
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 105
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: "RECOMPENSE \nBIEN OBTENUE !"
+--- !u!222 &1827276803
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1827276800}
   m_CullTransparentMesh: 0
 --- !u!1 &1954629025
 GameObject:
