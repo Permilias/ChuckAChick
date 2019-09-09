@@ -42,6 +42,8 @@ public class AdManager_True : MonoBehaviour
         }
       
     }
+
+
     public void LoadShortAd()
     {
         
@@ -62,7 +64,8 @@ public class AdManager_True : MonoBehaviour
 
             Debug.Log("Ending Short Ad Loading");
         }
-       
+
+        ShortAd.OnAdClosed += AdClosedShort;
     }
     public void LoadShortAdTest()
     {
@@ -80,8 +83,12 @@ public class AdManager_True : MonoBehaviour
         AdRequest request = new AdRequest.Builder().Build();
 
         this.ShortAdTest.LoadAd(request);
-       
+
+        ShortAdTest.OnAdClosed += AdClosedShort;
+
     }
+
+
     public void ShowShortAd()
     {
         if (this.ShortAd.IsLoaded() && internetConnected == true)
@@ -99,6 +106,8 @@ public class AdManager_True : MonoBehaviour
         }
 
     }
+
+
     public void LoadLongAd()
     {
 #if UNITY_ANDROID
@@ -112,18 +121,27 @@ public class AdManager_True : MonoBehaviour
             RewardBasedVideoAd LongAd = RewardBasedVideoAd.Instance;
             AdRequest request = new AdRequest.Builder().Build();
             LongAd.LoadAd(request, adID);
+
         }
-     
+
+
+        LongAd.OnAdRewarded += Recompense;
+        LongAd.OnAdClosed += AdClosedLong;
+
+
     }
     public void ShowLongAd()
     {
         if (this.LongAd.IsLoaded() && internetConnected == true)
         {
             this.LongAd.Show();
-            LongAd.OnAdRewarded += Recompense;
-            LongAd.OnAdClosed += AdClosed;
+           
+            
         }
     }
+
+
+    
 
     public void Recompense(object sender, Reward reward)
     {
@@ -131,11 +149,19 @@ public class AdManager_True : MonoBehaviour
 
     }
 
-    public void AdClosed(object sender, System.EventArgs args)
+    public void AdClosedLong(object sender, System.EventArgs args)
     {
         print("PUB FERMÉE");
         LoadLongAd();
-        LoadShortAd();
+        
     }
    
+    public void AdClosedShort(object sender, System.EventArgs args)
+    {
+        print("PUB COURTE FERMÉE");
+        LoadShortAd();
+        LoadShortAdTest();
+    }
+
+    
 }
