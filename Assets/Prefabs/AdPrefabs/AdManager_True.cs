@@ -8,10 +8,10 @@ using GoogleMobileAds.Api;
 
 public class AdManager_True : MonoBehaviour
 {
-
+    public GameObject TextRecompense;
     private InterstitialAd ShortAd, ShortAdTest;
     private RewardBasedVideoAd LongAd,LongAdTest;
-    public string adID, appID;
+    public string adIDshort, adIDlong, appID;
     public bool internetConnected;
 
     private void Awake()
@@ -36,8 +36,10 @@ public class AdManager_True : MonoBehaviour
             
             Debug.Log("Y'A INTERNET");
             internetConnected = true;
-            LoadShortAd();
-            LoadLongAd();
+           // LoadShortAd();
+            
+            
+           // LoadLongAd();
             
         }
       
@@ -49,15 +51,15 @@ public class AdManager_True : MonoBehaviour
         
 
 #if UNITY_ANDROID
-        adID = "ca-app-pub-7371546355195021/4675857438";
+        adIDshort = "ca-app-pub-7371546355195021/4675857438";
 
 #else
-        adID="unexpected_platform";
+        adIDshort="unexpected_platform";
 
 #endif
         if (internetConnected)
         {
-            this.ShortAd = new InterstitialAd(adID);
+            this.ShortAd = new InterstitialAd(adIDshort);
             AdRequest request = new AdRequest.Builder().Build();
 
             this.ShortAd.LoadAd(request);
@@ -72,16 +74,18 @@ public class AdManager_True : MonoBehaviour
 
 
 #if UNITY_ANDROID
-        adID = "ca-app-pub-3940256099942544/1033173712";
+        adIDshort = "ca-app-pub-3940256099942544/1033173712";
 
 #else
-        adID="unexpected_platform";
+        adIDshort="unexpected_platform";
 
 #endif
 
-        this.ShortAdTest = new InterstitialAd(adID);
-        AdRequest request = new AdRequest.Builder().Build();
-
+        this.ShortAdTest = new InterstitialAd(adIDshort);
+        AdRequest request = new AdRequest.Builder()
+            .AddTestDevice("3EA218C9D9CA09AA7F3D0EBC9861A84B")
+            .Build();
+        
         this.ShortAdTest.LoadAd(request);
 
         ShortAdTest.OnAdClosed += AdClosedShort;
@@ -106,28 +110,32 @@ public class AdManager_True : MonoBehaviour
         }
 
     }
-
+    public void Recompense(object sender, Reward reward)
+    {
+        Debug.Log("bien joué à toi");
+        TextRecompense.SetActive(true);
+    }
 
     public void LoadLongAd()
     {
 #if UNITY_ANDROID
-        adID = "ca-app-pub-7371546355195021/2031536317";
+        adIDlong = "ca-app-pub-7371546355195021/2031536317";
 #else
         adID="unexpected_platform";
 
 #endif
         if (internetConnected)
         {
-            RewardBasedVideoAd LongAd = RewardBasedVideoAd.Instance;
+            this.LongAd = RewardBasedVideoAd.Instance;
             AdRequest request = new AdRequest.Builder().Build();
-            LongAd.LoadAd(request, adID);
+            LongAd.LoadAd(request, adIDlong);
 
         }
 
 
         LongAd.OnAdRewarded += Recompense;
         LongAd.OnAdClosed += AdClosedLong;
-
+        Debug.Log("LONG AD LOADED");
 
     }
     public void ShowLongAd()
@@ -135,31 +143,54 @@ public class AdManager_True : MonoBehaviour
         if (this.LongAd.IsLoaded() && internetConnected == true)
         {
             this.LongAd.Show();
-           
-            
         }
     }
 
 
-    
-
-    public void Recompense(object sender, Reward reward)
+    public void LoadLongAdTest()
     {
-        Debug.Log("bien joué à toi");
+#if UNITY_ANDROID
+        adIDlong = "ca-app-pub-3940256099942544/5224354917";
+#else
+        adID="unexpected_platform";
 
+#endif
+        if (internetConnected)
+        {
+            this.LongAdTest = RewardBasedVideoAd.Instance;
+            AdRequest request = new AdRequest.Builder()
+                .AddTestDevice("3EA218C9D9CA09AA7F3D0EBC9861A84B")
+                .Build();
+            LongAdTest.LoadAd(request, adIDlong);
+
+        }
+
+
+        LongAdTest.OnAdRewarded += Recompense;
+        LongAdTest.OnAdClosed += AdClosedLong;
+        Debug.Log("LONG AD TEST LOADED");
     }
+    public void ShowLongAdTest()
+    {
+        LoadLongAdTest();
+        if (this.LongAdTest.IsLoaded() && internetConnected == true)
+        {
+            this.LongAdTest.Show();
+        }
+    }
+  
 
     public void AdClosedLong(object sender, System.EventArgs args)
     {
         print("PUB FERMÉE");
-        LoadLongAd();
-        
+       // LoadLongAd();
+        LoadLongAdTest();
     }
    
     public void AdClosedShort(object sender, System.EventArgs args)
     {
         print("PUB COURTE FERMÉE");
-        LoadShortAd();
+      //  LoadShortAd();
         LoadShortAdTest();
     }
 
