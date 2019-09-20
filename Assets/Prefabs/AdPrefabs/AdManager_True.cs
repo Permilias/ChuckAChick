@@ -176,6 +176,7 @@ public class AdManager_True : MonoBehaviour
         if (this.LongAdTest.IsLoaded() && internetConnected == true)
         {
             this.LongAdTest.Show();
+            Debug.Log("Long Ad Shown");
         }
     }
   

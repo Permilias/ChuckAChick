@@ -137,14 +137,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 24811435}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 696dfe0679cbd9243b0806e1895d5f05, type: 3}
+  m_Script: {fileID: 11500000, guid: 7f3db6986f81c954a8210de79d6d4e88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TextRecompense: {fileID: 1827276800}
-  adIDshort: 
-  adIDlong: 
   appID: 
-  internetConnected: 0
+  interstitialId: 
+  rewardedId: 
 --- !u!4 &24811437
 Transform:
   m_ObjectHideFlags: 0
@@ -484,7 +482,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 24811436}
-        m_MethodName: ShowShortAdTest
+        m_MethodName: ShowInterstitial
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -820,8 +818,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 24811436}
-        m_MethodName: ShowShortAd
+      - m_Target: {fileID: 24811435}
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -944,7 +942,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 24811436}
-        m_MethodName: ShowLongAdTest
+        m_MethodName: ShowInterstitial
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1216,8 +1214,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 24811436}
-        m_MethodName: ShowLongAd
+      - m_Target: {fileID: 24811435}
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
