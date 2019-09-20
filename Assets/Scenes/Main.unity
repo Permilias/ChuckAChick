@@ -1099,11 +1099,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 21
       objectReference: {fileID: 0}
-    - target: {fileID: 23862500109392184, guid: 844421dfe7703ff469631041ecefbbf7,
-        type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 484c44fd06461f74e999f94dc1436c34, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 844421dfe7703ff469631041ecefbbf7, type: 2}
   m_IsPrefabAsset: 0
@@ -5015,10 +5010,12 @@ MonoBehaviour:
   lifeBulbParent: {fileID: 203088951}
   life: 0
   maxLife: 8
-  frontEggDamage: 1
-  frontEggShakeStrength: 0
-  frontBombDamage: 0
-  frontBombShakeStrength: 0
+  frontEggDamage: 2
+  frontEggShakeStrength: 0.4
+  frontBombDamage: 2
+  frontBombShakeStrength: 0.4
+  sickChickDamage: 1
+  sickChickShakeStrength: 0.2
   damageShakeDuration: 0.3
   lost: 0
   damageColor: {r: 1, g: 0, b: 0.040395737, a: 1}

@@ -18,7 +18,8 @@ public class PlayerLife : MonoBehaviour {
     public float frontEggShakeStrength;
     public int frontBombDamage;
     public float frontBombShakeStrength;
-
+    public int sickChickDamage;
+    public float sickChickShakeStrength;
     public float damageShakeDuration;
 
     public bool lost;
@@ -39,7 +40,8 @@ public class PlayerLife : MonoBehaviour {
     LifeBulb newLifeBulb;
     private void Start()
     {
-        maxLife = 6 + (2 * UpgradesApplier.Instance.factoryLevel);
+        print("max life setting");
+        maxLife = 8 + (2 * UpgradesApplier.Instance.factoryLevel);
         life = maxLife;
 
         lifeBulbs = new List<LifeBulb>();

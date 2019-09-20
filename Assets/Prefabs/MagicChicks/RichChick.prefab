@@ -409,7 +409,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1008407085025566}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.26687992, y: -1.442964, z: 10.129467}
+  m_LocalPosition: {x: -2.9954488, y: -8.2642145, z: 10.129467}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4889548689054400}
@@ -650,7 +650,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10756, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 2100000, guid: 484c44fd06461f74e999f94dc1436c34, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -790,6 +790,7 @@ MonoBehaviour:
   vortexMinSize: 0
   canDeplete: 0
   auraTime: 10
+  healerAuraBuff: 0
   count: 0
 --- !u!114 &114614287948385664
 MonoBehaviour:
@@ -808,6 +809,7 @@ MonoBehaviour:
   bombText: {fileID: 0}
   sick: 0
   bomb: 0
+  bombAura: {fileID: 0}
   currentTimer: 0
   bodySprite: {fileID: 1792339113317246}
   feathers: {fileID: 0}
@@ -820,6 +822,7 @@ MonoBehaviour:
   scoreColor: {r: 0, g: 0, b: 0, a: 0}
   canMove: 0
   eater: 0
+  vortexEatsSick: 0
   targetScale: {x: 0, y: 0, z: 0}
   smoothSpeed: 0
   canBeGround: 0
@@ -841,6 +844,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   detectionRadius: 2
+  income: 0
 --- !u!135 &135016882718736036
 SphereCollider:
   m_ObjectHideFlags: 1

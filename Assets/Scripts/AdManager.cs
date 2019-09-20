@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Advertisements;
@@ -25,7 +25,7 @@ public class AdManager : MonoBehaviour {
         options.resultCallback = CheckLongAdState;
         Debug.Log(Advertisement.IsReady("LongAd"));
         Advertisement.Show(gameId, options);
-        */
+      
         if (Advertisement.IsReady("LongAd"))
         {
             Debug.Log("La pub s'affiche");
@@ -90,4 +90,4 @@ public class AdManager : MonoBehaviour {
 
 
 }
-
+*/

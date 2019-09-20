@@ -83,13 +83,17 @@ public class EggGenerator : MonoBehaviour {
                 SpawnEgg();
             }
 
-            magicEggTimer += Time.deltaTime;
-            if (magicEggTimer >= currentMagicFrequency)
+            if(availableIndexes.Count > 0)
             {
-                magicEggTimer = 0;
-                currentMagicFrequency = magicEggFrequency + Random.Range(-6, 4);
-                SpawnMagicEgg();
+                magicEggTimer += Time.deltaTime;
+                if (magicEggTimer >= currentMagicFrequency)
+                {
+                    magicEggTimer = 0;
+                    currentMagicFrequency = magicEggFrequency + Random.Range(-6, 4);
+                    SpawnMagicEgg();
+                }
             }
+
         }
     }
     
@@ -166,7 +170,15 @@ public class EggGenerator : MonoBehaviour {
         spawnedEggPos = new Vector3(spawnedEggXPos, yPos, 0);
         //choose what magic egg to spawn
         int index = 0;
-        index = availableIndexes[Random.Range(0, availableIndexes.Count)];
+        if (availableIndexes.Count > 0)
+        {
+            index = availableIndexes[Random.Range(0, availableIndexes.Count)];
+        }
+        else
+        {
+            print("Cannot Spawn Magic Egg -  No Magic Eggs Spawnable");
+            return;
+        }
         MagicChickData chosenData = ChickGenerator.Instance.magicChickDatas[index];
         if(chosenData.eggPool == null)
         {
