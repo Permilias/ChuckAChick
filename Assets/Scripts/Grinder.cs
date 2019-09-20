@@ -114,8 +114,13 @@ public class Grinder : MonoBehaviour {
         GameManager.Instance.AddScore(chick.value);
         if(chick.sick)
         {
+            /*
             SoundManager.Instance.PlaySound(SoundManager.Instance.killChick);
             NumberParticlesManager.Instance.SpawnNumberParticle(chick.value, chick.scoreColor, chick.transform.position, 0.9f, 1.2f, true);
+            */
+            PlayerLife.Instance.LoseLife(PlayerLife.Instance.sickChickDamage, PlayerLife.Instance.sickChickShakeStrength);
+            SoundManager.Instance.PlaySound(SoundManager.Instance.bigDamage);
+            NumberParticlesManager.Instance.SpawnNumberParticle(PlayerLife.Instance.sickChickDamage, PlayerLife.Instance.damageColor, chick.transform.position, 1f, 2f, false);
         }
         else if(chick.magic)
         {

@@ -293,7 +293,7 @@ public class Chick : MonoBehaviour {
         {
             if (feathers != null)
                 feathers.SetActive(true);
-            Vector3 touchPos;
+            Vector3 touchPos = Vector3.zero;
 #if UNITY_EDITOR
             touchPos = InputHandler.Instance.MouseWorldPosition();
 #elif UNITY_ANDROID
@@ -306,7 +306,7 @@ public class Chick : MonoBehaviour {
             }
             touchPos = new Vector3(currentTouchPos.x, currentTouchPos.y, 0);
 #endif
-            newVel = (touchPos - transform.position) * 5.5f;
+            newVel = (touchPos - transform.position) * 6.5f;
             hasBeenClicked = true;
             velDecaying = false;
         }

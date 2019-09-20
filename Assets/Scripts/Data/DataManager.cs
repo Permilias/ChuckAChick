@@ -113,6 +113,7 @@ public class DataManager : MonoBehaviour {
 
     public void ExploitDataGame()
     {
+        print("ExploitingDataGame");
         GameManager.Instance.tutorialEnabled = data.tutorialEnabled;
         GameManager.Instance.totalGroundChicks = data.totalGroundChicks;
         GameManager.Instance.playerMoney = data.playerMoney;
