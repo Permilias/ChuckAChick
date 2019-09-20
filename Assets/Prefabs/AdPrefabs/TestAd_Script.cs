@@ -8,35 +8,52 @@ using System;
 public class TestAd_Script : MonoBehaviour {
 
     private InterstitialAd interstitial;
+    private RewardBasedVideoAd rewarded;
     public string appID, interstitialId, rewardedId;
-	
+    public GameObject TextClosed, TextRecompense;
+    private bool interstitialLoaded = false;
 
-	void Start () {
 
+	public void Start () {
+        TextClosed.SetActive(false);
+        TextRecompense.SetActive(false);
 #if UNITY_ANDROID
         appID = "ca-app-pub-7371546355195021~7725526755";
 #else
         appID = "unexpected_platform";
 #endif
 
-        MobileAds.Initialize(appID);
-
-        
+        MobileAds.Initialize(appID);      
     }
 
-    public void ShowInterstitial()
+    public void Awake()
     {
         RequestInterstitial();
     }
 
+
+    public void ShowInterstitial()
+    {
+        
+        // RequestInterstitial();
+        if (interstitial.IsLoaded())
+        {
+            interstitial.Show();
+        }
+    }
+
     public void ShowRewarded()
     {
-
+        if (rewarded.IsLoaded())
+        {
+            rewarded.Show();
+        }
 
     }
 
     private void RequestInterstitial()
     {
+        Debug.Log("request");
 #if UNITY_ANDROID
         interstitialId = "ca-app-pub-3940256099942544/1033173712";
 #else
@@ -48,19 +65,24 @@ public class TestAd_Script : MonoBehaviour {
         }
         interstitial = new InterstitialAd(interstitialId);
         interstitial.OnAdLoaded += HandleOnAdLoaded;
+        interstitial.OnAdClosed += HandleOnAdClosed;
+        
         interstitial.LoadAd(CreateNewRequest());
     }
 
-    public void HandleOnAdLoaded(object sender, EventArgs args)
+    private void HandleOnAdClosed(object sender, EventArgs e)
     {
-        if (interstitial.IsLoaded())
-        {
-            interstitial.Show();
-        }
+        RequestInterstitial();
+        TextClosed.SetActive(true);
+    }
 
+    private void HandleOnAdLoaded(object sender, EventArgs args)
+    {
+       
 
     }
 
+    
     private AdRequest CreateNewRequest()
     {
         return new AdRequest.Builder().Build();
@@ -75,6 +97,8 @@ public class TestAd_Script : MonoBehaviour {
         rewardedId = "";
 #endif
 
+        
+        
     }
 
 }
