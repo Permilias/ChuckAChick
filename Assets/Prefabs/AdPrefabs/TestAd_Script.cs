@@ -23,12 +23,14 @@ public class TestAd_Script : MonoBehaviour {
         appID = "unexpected_platform";
 #endif
 
-        MobileAds.Initialize(appID);      
+        MobileAds.Initialize(appID);   
+        
     }
 
     public void Awake()
     {
         RequestInterstitial();
+        RequestRewarded();
     }
 
 
@@ -42,14 +44,7 @@ public class TestAd_Script : MonoBehaviour {
         }
     }
 
-    public void ShowRewarded()
-    {
-        if (rewarded.IsLoaded())
-        {
-            rewarded.Show();
-        }
-
-    }
+ 
 
     private void RequestInterstitial()
     {
@@ -96,9 +91,34 @@ public class TestAd_Script : MonoBehaviour {
 #else
         rewardedId = "";
 #endif
-
-        
+        rewarded = RewardBasedVideoAd.Instance;
+        rewarded.OnAdRewarded += HandleOnAdRewarded;
+        rewarded.OnAdOpening += HandleOnApOpening;
+        rewarded.LoadAd(new AdRequest.Builder().Build(), rewardedId);
         
     }
 
+    public void HandleOnApOpening(object sender, EventArgs e)
+    {
+        Debug.Log("LA PUB S'OUVRE - EVENTUELLEMENT LAUNCH DES PROCESS");
+    }
+
+    public void ShowRewarded()
+    {
+        if (rewarded.IsLoaded())
+        {
+            rewarded.Show();
+        }
+        else
+        {
+            Debug.Log("La pub est pas encore chargée !");
+        }
+
+    }
+
+    public void HandleOnAdRewarded(object sender, Reward args)
+    {
+        TextRecompense.SetActive(true);
+        
+    }
 }
