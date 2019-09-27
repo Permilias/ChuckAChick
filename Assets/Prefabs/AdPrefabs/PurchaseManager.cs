@@ -3,22 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Purchasing;
 
-public class PurchaseManager : IStoreListener {
+public class PurchaseManager : MonoBehaviour,IStoreListener {
 
     private IStoreController storecontroller;
     private IExtensionProvider extensionsprovider;
 
-    public PurchaseManager()
+    public void Start()
     {
         var builder = ConfigurationBuilder.Instance(StandardPurchasingModule.Instance());
         builder.AddProduct("nombre_variable", ProductType.Consumable, new IDs
         {
-            {"nombre_variable_google", GooglePlay.Name }
+            {"pack_1", GooglePlay.Name },
+            {"pack_2", GooglePlay.Name },
+            {"pack_3", GooglePlay.Name },
+            {"pack_4", GooglePlay.Name }
 
         });
 
         UnityPurchasing.Initialize(this, builder);
+
     }
+
+    
+
+    
 
     public void OnInitialized(IStoreController controller, IExtensionProvider extensions)
     {
